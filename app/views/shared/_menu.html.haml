@@ -1,0 +1,6 @@
+%nav.navbar.navbar-default.navbar-static-top
+  .container-fluid
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to('Logout', destroy_user_session_path, :method => :delete)

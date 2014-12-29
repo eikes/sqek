@@ -1,17 +1,12 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @city.name
-%p
-  %b Body:
-  = @city.body
-%p
-  %b Lat:
-  = @city.lat
-%p
-  %b Lng:
-  = @city.lng
+%h1= @city.name
+%p= @city.body
+
+#map{ data: { mode: :show, latlng: @city.latlng, zoom: 8 } }
+%script
+  window.cities =
+  = @cities.to_json.html_safe
 
 = link_to 'Edit', edit_city_path(@city)
 \|

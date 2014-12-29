@@ -12,7 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require leaflet
  */
+
+//= depend_on_asset "layers.png"
+//= depend_on_asset "layers-2x.png"
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
@@ -28,3 +32,6 @@
 
 label.boolean.optional.checkbox
   padding-left: 20px
+
+#map
+  height: 400px

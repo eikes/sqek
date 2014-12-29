@@ -4,8 +4,15 @@
   .form-inputs
     = f.input :name
     = f.input :body
+
+    - if @city.id?
+      #map{ data: { mode: :edit, latlng: @city.latlng, zoom: 8 } }
+    - else
+      #map{ data: { mode: :create, latlng: [47, 11], zoom: 4 } }
+
     = f.input :lat
     = f.input :lng
 
   .form-actions
     = f.button :submit
+    = link_to 'Destroy', @city, :method => :delete, :data => { :confirm => 'Are you sure?' }

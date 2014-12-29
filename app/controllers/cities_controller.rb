@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
   respond_to :html
 
   def index
-    @cities = City.all
+    @cities = City.all.map{ |city| city_to_marker(city) }
     respond_with(@cities)
   end
 
@@ -43,5 +43,12 @@ class CitiesController < ApplicationController
 
     def city_params
       params.require(:city).permit(:name, :body, :lat, :lng)
+    end
+
+    def city_to_marker(city)
+      {
+        latlng: city.latlng,
+        popup: "<a href=\"#{city_path(city)}\">#{city.name}</a>"
+      }
     end
 end

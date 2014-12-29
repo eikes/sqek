@@ -1,26 +1,11 @@
 %h1 Listing cities
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Body
-      %th Lat
-      %th Lng
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @cities.each do |city|
-      %tr
-        %td= city.name
-        %td= city.body
-        %td= city.lat
-        %td= city.lng
-        %td= link_to 'Show', city
-        %td= link_to 'Edit', edit_city_path(city)
-        %td= link_to 'Destroy', city, :method => :delete, :data => { :confirm => 'Are you sure?' }
+=# map(container_id: "index_map", center: { latlng: [47, 11], zoom: 4 }, markers: @city_markers)
+#map{ data: { mode: :index, latlng: [47, 11], zoom: 4 } }
+
+%script
+  window.cities =
+  = @cities.to_json.html_safe
 
 %br
 

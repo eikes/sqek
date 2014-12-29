@@ -1,12 +1,7 @@
 %h1 Listing cities
 
-=# map(container_id: "index_map", center: { latlng: [47, 11], zoom: 4 }, markers: @city_markers)
 #map{ data: { mode: :index, latlng: [47, 11], zoom: 4 } }
 
 %script
   window.cities =
   = @cities.to_json.html_safe
-
-%br
-
-= link_to 'New City', new_city_path

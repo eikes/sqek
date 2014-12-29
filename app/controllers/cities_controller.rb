@@ -11,6 +11,7 @@ class CitiesController < ApplicationController
   end
 
   def show
+    @cities = [city_to_marker(@city)]
     respond_with(@city)
   end
 
@@ -25,11 +26,13 @@ class CitiesController < ApplicationController
   def create
     @city = City.new(city_params)
     @city.save
+    flash[:notice] = "City created."
     respond_with(@city)
   end
 
   def update
     @city.update(city_params)
+    flash[:notice] = "City updated."
     respond_with(@city)
   end
 

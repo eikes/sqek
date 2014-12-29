@@ -16,3 +16,5 @@
   .form-actions
     = f.button :submit
     = link_to 'Destroy', @city, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - if @city.id?
+      = link_to 'Show', @city

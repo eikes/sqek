@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %h1= @city.name
 %p= @city.body
 
@@ -8,6 +6,5 @@
   window.cities =
   = @cities.to_json.html_safe
 
-= link_to 'Edit', edit_city_path(@city)
-\|
-= link_to 'Back', cities_path
+- if can? :update, @city
+  = link_to 'Edit', edit_city_path(@city)

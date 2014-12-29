@@ -2,10 +2,12 @@
   .container-fluid
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li= link_to('Cities', root_path)
+        %li= link_to 'Cities', root_path
+        - if can? :create, City
+          %li= link_to 'New City', new_city_path
       %ul.nav.navbar-nav.navbar-right
         %li
           - if user_signed_in?
-            = link_to('Logout', destroy_user_session_path, :method => :delete)
+            = link_to 'Logout', destroy_user_session_path, :method => :delete
           - else
-            = link_to('Login', new_user_session_path)
+            = link_to 'Login', new_user_session_path

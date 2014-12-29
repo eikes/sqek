@@ -9,4 +9,5 @@
   %body
     .container
       = render 'shared/menu'
+      = render 'shared/flash_messages', flash: flash
       = yield

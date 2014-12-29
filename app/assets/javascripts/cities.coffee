@@ -4,6 +4,10 @@
 
 $(->
   if window.cities
-    $.each window.cities, (index, city) ->
-      L.marker(city.latlng).bindPopup(city.popup).addTo(map);
+    for city in window.cities
+      m = L.marker city.latlng
+      m.bindPopup city.popup
+      m.on "mouseover", (e) ->
+        this.openPopup()
+      m.addTo map
 )

@@ -1,6 +1,11 @@
 %nav.navbar.navbar-default.navbar-static-top
   .container-fluid
     .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li= link_to('Cities', root_path)
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to('Logout', destroy_user_session_path, :method => :delete)
+          - if user_signed_in?
+            = link_to('Logout', destroy_user_session_path, :method => :delete)
+          - else
+            = link_to('Login', new_user_session_path)

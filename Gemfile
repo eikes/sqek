@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Added gems
 gem 'devise'
+gem 'cancancan', '~> 1.9'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem "haml-rails"

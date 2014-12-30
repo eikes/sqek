@@ -10,11 +10,12 @@
     - else
       #map{ data: { mode: :create, latlng: [47, 11], zoom: 4 } }
 
-    = f.input :lat
-    = f.input :lng
+    = f.input :lat, wrapper_html: {class: "hide"}
+    = f.input :lng, wrapper_html: {class: "hide"}
 
   .form-actions
     = f.button :submit
-    = link_to 'Destroy', @city, :method => :delete, :data => { :confirm => 'Are you sure?' }
     - if @city.id?
+      = link_to 'Destroy', @city, :method => :delete, :data => { :confirm => 'Are you sure?' }
       = link_to 'Show', @city
+    = link_to 'Back', cities_path

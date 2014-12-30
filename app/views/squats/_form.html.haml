@@ -1,0 +1,21 @@
+= simple_form_for([@city, @squat]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :body
+
+    - if @squat.id?
+      #map{ data: { mode: :edit, latlng: @squat.latlng, zoom: 14 } }
+    - else
+      #map{ data: { mode: :create, latlng: @city.latlng, zoom: 10 } }
+
+    = f.input :lat, wrapper_html: {class: "hide"}
+    = f.input :lng, wrapper_html: {class: "hide"}
+
+  .form-actions
+    = f.button :submit
+    - if @squat.id?
+      = link_to 'Destroy', [@city, @squat], :method => :delete, :data => { :confirm => 'Are you sure?' }
+      = link_to 'Show', [@city, @squat]
+    = link_to 'Back', city_squats_path(@city)

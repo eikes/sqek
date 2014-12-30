@@ -1,4 +1,7 @@
 class City < ActiveRecord::Base
+
+  has_many :squats
+
   def latlng
     lat && lng ? [lat, lng] : nil
   end

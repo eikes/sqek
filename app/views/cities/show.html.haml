@@ -8,3 +8,6 @@
 
 - if can? :update, @city
   = link_to 'Edit', edit_city_path(@city)
+
+- if can? :create, Squat
+  %li= link_to 'New Squat', new_city_squat_path(@city)

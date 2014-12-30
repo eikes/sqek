@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  body: MyText
-  lat: 1.5
-  lng: 1.5
+berlin:
+  name: Berlin
+  body: Wall was here
+  lat: 52.52
+  lng: 13.39
 
-two:
-  name: MyString
-  body: MyText
-  lat: 1.5
-  lng: 1.5
+london:
+  name: London
+  body: Sex Pistols
+  lat: 1.5123
+  lng: 1.5123

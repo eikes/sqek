@@ -1,0 +1,9 @@
+%h1 Listing squats
+
+#map{ data: { mode: :index, latlng: @city.latlng, zoom: 10 } }
+
+%script
+  window.squats =
+  = @squats_marker.to_json.html_safe
+
+= link_to 'New Squat', new_city_squat_path(@city)

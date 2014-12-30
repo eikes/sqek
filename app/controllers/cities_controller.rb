@@ -53,7 +53,7 @@ class CitiesController < ApplicationController
     def city_to_marker(city)
       {
         latlng: city.latlng,
-        popup: "<a href=\"#{city_path(city)}\">#{city.name}</a>"
+        popup: "<a href=\"#{city_squats_path(city)}\">#{city.name}</a>"
       }
     end
 end

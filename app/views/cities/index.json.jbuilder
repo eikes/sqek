@@ -1,4 +1,4 @@
 json.array!(@cities) do |city|
-  json.extract! city, :id, :name, :body, :lat, :lng
-  json.url city_url(city, format: :json)
+  json.extract! city, :id, :name, :body, :latlng
+  json.url city_squats_url(city)
 end

@@ -8,12 +8,10 @@ class SquatsController < ApplicationController
 
   def index
     @squats = Squat.all
-    @squats_marker = @squats.map{ |squat| squat_to_marker(squat) }
     respond_with(@squats)
   end
 
   def show
-    @squats = [squat_to_marker(@squat)]
     respond_with(@squat)
   end
 
@@ -52,12 +50,5 @@ class SquatsController < ApplicationController
 
     def squat_params
       params.require(:squat).permit(:name, :body, :lat, :lng)
-    end
-
-    def squat_to_marker(squat)
-      {
-        latlng: squat.latlng,
-        popup: "<a href=\"#{city_squat_path(@city, squat)}\">#{squat.name}</a>"
-      }
     end
 end

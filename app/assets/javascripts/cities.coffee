@@ -2,12 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+addCity = (city) ->
+  m = L.marker city.latlng
+  m.bindPopup city.name.link(city.url)
+  m.on "mouseover", (e) ->
+    this.openPopup()
+  m.addTo map
+
 $(->
-  if window.cities
-    for city in window.cities
-      m = L.marker city.latlng
-      m.bindPopup city.popup
-      m.on "mouseover", (e) ->
-        this.openPopup()
-      m.addTo map
+  cities_url = $("#map").data("cities-url")
+  if cities_url
+    $.ajax(cities_url).success((cities)->
+      addCity city for city in cities
+    )
 )

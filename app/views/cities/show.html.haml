@@ -1,10 +1,7 @@
 %h1= @city.name
 %p= @city.body
 
-#map{ data: { mode: :show, latlng: @city.latlng, zoom: 8 } }
-%script
-  window.cities =
-  = @cities.to_json.html_safe
+#map{ data: { cities_url: city_url(@city, format: :json), mode: :show, latlng: @city.latlng, zoom: 8 } }
 
 - if can? :update, @city
   = link_to 'Edit', edit_city_path(@city)

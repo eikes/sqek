@@ -1,7 +1,3 @@
 %h1 Listing cities
 
-#map{ data: { mode: :index, latlng: [47, 11], zoom: 4 } }
-
-%script
-  window.cities =
-  = @cities.to_json.html_safe
+#map{ data: { cities_url: cities_url(format: :json), mode: :index, latlng: [47, 11], zoom: 4 } }

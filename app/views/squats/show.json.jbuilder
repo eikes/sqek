@@ -1,1 +1,3 @@
-json.extract! @squat, :id, :name, :body, :lat, :lng, :created_at, :updated_at
+json.array!([@squat]) do |squat|
+  json.extract! squat, :id, :name, :body, :latlng
+end

@@ -1,10 +1,7 @@
 %h1= @squat.name
 %p= @squat.body
 
-#map{ data: { mode: :show, latlng: @squat.latlng, zoom: 14 } }
-%script
-  window.squats =
-  = @squats.to_json.html_safe
+#map{ data: { squats_url: city_squat_url(@city, @squat, format: :json), mode: :show, latlng: @squat.latlng, zoom: 14 } }
 
 - if can? :update, @squat
   = link_to 'Edit', edit_city_squat_path(@city, @squat)

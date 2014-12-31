@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229222931) do
+ActiveRecord::Schema.define(version: 20141231121652) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20141229222931) do
     t.float    "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
+
+  add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true
 
   create_table "squats", force: :cascade do |t|
     t.string   "name"
@@ -30,9 +33,11 @@ ActiveRecord::Schema.define(version: 20141229222931) do
     t.integer  "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
 
   add_index "squats", ["city_id"], name: "index_squats_on_city_id"
+  add_index "squats", ["slug"], name: "index_squats_on_slug", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

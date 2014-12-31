@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :cities, path: "" do
-    resources :squats
+    resources :squats, path: ""
   end
 
   # Example of regular route:

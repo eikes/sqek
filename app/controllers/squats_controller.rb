@@ -26,11 +26,13 @@ class SquatsController < ApplicationController
   def create
     @squat = Squat.new(squat_params)
     @squat.save
+    flash[:notice] = "Squat created."
     respond_with(@city, @squat)
   end
 
   def update
     @squat.update(squat_params)
+    flash[:notice] = "Squat updated."
     respond_with(@city, @squat)
   end
 
@@ -41,11 +43,11 @@ class SquatsController < ApplicationController
 
   private
     def set_squat
-      @squat = Squat.find(params[:id])
+      @squat = Squat.friendly.find(params[:id])
     end
 
     def set_city
-      @city = City.find(params[:city_id])
+      @city = City.friendly.find(params[:city_id])
     end
 
     def squat_params

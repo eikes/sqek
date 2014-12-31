@@ -69,6 +69,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.2)
+    friendly_id (5.0.4)
+      activerecord (>= 4.0.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     haml (4.1.0.beta.1)
@@ -193,6 +195,7 @@ DEPENDENCIES
   cancancan (~> 1.9)
   coffee-rails (~> 4.1.0)
   devise
+  friendly_id
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

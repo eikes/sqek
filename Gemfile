@@ -36,6 +36,7 @@ gem 'autoprefixer-rails'
 
 gem 'simple_form'
 gem 'leaflet-rails'
+gem 'friendly_id'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -4,4 +4,5 @@
 
 #map{ data: { squats_url: city_squats_url(@city, format: :json), mode: :index, latlng: @city.latlng, zoom: 10 } }
 
-= link_to 'New Squat', new_city_squat_path(@city)
+.btn-group
+  = link_to t(:new_squat), new_city_squat_path(@city), class: "btn btn-default"

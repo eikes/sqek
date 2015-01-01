@@ -1,10 +1,12 @@
 %h1= @city.name
-%p= @city.body
 
 #map{ data: { cities_url: city_url(@city, format: :json), mode: :show, latlng: @city.latlng, zoom: 8 } }
 
-- if can? :update, @city
-  = link_to 'Edit', edit_city_path(@city)
+%p= @city.body
 
-- if can? :create, Squat
-  %li= link_to 'New Squat', new_city_squat_path(@city)
+.btn-group
+  - if can? :update, @city
+    = link_to t(:edit), edit_city_path(@city), class: "btn btn-default"
+
+  - if can? :create, Squat
+    = link_to t(:new_squat), new_city_squat_path(@city), class: "btn btn-default"

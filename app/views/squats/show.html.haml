@@ -1,9 +1,11 @@
 %h1= @squat.name
-%p= @squat.body
 
 #map{ data: { squats_url: city_squat_url(@city, @squat, format: :json), mode: :show, latlng: @squat.latlng, zoom: 14 } }
 
-- if can? :update, @squat
-  = link_to 'Edit', edit_city_squat_path(@city, @squat)
+%p= @squat.body
 
-= link_to 'Back to city', city_squats_path(@city)
+.btn-group
+  - if can? :update, @squat
+    = link_to t(:edit), edit_city_squat_path(@city, @squat), class: "btn btn-default"
+
+  = link_to t(:back_to_city), city_squats_path(@city), class: "btn btn-default"

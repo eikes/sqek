@@ -2,9 +2,9 @@
   .container-fluid
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li= link_to 'Cities', root_path
+        %li= link_to t(:menu_cities), root_path
         - if can? :create, City
-          %li= link_to 'New City', new_city_path
+          %li= link_to t(:new_city), new_city_path
       %ul.nav.navbar-nav.navbar-right
         %li
           - if user_signed_in?

@@ -2,8 +2,8 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :body
+    = f.input :name, label: t(:label_name)
+    = f.input :body, label: t(:label_body)
 
     - if @city.id?
       #map{ data: { mode: :edit, latlng: @city.latlng, zoom: 8 } }
@@ -13,9 +13,9 @@
     = f.input :lat, wrapper_html: {class: "hide"}
     = f.input :lng, wrapper_html: {class: "hide"}
 
-  .form-actions
-    = f.button :submit
+  .form-actions.btn-group
+    = f.button :submit, value: t(:update_city), class: "btn btn-default"
     - if @city.id?
-      = link_to 'Destroy', @city, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      = link_to 'Show', @city
-    = link_to 'Back', cities_path
+      = link_to t(:destroy), @city, :method => :delete, :data => { :confirm => t(:confirm_question) }, class: "btn btn-default"
+      = link_to t(:show), @city, class: "btn btn-default"
+    = link_to t(:back), cities_path, class: "btn btn-default"

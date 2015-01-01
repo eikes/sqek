@@ -19,25 +19,25 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  # generic words
-  edit: "Edit"
-  destroy: "Destroy"
-  show: "Show"
-  back: "Back"
-  confirm_question: 'Are you sure?'
+de:
+  #generic words
+  edit: "Bearbeiten"
+  destroy: "Löschen"
+  show: "Anzeigen"
+  back: "Zurück"
+  confirm_question: 'Sind Sie sicher?'
   # general labels
   label_name: "Name"
-  label_body: "Body"
+  label_body: "Beschreibung"
   # menu
-  menu_cities: "All Cities"
+  menu_cities: "Alle Städte"
   # squat pages
-  new_squat: 'New Squat'
-  editing_squat: "Editing Squat"
-  update_squat: "Update Squat"
-  back_to_city: 'Back to city'
+  new_squat: 'Neues Squat'
+  editing_squat: "Squat Bearbeiten"
+  update_squat: "Squat Speichern"
+  back_to_city: 'Zurück zur Stadt'
   # city pages
-  new_city: "New City"
-  editing_city: "Editing City"
-  update_city: "Update City"
-  listing_cities: "Listing Cities"
+  new_city: "Neue Stadt"
+  editing_city: "Stadt Bearbeiten"
+  update_city: "Stadt Speichern"
+  listing_cities: "Städte Liste"

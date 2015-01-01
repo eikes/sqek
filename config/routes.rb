@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :cities, path: "" do
-    resources :squats, path: ""
+  scope "/:locale", locale: /en|de/ do
+    resources :cities do
+      resources :squats
+    end
   end
 
   # Example of regular route:

@@ -2,7 +2,9 @@
 
 #map{ data: { squats_url: city_squat_url(@city, @squat, format: :json), mode: :show, latlng: @squat.latlng, zoom: 14 } }
 
-%p= @squat.body
+%p= simple_format @squat.address
+
+%p= simple_format @squat.body
 
 .btn-group
   - if can? :update, @squat

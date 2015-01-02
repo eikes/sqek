@@ -14,34 +14,36 @@ $(->
 
   tiles.addTo map
 
-  map.setView(map_data.latlng, map_data.zoom)
-
-  window.map = map
+  map.setView(map_data.latlng || [0,0], map_data.zoom)
 
   marker = null
 
   lat_input = $('[name*=lat]')
   lng_input = $('[name*=lng]')
 
-  add_marker = (ll) ->
-    marker = L.marker(ll)
-    marker.addTo map
+  add_marker = (latlng) ->
+    if latlng
+      marker = L.marker(latlng)
+      marker.addTo map
 
-  if mode == "edit"
+  update_marker = (latlng) ->
+    if not marker
+      add_marker latlng
+    else
+      marker.setLatLng latlng
+    lat_input.val latlng.lat
+    lng_input.val latlng.lng
+
+  if mode == "edit" and lat_input.val() and lng_input.val()
     add_marker [lat_input.val(), lng_input.val()]
 
   if mode == "edit" or mode == "create"
     map.on("click", (e) ->
-
-      ll = e.latlng
-
-      if not marker
-        add_marker ll
-      else
-        marker.setLatLng ll
-
-      lat_input.val ll.lat
-      lng_input.val ll.lng
+      update_marker e.latlng
     )
+
+  window.map = map
+  window.add_marker = add_marker
+  window.update_marker = update_marker
 
 )

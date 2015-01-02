@@ -36,6 +36,8 @@ en:
   editing_squat: "Editing Squat"
   update_squat: "Update Squat"
   back_to_city: 'Back to city'
+  address: "Address"
+  geocode_address: "Show address on map"
   # city pages
   new_city: "New City"
   editing_city: "Editing City"

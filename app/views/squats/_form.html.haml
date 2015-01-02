@@ -3,12 +3,18 @@
 
   .form-inputs
     = f.input :name, label: t(:label_name)
-    = f.input :body, label: t(:label_body)
 
     - if @squat.id?
       #map{ data: { mode: :edit, latlng: @squat.latlng, zoom: 14 } }
     - else
       #map{ data: { mode: :create, latlng: @city.latlng, zoom: 10 } }
+
+    = f.input :address, label: t(:address), as: :text
+
+    %a.btn.btn-default#geocode(href="#")
+      = t(:geocode_address)
+
+    = f.input :body, label: t(:label_body)
 
     = f.input :lat, wrapper_html: {class: "hide"}
     = f.input :lng, wrapper_html: {class: "hide"}

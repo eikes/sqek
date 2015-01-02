@@ -51,6 +51,6 @@ class SquatsController < ApplicationController
     end
 
     def squat_params
-      params.require(:squat).permit(:name, :body, :lat, :lng)
+      params.require(:squat).permit(:name, :body, :address, :lat, :lng)
     end
 end

@@ -6,6 +6,11 @@ class Period < ActiveRecord::Base
   validates :end_year, presence: true, if: :end_month
   validates :end_month, presence: true, if: :end_day
 
+  # todo validations:
+  # years in 1900 .. today
+  # months in 1..12
+  # days in 1..31
+
   def to_s
 
     start_string = ""

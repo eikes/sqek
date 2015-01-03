@@ -5,11 +5,16 @@ class Period < ActiveRecord::Base
   validates :start_month, presence: true, if: :start_day
   validates :end_year, presence: true, if: :end_month
   validates :end_month, presence: true, if: :end_day
-
-  # todo validations:
-  # years in 1900 .. today
-  # months in 1..12
-  # days in 1..31
+  validates :start_year,
+            :end_year,
+            inclusion: { in: 1900..Date.today.year }
+  validates :start_month,
+            :end_month,
+            inclusion: { in: 1..12 }
+  validates :start_day,
+            :end_day,
+            inclusion: { in: 1..31 }
+  validates :start_year, numericality: { less_than_or_equal_to: :end_year }
 
   def to_s
 

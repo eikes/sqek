@@ -13,6 +13,7 @@ class Squat < ActiveRecord::Base
   validates_associated :periods
 
   # todo: validations
+  # has at least one period
   # no overlapping periods
   # no two open ended periods
 

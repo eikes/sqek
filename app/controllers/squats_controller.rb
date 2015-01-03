@@ -7,7 +7,7 @@ class SquatsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @squats = Squat.all
+    @squats = @city.squats
     respond_with(@squats)
   end
 
@@ -27,12 +27,14 @@ class SquatsController < ApplicationController
   def create
     @squat = Squat.new(squat_params)
     @squat.save
+    @squat.update(city: @city)
     flash[:notice] = "Squat created."
     respond_with(@city, @squat)
   end
 
   def update
     @squat.update(squat_params)
+    @squat.update(city: @city)
     flash[:notice] = "Squat updated."
     respond_with(@city, @squat)
   end

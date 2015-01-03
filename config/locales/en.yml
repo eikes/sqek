@@ -26,6 +26,7 @@ en:
   show: "Show"
   back: "Back"
   confirm_question: 'Are you sure?'
+  error_message: 'Please review the problems below'
   # general labels
   label_name: "Name"
   label_body: "Body"
@@ -38,6 +39,9 @@ en:
   back_to_city: 'Back to city'
   address: "Address"
   geocode_address: "Show address on map"
+  at_least_one_period_error: "At least one squatting period is required"
+  overlapping_periods_error: "Two periods are overlapping"
+  two_open_ended_periods_error: "Maximum of one open ended period allowed"
   # periods
   start_year: "Start year"
   start_month: "Start month"

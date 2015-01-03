@@ -39,6 +39,9 @@ gem 'leaflet-rails'
 gem 'friendly_id'
 gem 'nested_form'
 
+gem 'rails-i18n', '~> 4.0.0'
+gem 'devise-i18n'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

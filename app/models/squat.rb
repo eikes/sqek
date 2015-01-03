@@ -12,10 +12,28 @@ class Squat < ActiveRecord::Base
 
   validates_associated :periods
 
-  # todo: validations
   # has at least one period
+  validate do
+    errors.add(:base, I18n.t(:at_least_one_period_error)) if periods.empty?
+  end
+
   # no overlapping periods
+  validate do
+    periods.each do |p1|
+      periods.reject{ |p| p == p1 }.each do |p2|
+        if p2.start_year > p1.start_year && p1.end_year.present? && p2.start_year < p1.end_year
+          errors.add(:base, I18n.t(:overlapping_periods_error))
+        end
+      end
+    end
+  end
+
   # no two open ended periods
+  validate do
+    if periods.select{ |p| p.end_year.blank? }.size > 1
+      errors.add(:base, I18n.t(:two_open_ended_periods_error))
+    end
+  end
 
   accepts_nested_attributes_for :periods, allow_destroy: true
   

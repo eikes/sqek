@@ -1,37 +1,45 @@
 = simple_nested_form_for([@city, @squat]) do |f|
-  = f.error_notification
+  = render 'shared/error_messages', object: f.object
 
   .form-inputs
-    = f.input :name, label: t(:label_name)
+    = f.input :name
 
     - if @squat.id?
       #map{ data: { mode: :edit, latlng: @squat.latlng, zoom: 14 } }
     - else
       #map{ data: { mode: :create, latlng: @city.latlng, zoom: 10 } }
 
-    = f.input :address, label: t(:address), as: :text
+    .row
+      .col-md-8
+        = f.input :address, as: :text
+      .col-md-4
+        %p
+          &nbsp;
+        %a.btn.btn-default#geocode{"data-city-name": @city.name}
+          = t(:geocode_address)
 
-    %a.btn.btn-default#geocode{"data-city-name": @city.name}
-      = t(:geocode_address)
-
-    = f.input :body, label: t(:label_body)
+    = f.input :body
 
     = f.input :lat, wrapper_html: {class: "hide"}
     = f.input :lng, wrapper_html: {class: "hide"}
 
-    #periods
+    #periods.well
       %h2= t(:squat_period)
       = f.simple_fields_for :periods do |p|
-        .period.well
-          -#.period-start
-          = p.input :start_year, label: t(:start_year)
-          = p.input :start_month, label: t(:start_month)
-          = p.input :start_day, label: t(:start_day)
-          -#.period-end
-          = p.input :end_year, label: t(:end_year)
-          = p.input :end_month, label: t(:end_month)
-          = p.input :end_day, label: t(:end_day)
-          = p.link_to_remove t(:remove_period)
+        .period.row
+          .col-md-2
+            = p.input :start_year
+          .col-md-2
+            = p.input :start_month
+          .col-md-2
+            = p.input :start_day
+          .col-md-2
+            = p.input :end_year
+          .col-md-2
+            = p.input :end_month
+          .col-md-2
+            = p.input :end_day
+          = p.link_to_remove t(:remove_period), class: "pull-right"
       = f.link_to_add t(:add_period), :periods
 
   .form-actions.btn-group

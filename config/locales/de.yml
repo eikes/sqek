@@ -26,9 +26,7 @@ de:
   show: "Anzeigen"
   back: "Zurück"
   confirm_question: 'Sind Sie sicher?'
-  # general labels
-  label_name: "Name"
-  label_body: "Beschreibung"
+  error_message: 'Bitte beachten sie diese Fehler'
   # menu
   menu_cities: "Alle Städte"
   # squat pages
@@ -38,13 +36,10 @@ de:
   back_to_city: 'Zurück zur Stadt'
   address: "Adresse"
   geocode_address: "Adresse auf Karte zeigen"
+  at_least_one_period_error: "Mindestens ein Besetzungszeitraum wird benötigt"
+  overlapping_periods_error: "Zwei Besetzungszeiträume überschneiden sich"
+  two_open_ended_periods_error: "Höchstens ein Besetzungszeitraum ohne Ende erlaubt"
   # periods
-  start_year: "Start Jahr"
-  start_month: "Start Monat"
-  start_day: "Start Tag"
-  end_year: "End Jahr"
-  end_month: "End Monat"
-  end_day: "End Tag"
   squat_period: "Besetzungszeitraum"
   remove_period: "Zeitraum entfernen"
   add_period: "Zeitraum hinzufügen"
@@ -55,3 +50,28 @@ de:
   editing_city: "Stadt Bearbeiten"
   update_city: "Stadt Speichern"
   listing_cities: "Städte Liste"
+
+  activerecord:
+    models:
+      squat: Squat
+      period: Zeitraum
+    attributes:
+      squat:
+        name: "Name"
+        body: "Beschreibung"
+        address: "Adresse"
+        periods: "Zeiträume"
+      squat/periods:
+        start_year: "Besetzungszeitraum Start Jahr"
+        start_month: "Besetzungszeitraum Start Monat"
+        start_day: "Besetzungszeitraum Start Tag"
+        end_year: "Besetzungszeitraum End Jahr"
+        end_month: "Besetzungszeitraum End Monat"
+        end_day: "Besetzungszeitraum End Tag"
+      period:
+        start_year: "Start Jahr"
+        start_month: "Start Monat"
+        start_day: "Start Tag"
+        end_year: "End Jahr"
+        end_month: "End Monat"
+        end_day: "End Tag"

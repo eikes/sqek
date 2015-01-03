@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require leaflet
 //= require bootstrap
+//= require jquery_nested_form
 //= require map
 //= require_tree .

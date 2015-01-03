@@ -19,8 +19,9 @@ $(->
 
   $('#geocode').click (e) ->
     e.preventDefault()
+    address = $('#squat_address').val().replace("\n", ", ") + ", " + $(this).data("city-name")
     $.ajax({
-      url: "http://nominatim.openstreetmap.org/search.php?format=json&q=" + $('#squat_address').val().replace("\n", ", "),
+      url: "http://nominatim.openstreetmap.org/search.php?format=json&q=" + address,
       dataType: "jsonp",
       jsonp: "json_callback"
     }).success((data)->

@@ -6,6 +6,13 @@
 
 %p= simple_format @squat.body
 
+#periods
+  %b
+    = t(:squat_period)
+  - @squat.periods.each do |p|
+    .period
+      = p
+
 .btn-group
   - if can? :update, @squat
     = link_to t(:edit), edit_city_squat_path(@city, @squat), class: "btn btn-default"

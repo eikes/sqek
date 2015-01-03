@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  squat_id: 
+  start_year: 1
+  start_month: 1
+  start_day: 1
+  end_year: 1
+  end_month: 1
+  end_day: 1
+
+two:
+  squat_id: 
+  start_year: 1
+  start_month: 1
+  start_day: 1
+  end_year: 1
+  end_month: 1
+  end_day: 1

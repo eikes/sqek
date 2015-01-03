@@ -17,6 +17,7 @@ class SquatsController < ApplicationController
 
   def new
     @squat = Squat.new
+    @squat.periods.build
     respond_with(@squat)
   end
 
@@ -51,6 +52,10 @@ class SquatsController < ApplicationController
     end
 
     def squat_params
-      params.require(:squat).permit(:name, :body, :address, :lat, :lng)
+      params.require(:squat).permit(:name, :body, :address, :lat, :lng, 
+        periods_attributes: [:id, 
+          :start_year, :start_month, :start_day, 
+          :end_year, :end_month, :end_day, 
+          :_destroy])
     end
 end

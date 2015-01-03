@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102223325) do
+ActiveRecord::Schema.define(version: 20150103000420) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 20150102223325) do
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true
+
+  create_table "periods", force: :cascade do |t|
+    t.integer  "squat_id"
+    t.integer  "start_year"
+    t.integer  "start_month"
+    t.integer  "start_day"
+    t.integer  "end_year"
+    t.integer  "end_month"
+    t.integer  "end_day"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "periods", ["squat_id"], name: "index_periods_on_squat_id"
 
   create_table "squats", force: :cascade do |t|
     t.string   "name"

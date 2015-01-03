@@ -31,12 +31,13 @@ gem 'devise'
 gem 'cancancan', '~> 1.9'
 
 gem 'bootstrap-sass', '~> 3.3.1'
-gem "haml-rails"
+gem 'haml-rails'
 gem 'autoprefixer-rails'
 
 gem 'simple_form'
 gem 'leaflet-rails'
 gem 'friendly_id'
+gem 'nested_form'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

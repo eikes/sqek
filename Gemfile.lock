@@ -106,6 +106,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.5.0)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -200,6 +201,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   leaflet-rails
+  nested_form
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

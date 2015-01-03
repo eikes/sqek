@@ -38,6 +38,18 @@ en:
   back_to_city: 'Back to city'
   address: "Address"
   geocode_address: "Show address on map"
+  # periods
+  start_year: "Start year"
+  start_month: "Start month"
+  start_day: "Start day"
+  end_year: "End year"
+  end_month: "End month"
+  end_day: "End day"
+  squat_period: "Squating period"
+  remove_period: "Remove period"
+  add_period: "Add period"
+  period_from: "from"
+  period_to: "to"
   # city pages
   new_city: "New City"
   editing_city: "Editing City"

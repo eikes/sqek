@@ -1,0 +1,10 @@
+= simple_format squat.address, {}, wrapper_tag: "address"
+
+= simple_format squat.body, class: :body
+
+.periods
+  %h5
+    = t(:squat_period)
+  - squat.periods.each do |p|
+    .period
+      = simple_format p.to_s

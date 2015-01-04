@@ -1,5 +1,5 @@
 json.array!(@squats) do |squat|
-  json.extract! squat, :name, :body, :latlng
+  json.extract! squat, :name, :slug, :latlng
   json.periods squat.periods, :start_year, :end_year
-  json.url city_squat_url(@city, squat)
+  json.popup render( { partial: "squats/popup", formats: [:html], locals: { squat: squat } } )
 end

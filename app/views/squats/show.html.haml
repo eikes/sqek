@@ -2,16 +2,7 @@
 
 #map{ data: { squats_url: city_squat_url(@city, @squat, format: :json), mode: :show, latlng: @squat.latlng, zoom: 14 } }
 
-%p= simple_format @squat.address
-
-%p= simple_format @squat.body
-
-#periods
-  %b
-    = t(:squat_period)
-  - @squat.periods.each do |p|
-    .period
-      = simple_format p.to_s
+= render partial: "description", locals: {squat: @squat}
 
 .btn-group
   - if can? :update, @squat

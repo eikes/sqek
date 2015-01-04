@@ -1,0 +1,6 @@
+%h4= squat.name
+
+= render partial: "description", locals: {squat: squat}
+
+- if can? :update, squat
+  = link_to t(:edit), edit_city_squat_path(squat.city, squat)

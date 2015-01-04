@@ -5,9 +5,9 @@
 addSquat = (squat) ->
   if squat.latlng
     m = L.marker squat.latlng
-    m.bindPopup squat.name.link(squat.url)
-    m.on "mouseover", (e) ->
-      this.openPopup()
+    m.bindPopup squat.popup
+    m.on "click", (e) ->
+      document.location.hash = squat.slug
     m.addTo map
 
 $(->

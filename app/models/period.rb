@@ -22,44 +22,40 @@ class Period < ActiveRecord::Base
             allow_blank: true,
             if: :end_year
 
-  def to_s
+  def start_string
+    sub_string "start"
+  end
 
-    start_string = ""
-    if start_year
-      start_string << start_year.to_s
+  def end_string
+    sub_string "end"
+  end
+
+  def sub_string(sub)
+    result = ""
+    if self[sub + "_day"]
+      result << self[sub + "_day"].to_s + ". "
     end
-    if start_month
-      start_string << "-" + start_month.to_s
+    if self[sub + "_month"]
+      result << I18n.t("date.month_names")[self[sub + "_month"]] + " "
     end
-    if start_day
-      start_string << "-" + start_day.to_s
+    if self[sub + "_year"]
+      result << self[sub + "_year"].to_s
     end
+    result
+  end
+
+  def to_s
+    result = ""
 
     unless start_string.blank?
-      start_string = I18n.t(:period_from).capitalize + " " + start_string
-    end
-
-    end_string = ""
-    if end_year
-      end_string << end_year.to_s
-    end
-    if end_month
-      end_string << "-" + end_month.to_s
-    end
-    if end_day
-      end_string << "-" + end_day.to_s
+      result << I18n.t(:squated_on) + " " + start_string
     end
 
     unless end_string.blank?
-      end_string = I18n.t(:period_to) + " " + end_string
+      result << "\n" + I18n.t(:evicted_on) + " " + end_string
     end
 
-    if !end_string.blank?
-      start_string + " " + end_string
-    else 
-      start_string
-    end
-
+    result
   end
 
 end

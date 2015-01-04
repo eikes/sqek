@@ -28,17 +28,17 @@
       = f.simple_fields_for :periods do |p|
         .period.row
           .col-md-2
+            = p.input :start_day, collection: (1..31).to_a
+          .col-md-2
+            = p.input :start_month, collection: (1..12).to_a.map{|i| [I18n.t("date.month_names")[i], i]}
+          .col-md-2
             = p.input :start_year
           .col-md-2
-            = p.input :start_month
+            = p.input :end_day, collection: (1..31).to_a
           .col-md-2
-            = p.input :start_day
+            = p.input :end_month, collection: (1..12).to_a.map{|i| [I18n.t("date.month_names")[i], i]}
           .col-md-2
             = p.input :end_year
-          .col-md-2
-            = p.input :end_month
-          .col-md-2
-            = p.input :end_day
           = p.link_to_remove t(:remove_period), class: "pull-right"
       = f.link_to_add t(:add_period), :periods
 

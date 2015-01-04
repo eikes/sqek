@@ -52,8 +52,8 @@ en:
   squat_period: "Squating period"
   remove_period: "Remove period"
   add_period: "Add period"
-  period_from: "from"
-  period_to: "to"
+  squated_on: "Squated on"
+  evicted_on: "Evicted on"
   # city pages
   new_city: "New City"
   editing_city: "Editing City"

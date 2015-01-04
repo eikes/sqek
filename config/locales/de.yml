@@ -43,8 +43,8 @@ de:
   squat_period: "Besetzungszeitraum"
   remove_period: "Zeitraum entfernen"
   add_period: "Zeitraum hinzufügen"
-  period_from: "von"
-  period_to: "bis"
+  squated_on: "Besetzt am"
+  evicted_on: "Geräumt am"
   # city pages
   new_city: "Neue Stadt"
   editing_city: "Stadt Bearbeiten"

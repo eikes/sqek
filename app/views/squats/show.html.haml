@@ -11,7 +11,7 @@
     = t(:squat_period)
   - @squat.periods.each do |p|
     .period
-      = p
+      = simple_format p.to_s
 
 .btn-group
   - if can? :update, @squat

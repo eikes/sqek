@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  scope "/:locale", locale: /en|de/ do
+  scope "/:locale" do
     resources :cities do
       resources :squats
     end

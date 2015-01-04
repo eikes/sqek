@@ -6,6 +6,9 @@
         - if can? :create, City
           %li= link_to t(:new_city), new_city_path
       %ul.nav.navbar-nav.navbar-right
+        - I18n.available_locales.each do |l|
+          %li{ class: (l.to_s + " language-selector") }
+            = link_to l, locale: l
         %li
           - if user_signed_in?
             = link_to 'Logout', destroy_user_session_path, :method => :delete

@@ -30,8 +30,10 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new
-    if user.id?
-      can :manage, :all # logged in user
+    if user.role == "admin"
+      can :manage, :all # logged in admin user
+    elsif user.role == "user"
+      can :manage, Squat # logged in regular user
     else
       can :read, :all # guest user (not logged in)
     end

@@ -59,3 +59,8 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  # MySQL database
+  gem 'mysql2'
+end
+

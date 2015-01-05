@@ -6,9 +6,9 @@
     = f.input :body, label: t(:label_body)
 
     - if @city.id?
-      #map{ data: { mode: :edit, latlng: @city.latlng, zoom: 8 } }
+      #map{ data: { mode: :edit, latlng: @city.latlng, zoom: 8, icon: get_default_icon } }
     - else
-      #map{ data: { mode: :create, latlng: [47, 11], zoom: 4 } }
+      #map{ data: { mode: :create, latlng: [47, 11], zoom: 4, icon: get_default_icon } }
 
     = f.input :lat, wrapper_html: {class: "hide"}
     = f.input :lng, wrapper_html: {class: "hide"}

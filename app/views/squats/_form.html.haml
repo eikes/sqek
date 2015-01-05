@@ -5,9 +5,9 @@
     = f.input :name
 
     - if @squat.id?
-      #map{ data: { mode: :edit, latlng: @squat.latlng, zoom: 14 } }
+      #map{ data: { mode: :edit, latlng: @squat.latlng, zoom: 14, icon: get_default_icon } }
     - else
-      #map{ data: { mode: :create, latlng: @city.latlng, zoom: 10 } }
+      #map{ data: { mode: :create, latlng: @city.latlng, zoom: 10, icon: get_default_icon } }
 
     .row
       .col-md-8

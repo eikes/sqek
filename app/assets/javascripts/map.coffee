@@ -16,7 +16,7 @@ $(->
 
   map.setView(map_data.latlng || [0,0], map_data.zoom)
 
-  map.default_icon_url = '/assets/icons/haus_grau.png'
+  map.default_icon_url = map_data.icon
 
   map.default_icon = L.icon({
     iconUrl: map.default_icon_url,

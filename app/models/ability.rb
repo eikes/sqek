@@ -30,12 +30,15 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new
+    # Everyone can see the cities and the squats
+    can :read, Squat
+    can :read, City
+
     if user.role == "admin"
       can :manage, :all # logged in admin user
     elsif user.role == "user"
       can :manage, Squat # logged in regular user
     else
-      can :read, :all # guest user (not logged in)
     end
   end
 end

@@ -2,11 +2,23 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+get_city_icon = (city) ->
+  L.divIcon({
+    className: 'city-icon',
+    html: "<img src='#{ map.default_icon_url }'>
+           <br>
+           <span class='city-icon-name'>
+             #{ city.name }
+           </span>",
+    iconSize: [60, 50],
+    iconAnchor: [30, 40]
+  })
+
 addCity = (city) ->
   m = L.marker city.latlng
-  m.bindPopup city.name.link(city.url)
-  m.on "mouseover", (e) ->
-    this.openPopup()
+  m.on "click", (e) ->
+    document.location.href = city.url
+  m.setIcon get_city_icon(city)
   m.addTo map
 
 $(->

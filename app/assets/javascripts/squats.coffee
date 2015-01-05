@@ -2,18 +2,33 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+icons = {}
+getIcon = (icon_path) ->
+  if !icons[icon_path] 
+    icons[icon_path] = 
+      L.icon({
+        iconUrl: icon_path,
+        iconSize: [35, 30],
+        iconAnchor: [17, 20]
+      })
+  return icons[icon_path]
+
 addSquat = (squat) ->
   if squat.latlng
     m = L.marker squat.latlng
+    if (squat.icon)
+      m.setIcon getIcon(squat.icon)
     m.bindPopup squat.popup
     m.on "click", (e) ->
       document.location.hash = squat.slug
     m.addTo map
+    squat.marker = m
 
 $(->
   squats_url = $("#map").data("squats-url")
   if squats_url
     $.ajax(squats_url).success((squats)->
+      window.squats = squats
       addSquat squat for squat in squats
     )
 

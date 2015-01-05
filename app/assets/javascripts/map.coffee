@@ -16,6 +16,14 @@ $(->
 
   map.setView(map_data.latlng || [0,0], map_data.zoom)
 
+  map.default_icon_url = '/assets/icons/haus_grau.png'
+
+  map.default_icon = L.icon({
+    iconUrl: map.default_icon_url,
+    iconSize: [35, 30],
+    iconAnchor: [17, 20]
+  })
+
   marker = null
 
   lat_input = $('[name*=lat]')
@@ -24,6 +32,7 @@ $(->
   add_marker = (latlng) ->
     if latlng
       marker = L.marker(latlng)
+      marker.setIcon map.default_icon
       marker.addTo map
 
   update_marker = (latlng) ->

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'cities#index'
 
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
   scope "/:locale" do
     devise_for :users
     resources :cities do

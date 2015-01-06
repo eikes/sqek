@@ -21,6 +21,7 @@
 
 de:
   #generic words
+  account: "Benutzerkonto"
   edit: "Bearbeiten"
   destroy: "Löschen"
   show: "Anzeigen"

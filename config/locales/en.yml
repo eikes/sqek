@@ -21,6 +21,7 @@
 
 en:
   # generic words
+  account: "Account"
   edit: "Edit"
   destroy: "Destroy"
   show: "Show"

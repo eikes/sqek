@@ -1,6 +1,6 @@
 %h1= @city.name
 
-#map{ data: { cities_url: city_url(@city, format: :json), mode: :show, latlng: @city.latlng, zoom: 8 } }
+#map{ data: { cities_url: city_url(@city, format: :json), mode: :show, latlng: @city.latlng, zoom: 8, icon: get_default_icon } }
 
 %p= @city.body
 

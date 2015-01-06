@@ -5,6 +5,8 @@
         %li= link_to t(:menu_cities), root_path
         - if can? :create, City
           %li= link_to t(:new_city), new_city_path
+        - if @city.present? and can? :create, Squat
+          %li= link_to t(:new_squat), new_city_squat_path(@city)
       %ul.nav.navbar-nav.navbar-right
         - I18n.available_locales.each do |l|
           %li{ class: (l.to_s + " language-selector") }

@@ -7,6 +7,3 @@
 .btn-group
   - if can? :update, @city
     = link_to t(:edit), edit_city_path(@city), class: "btn btn-default"
-
-  - if can? :create, Squat
-    = link_to t(:new_squat), new_city_squat_path(@city), class: "btn btn-default"

@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'cities#index'
 
-  devise_for :users
-
   scope "/:locale" do
+    devise_for :users
     resources :cities do
       resources :squats
     end

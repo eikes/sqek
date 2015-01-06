@@ -41,6 +41,7 @@ gem 'nested_form'
 
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

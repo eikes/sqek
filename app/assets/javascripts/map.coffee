@@ -1,6 +1,9 @@
 
 $(->
+  # full map height
+  $('#map.full').height( $(window).height() - $('#main-nav').height() )
 
+  # map setup
   map_div  = document.getElementById("map")
   map_data = $(map_div).data()
   mode     = map_data.mode

@@ -17,6 +17,11 @@ class Squat < ActiveRecord::Base
     errors.add(:base, I18n.t(:at_least_one_period_error)) if periods.empty?
   end
 
+  # has location
+  validate do
+    errors.add(:base, I18n.t(:location_required)) if lat.nil? or lng.nil?
+  end
+
   # no overlapping periods
   validate do
     periods.each do |p1|

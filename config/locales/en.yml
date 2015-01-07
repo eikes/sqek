@@ -43,6 +43,7 @@ en:
   at_least_one_period_error: "At least one squatting period is required"
   overlapping_periods_error: "Two periods are overlapping"
   two_open_ended_periods_error: "Maximum of one open ended period allowed"
+  location_required: "A location is required"
   # periods
   start_year: "Start year"
   start_month: "Start month"

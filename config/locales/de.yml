@@ -40,6 +40,7 @@ de:
   at_least_one_period_error: "Mindestens ein Besetzungszeitraum wird benötigt"
   overlapping_periods_error: "Zwei Besetzungszeiträume überschneiden sich"
   two_open_ended_periods_error: "Höchstens ein Besetzungszeitraum ohne Ende erlaubt"
+  location_required: "Ein Ort muss gewählt sein"
   # periods
   squat_period: "Besetzungszeitraum"
   remove_period: "Zeitraum entfernen"

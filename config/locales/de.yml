@@ -28,6 +28,8 @@ de:
   back: "Zurück"
   confirm_question: 'Sind Sie sicher?'
   error_message: 'Bitte beachten sie diese Fehler'
+  latitude: Latitude
+  longitude: Longitude
   # menu
   menu_cities: "Alle Städte"
   # squat pages
@@ -37,6 +39,7 @@ de:
   back_to_city: 'Zurück zur Stadt'
   address: "Adresse"
   geocode_address: "Adresse auf Karte zeigen"
+  set_lat_lng: "Zeige diese Koordinaten auf der Karte"
   at_least_one_period_error: "Mindestens ein Besetzungszeitraum wird benötigt"
   overlapping_periods_error: "Zwei Besetzungszeiträume überschneiden sich"
   two_open_ended_periods_error: "Höchstens ein Besetzungszeitraum ohne Ende erlaubt"

@@ -20,8 +20,15 @@
 
     = f.input :body
 
-    = f.input :lat, wrapper_html: {class: "hide"}
-    = f.input :lng, wrapper_html: {class: "hide"}
+    .row
+      .col-md-8
+        = f.input :lat, label: t(:latitude)
+        = f.input :lng, label: t(:longitude)
+      .col-md-4
+        %p
+          &nbsp;
+        %a.btn.btn-default#set-lat-lng
+          = t(:set_lat_lng)
 
     #periods.well
       %h2= t(:squat_period)

@@ -8,6 +8,8 @@ class City < ActiveRecord::Base
   
   friendly_id :name, use: :slugged
 
+  has_paper_trail
+
   def latlng
     lat && lng ? [lat, lng] : nil
   end

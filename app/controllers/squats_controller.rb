@@ -1,5 +1,5 @@
 class SquatsController < ApplicationController
-  before_action :set_squat, only: [:show, :edit, :update, :destroy]
+  before_action :set_squat, only: [:show, :edit, :update, :destroy, :version, :restore_version]
   before_action :set_city
 
   load_and_authorize_resource
@@ -44,9 +44,22 @@ class SquatsController < ApplicationController
     respond_with(@city, @squat)
   end
 
+  def version
+    authorize! :read, PaperTrail::Version
+    @squat = @squat.versions.select{ |version| version.id == params[:version_id].to_i }.first.reify
+    render 'show'
+  end
+
+  def revert_to_version
+    authorize! :read, PaperTrail::Version
+    @version = @squat.versions.select{ |version| version.id == params[:version_id].to_i }.first.reify
+    @version.save
+    redirect_to city_squat_path(@city, @version)
+  end
+
   private
     def set_squat
-      @squat = Squat.friendly.find(params[:id])
+      @squat = Squat.find(params[:id])
     end
 
     def set_city

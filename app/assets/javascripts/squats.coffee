@@ -55,4 +55,6 @@ $(->
       update_marker latlng
       map.panTo latlng
   
-  )
+  $(".show-diff").click (e) ->
+    $(this).next("pre").toggle()
+)

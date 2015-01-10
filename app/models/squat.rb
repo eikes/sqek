@@ -42,7 +42,9 @@ class Squat < ActiveRecord::Base
 
   accepts_nested_attributes_for :periods, allow_destroy: true
   
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
+
+  has_paper_trail
 
   def latlng
     lat && lng ? [lat, lng] : nil

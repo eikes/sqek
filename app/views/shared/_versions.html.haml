@@ -1,0 +1,25 @@
+- if can? :read, PaperTrail::Version
+  %h3= t(:previous_versions)
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t(:version_id)
+        %th= t(:version_created_at)
+        %th= t(:user)
+        %th.version-diff= t(:diff)
+        %th= t(:actions)
+    %tbody
+      - record.versions.each do |version|
+        %tr
+          %td= version.id
+          %td= version.created_at
+          %td= User.find(version.whodunnit).email
+          %td.version-diff
+            .show-diff.btn.btn-default
+              = t(:show_diff)
+            %pre= simple_format(JSON.pretty_generate(version.changeset))
+          %td
+            .btn-group
+              = link_to t(:show), version_city_squat_path(@city, @squat, version.id), class: "btn btn-default"
+              = link_to t(:revert_to_version), revert_to_version_city_squat_path(@city, @squat, version.id), class: "btn btn-default"

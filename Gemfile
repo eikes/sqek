@@ -36,8 +36,9 @@ gem 'autoprefixer-rails'
 
 gem 'simple_form'
 gem 'leaflet-rails'
-gem 'friendly_id'
+gem 'friendly_id', '~> 5.1.0.beta.1'
 gem 'nested_form'
+gem 'paper_trail', '~> 3.0.6'
 
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'

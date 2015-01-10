@@ -9,3 +9,5 @@
     = link_to t(:edit), edit_city_squat_path(@city, @squat), class: "btn btn-default"
 
   = link_to t(:back_to_city), city_squats_path(@city), class: "btn btn-default"
+
+= render partial: "shared/versions", locals: {record: @squat}

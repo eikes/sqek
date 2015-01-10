@@ -6,13 +6,18 @@ Rails.application.routes.draw do
   root 'cities#index'
 
   as :user do
-    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
-    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+    get 'users/edit' => 'devise/registrations#edit', as: 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', as: 'user_registration'
   end
   scope "/:locale" do
     devise_for :users
     resources :cities do
-      resources :squats
+      resources :squats do
+        member do
+          get 'version/:version_id', action: :version, as: 'version'
+          get 'revert_to_version/:version_id', action: :revert_to_version, as: 'revert_to_version'
+        end
+      end
     end
   end
 

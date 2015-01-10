@@ -22,8 +22,8 @@
 
     .row
       .col-md-8
-        = f.input :lat, label: t(:latitude)
-        = f.input :lng, label: t(:longitude)
+        = f.input :lat, label: t(:latitude), as: :string
+        = f.input :lng, label: t(:longitude), as: :string
       .col-md-4
         %p
           &nbsp;

@@ -40,16 +40,16 @@ $(->
       dataType: "jsonp",
       jsonp: "json_callback"
     }).success((data)->
-      if data.length
-        latlng = {lat: data[0].lat, lng: data[0].lon}
-        update_marker latlng
-        map.panTo latlng
+    if data.length
+      latlng = {lat: data[0].lat, lng: data[0].lon}
+      update_marker latlng
+      map.panTo latlng
     )
 
   $('#set-lat-lng').click (e) ->
     e.preventDefault()
-    lat = $('[name*=lat]').val()
-    lng = $('[name*=lng]').val()
+    lat = parseFloat($('[name*=lat]').val().replace(",", "."))
+    lng = parseFloat($('[name*=lng]').val().replace(",", "."))
     latlng = {lat: lat, lng: lng}
     if lat && lng
       update_marker latlng

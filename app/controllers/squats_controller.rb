@@ -26,15 +26,14 @@ class SquatsController < ApplicationController
 
   def create
     @squat = Squat.new(squat_params)
+    @squat.city = @city
     @squat.save
-    @squat.update(city: @city)
     flash[:notice] = "Squat created."
     respond_with(@city, @squat)
   end
 
   def update
     @squat.update(squat_params)
-    @squat.update(city: @city)
     flash[:notice] = "Squat updated."
     respond_with(@city, @squat)
   end

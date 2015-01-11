@@ -2,3 +2,8 @@
   container-fluid
 
 #map.full{ data: { squats_url: city_squats_path(@city, format: :json), mode: :index, latlng: @city.latlng, zoom: 10 } }
+
+- content_for :footer do
+  %nav#footer.navbar.navbar-default.navbar-fixed-bottom
+    .container
+      = select_tag(:year_select, options_for_select(city_year_range(@city).prepend([I18n.t(:all_years), 'all_years'])), class: "form-control")

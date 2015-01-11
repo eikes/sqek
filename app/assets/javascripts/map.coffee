@@ -1,7 +1,12 @@
 
 $(->
   # full map height
-  $('#map.full').height( $(window).height() - $('#main-nav').height() - 2 )
+  $(window).resize( () ->
+    height = $(window).outerHeight()
+    height -= $('#main-nav').outerHeight()
+    height -= $('#footer').outerHeight()
+    $('#map.full').height( height )
+  ).trigger("resize")
 
   # map setup
   map_div  = document.getElementById("map")

@@ -57,4 +57,26 @@ $(->
   
   $(".show-diff").click (e) ->
     $(this).next("pre").toggle()
+
+  showSquatsInYear = (year) ->
+    for squat in squats
+      visible = false
+      for period in squat.periods
+        if year >= period.start_year and (year <= period.end_year or !period.end_year)
+          visible = true
+      if visible
+        $(squat.marker._icon).show()
+      else
+        $(squat.marker._icon).hide()
+
+  showAllSquats = () ->
+    for squat in squats
+      $(squat.marker._icon).show()
+
+  $('#year_select').change( () ->
+    if $.isNumeric(this.value)
+      showSquatsInYear(this.value)
+    if this.value == 'all_years'
+      showAllSquats()
+  )
 )

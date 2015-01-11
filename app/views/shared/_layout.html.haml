@@ -7,7 +7,8 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
+    = render 'shared/menu'
     %div{class: (content_for?(:container_class) ? yield(:container_class) : "container") }
-      = render 'shared/menu'
       = render 'shared/flash_messages', flash: flash
       = yield
+    = yield(:footer)

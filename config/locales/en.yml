@@ -30,6 +30,7 @@ en:
   error_message: 'Please review the problems below'
   latitude: Latitude
   longitude: Longitude
+  all_years: All years
   # general labels
   label_name: "Name"
   label_body: "Body"

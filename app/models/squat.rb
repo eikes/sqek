@@ -41,7 +41,7 @@ class Squat < ActiveRecord::Base
   end
 
   validate do
-    if link and not %w( http https ).include?(URI.parse(link).scheme)
+    if !link.blank? and not %w( http https ).include?(URI.parse(link).scheme)
       errors.add(:link, I18n.t(:invalid_link_url))
     end
   end

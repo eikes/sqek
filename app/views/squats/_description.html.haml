@@ -2,6 +2,9 @@
 
 = simple_format squat.body, class: :body
 
+- if squat.link
+  = link_to squat.link, squat.link, class: :link
+
 .periods
   %h5
     = t(:squat_period)

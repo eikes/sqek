@@ -40,6 +40,12 @@ class Squat < ActiveRecord::Base
     end
   end
 
+  validate do
+    if link and not %w( http https ).include?(URI.parse(link).scheme)
+      errors.add(:link, I18n.t(:invalid_link_url))
+    end
+  end
+
   accepts_nested_attributes_for :periods, allow_destroy: true
   
   friendly_id :name, use: [:slugged, :finders]

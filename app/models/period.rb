@@ -48,11 +48,26 @@ class Period < ActiveRecord::Base
     result = ""
 
     unless start_string.blank?
-      result << I18n.t(:squated_on) + " " + start_string
+      if start_day.blank? and start_month.blank?
+        result << I18n.t(:squated_in_year)
+      elsif start_day.blank?
+        result << I18n.t(:squated_in_month)
+      else
+        result << I18n.t(:squated_on_day)
+      end
+      result <<  " " + start_string
     end
 
     unless end_string.blank?
-      result << "\n" + I18n.t(:evicted_on) + " " + end_string
+      result << "\n"
+      if end_day.blank? and end_month.blank?
+        result << I18n.t(:evicted_in_year)
+      elsif end_day.blank?
+        result << I18n.t(:evicted_in_month)
+      else
+        result << I18n.t(:evicted_on_day)
+      end
+      result <<  " " + end_string
     end
 
     result

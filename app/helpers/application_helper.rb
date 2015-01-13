@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def city_start_year(city)
-    Period.joins(:squat).where("squats.city_id": city).minimum(:start_year)
+    Period.joins(:squat).where("squats.city_id": city).minimum(:start_year) || Date.today.year
   end
 
   def city_year_range(city)

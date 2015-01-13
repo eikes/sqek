@@ -49,25 +49,25 @@ class Period < ActiveRecord::Base
 
     unless start_string.blank?
       if start_day.blank? and start_month.blank?
-        result << I18n.t(:squated_in_year)
+        result << I18n.t(:squated_in_year, date: start_string)
       elsif start_day.blank?
-        result << I18n.t(:squated_in_month)
+        result << I18n.t(:squated_in_month, date: start_string)
       else
-        result << I18n.t(:squated_on_day)
+        d = Date.new(start_year, start_month, start_day)
+        result << I18n.t(:squated_on_day, date: d.strftime(I18n.t('date.formats.long')))
       end
-      result <<  " " + start_string
     end
 
     unless end_string.blank?
       result << "\n"
       if end_day.blank? and end_month.blank?
-        result << I18n.t(:evicted_in_year)
+        result << I18n.t(:evicted_in_year, date: end_string)
       elsif end_day.blank?
-        result << I18n.t(:evicted_in_month)
+        result << I18n.t(:evicted_in_month, date: end_string)
       else
-        result << I18n.t(:evicted_on_day)
+        d = Date.new(end_year, end_month, end_day)
+        result << I18n.t(:evicted_on_day, date: d.strftime(I18n.t('date.formats.long')))
       end
-      result <<  " " + end_string
     end
 
     result

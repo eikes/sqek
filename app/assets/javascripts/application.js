@@ -15,5 +15,6 @@
 //= require leaflet
 //= require bootstrap
 //= require jquery_nested_form
+//= require resize
 //= require map
 //= require_tree .

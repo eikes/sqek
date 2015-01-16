@@ -65,6 +65,9 @@ de:
     models:
       squat: Squat
       period: Zeitraum
+      city:
+        one: Stadt
+        other: Städte
     attributes:
       squat:
         name: "Name"

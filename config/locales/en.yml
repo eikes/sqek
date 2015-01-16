@@ -69,3 +69,9 @@ en:
   new_city: "New City"
   editing_city: "Editing City"
   update_city: "Update City"
+
+  activerecord:
+    models:
+      city:
+        one: City
+        other: Cities

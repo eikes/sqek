@@ -10,6 +10,8 @@ class City < ActiveRecord::Base
 
   has_paper_trail
 
+  scope :by_name, -> { order(:name) }
+
   def latlng
     lat && lng ? [lat, lng] : nil
   end

@@ -16,6 +16,9 @@ $(->
 
   map.setView(map_data.latlng || [0,0], map_data.zoom)
 
+  if map_data.bounds
+    map.fitBounds map_data.bounds
+
   map.default_icon_url = map_data.icon
 
   map.default_icon = L.icon({

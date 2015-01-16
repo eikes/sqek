@@ -15,4 +15,13 @@ class City < ActiveRecord::Base
   def latlng
     lat && lng ? [lat, lng] : nil
   end
+
+  def squat_bounds
+    [
+      [ squats.minimum(:lat),
+        squats.minimum(:lng)],
+      [ squats.maximum(:lat),
+        squats.maximum(:lng)]
+    ]
+  end
 end

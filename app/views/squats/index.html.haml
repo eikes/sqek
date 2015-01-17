@@ -5,5 +5,13 @@
 
 - content_for :footer do
   %nav#footer.navbar.navbar-default.navbar-fixed-bottom
-    .container
-      = select_tag(:year_select, options_for_select(city_year_range(@city).prepend([I18n.t(:all_years), 'all_years'])), class: "form-control")
+    .container-fluid
+      #all_years_container
+        %input#all_years{type: :checkbox, title: t(:all_years), checked: true}
+        %br
+        %label{ for: "all_years"}
+          = t(:all_years)
+      #slider_container
+        #slider{ data: { from: city_start_year(@city), to: Date.today.year } }
+        #year
+          = t(:all_years)

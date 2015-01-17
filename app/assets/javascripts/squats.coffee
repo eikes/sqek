@@ -59,6 +59,7 @@ $(->
     $(this).next("pre").toggle()
 
   showSquatsInYear = (year) ->
+    $('#year').html(year)
     for squat in squats
       visible = false
       for period in squat.periods
@@ -69,14 +70,25 @@ $(->
       else
         $(squat.marker._icon).hide()
 
+  all_years = $('#year').text()
   showAllSquats = () ->
+    $('#year').html(all_years)
     for squat in squats
       $(squat.marker._icon).show()
 
-  $('#year_select').change( () ->
-    if $.isNumeric(this.value)
-      showSquatsInYear(this.value)
-    if this.value == 'all_years'
+  $('#slider').slider({
+    min: parseInt($('#slider').data("from")),
+    max: parseInt($('#slider').data("to")),
+    slide: ( event, ui ) ->
+      $('#all_years').prop("checked", false)
+      showSquatsInYear(ui.value)
+  })
+
+  $('#all_years').change( ->
+    if $(this).is(":checked")
       showAllSquats()
+    else
+      year = $('#slider').slider("value")
+      showSquatsInYear(year)
   )
 )

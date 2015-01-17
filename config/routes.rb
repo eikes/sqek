@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'cities#index'
+  root 'application#home'
 
   as :user do
     get 'users/edit' => 'devise/registrations#edit', as: 'edit_user_registration'

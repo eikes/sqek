@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/slider
  *= require leaflet
  */
 
@@ -32,9 +33,6 @@
 
 label.boolean.optional.checkbox
   padding-left: 20px
-
-#footer
-  padding-top: 8px
 
 #map
   height: 600px
@@ -59,11 +57,30 @@ span.city-icon-name
 div.city-icon
   text-align: center
 
-#main-nav
-  margin-bottom: 0
-
-#main-container
-  padding: 0
-
 .version-diff pre
   display: none
+
+#header
+  margin-bottom: 0
+
+#main
+  padding: 0
+
+#footer
+  text-align: center
+  max-height: 50px
+
+#slider_container
+  display: inline-block
+  width: 80%
+  margin-top: 8px
+  text-align: center
+
+#all_years_container
+  display: inline-block
+  text-align: center
+
+@media screen and (max-width: 350px)
+  #all_years_container
+    max-width: 50px
+    font-size: 10px

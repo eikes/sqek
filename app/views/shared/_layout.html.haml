@@ -8,7 +8,7 @@
     = csrf_meta_tags
   %body
     = render 'shared/menu'
-    %div#main-container{class: (content_for?(:container_class) ? yield(:container_class) : "container") }
+    %div#main{class: (content_for?(:container_class) ? yield(:container_class) : "container") }
       = render 'shared/flash_messages', flash: flash
       = yield
     = yield(:footer)

@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/slider
+//= require jquery.ui.touch-punch
 //= require leaflet
 //= require bootstrap
 //= require jquery_nested_form

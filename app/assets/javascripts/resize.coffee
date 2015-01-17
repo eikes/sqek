@@ -1,8 +1,8 @@
 $(->
   # full map height
   resize_map = () ->
-    height = $(window).outerHeight()
-    height -= $('#main-nav').outerHeight()
+    height = $(window).height()
+    height -= $('#header').outerHeight()
     height -= $('#footer').outerHeight()
     $('#map.full').height( height )
   resize_map()

@@ -33,6 +33,8 @@ gem 'cancancan', '~> 1.9'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'haml-rails'
 gem 'autoprefixer-rails'
+gem 'jquery-ui-rails'
+gem 'touchpunch-rails'
 
 gem 'simple_form'
 gem 'leaflet-rails'

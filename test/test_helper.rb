@@ -10,7 +10,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def create_user_and_sign_in
-    user = User.create(email: "a@bc.de", password: "123123123")
+    user = User.create(email: "a@bc.de", password: "123123123", role: "admin")
     sign_in user
   end
 end

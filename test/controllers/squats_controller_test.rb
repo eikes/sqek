@@ -8,47 +8,47 @@ class SquatsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index, city_id: @city.id
+    get :index, locale: :en, city_id: @city.id
     assert_response :success
     assert_not_nil assigns(:squats)
   end
 
   test "should get new" do
     create_user_and_sign_in
-    get :new, city_id: @city.id
+    get :new, locale: :en, city_id: @city.id
     assert_response :success
   end
 
   test "should create squat" do
     create_user_and_sign_in
     assert_difference('Squat.count') do
-      post :create, city_id: @city.id, squat: { body: @squat.body, lat: @squat.lat, lng: @squat.lng, name: @squat.name }
+      post :create, locale: :en, city_id: @city.id, squat: { body: @squat.body, lat: @squat.lat, lng: @squat.lng, name: @squat.name, periods_attributes: [ { start_year: 2000 } ] }
     end
 
     assert_redirected_to city_squat_path(@city, assigns(:squat))
   end
 
   test "should show squat" do
-    get :show, city_id: @city.id, id: @squat
+    get :show, locale: :en, city_id: @city.id, id: @squat
     assert_response :success
   end
 
   test "should get edit" do
     create_user_and_sign_in
-    get :edit, city_id: @city.id, id: @squat
+    get :edit, locale: :en, city_id: @city.id, id: @squat
     assert_response :success
   end
 
   test "should update squat" do
     create_user_and_sign_in
-    patch :update, city_id: @city.id, id: @squat, squat: { body: @squat.body, lat: @squat.lat, lng: @squat.lng, name: @squat.name }
+    patch :update, locale: :en, city_id: @city.id, id: @squat, squat: { body: @squat.body, lat: @squat.lat, lng: @squat.lng, name: @squat.name, periods_attributes: [ { start_year: 2000 } ] }
     assert_redirected_to city_squat_path(@city, assigns(:squat))
   end
 
   test "should destroy squat" do
     create_user_and_sign_in
     assert_difference('Squat.count', -1) do
-      delete :destroy, city_id: @city.id, id: @squat
+      delete :destroy, locale: :en, city_id: @city.id, id: @squat
     end
 
     assert_redirected_to city_squats_path(@city)

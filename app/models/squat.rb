@@ -4,7 +4,7 @@ class Squat < ActiveRecord::Base
 
   belongs_to :city
 
-  has_many :periods
+  has_many :periods, dependent: :destroy
 
   validates :name, presence: true
 

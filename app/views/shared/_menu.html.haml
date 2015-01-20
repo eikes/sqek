@@ -24,6 +24,8 @@
         - if @city.present? and !@city.id.nil? and can? :create, Squat
           %li= link_to t(:new_squat), new_city_squat_path(@city)
       %ul.nav.navbar-nav.navbar-right
+        - if content_for?(:menu_right)
+          = yield(:menu_right)
         - I18n.available_locales.each do |l|
           %li{ class: (l.to_s + " language-selector") }
             = link_to l, locale: l

@@ -1,6 +1,12 @@
 - content_for :container_class do
   container-fluid
 
+- content_for :menu_right do
+  %li
+    %a#legend_menu{href: "#"}= t(:legend)
+
+= render("shared/legend")
+
 #map.full{ data: { squats_url: city_squats_path(@city, format: :json), mode: :index, latlng: @city.latlng, bounds: @city.squat_bounds, zoom: 10 } }
 
 - content_for :footer do

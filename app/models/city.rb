@@ -17,11 +17,15 @@ class City < ActiveRecord::Base
   end
 
   def squat_bounds
-    [
-      [ squats.minimum(:lat),
-        squats.minimum(:lng)],
-      [ squats.maximum(:lat),
-        squats.maximum(:lng)]
-    ]
+    if squats.empty?
+      nil
+    else
+      [
+        [ squats.minimum(:lat),
+          squats.minimum(:lng)],
+        [ squats.maximum(:lat),
+          squats.maximum(:lng)]
+      ]
+    end
   end
 end

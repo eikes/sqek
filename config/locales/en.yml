@@ -49,6 +49,8 @@ en:
   two_open_ended_periods_error: "Maximum of one open ended period allowed"
   location_required: "A location is required"
   invalid_link_url: "The link is invalid. Make sure it starts with http:// or https://"
+  legend: "Legend"
+  squatted_after: "Squatted after"
   # periods
   start_year: "Start year"
   start_month: "Start month"

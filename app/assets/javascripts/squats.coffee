@@ -91,4 +91,9 @@ $(->
       year = $('#slider').slider("value")
       showSquatsInYear(year)
   )
+
+  $('#legend_menu').click( (e) ->
+    e.preventDefault()
+    $('#legend').toggle()
+  )
 )

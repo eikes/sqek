@@ -46,6 +46,8 @@ de:
   two_open_ended_periods_error: "Höchstens ein Besetzungszeitraum ohne Ende erlaubt"
   location_required: "Ein Ort muss gewählt sein"
   invalid_link_url: "Der link ist ungültig. Der link muss mit http:// oder https:// anfangen."
+  legend: "Legende"
+  squatted_after: "Besetzt nach"
   # periods
   squat_period: "Besetzungszeitraum"
   remove_period: "Zeitraum entfernen"

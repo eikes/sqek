@@ -24,12 +24,18 @@ addSquat = (squat) ->
     m.addTo map
     squat.marker = m
 
+openSquatFromHash = ->
+  hash = document.location.hash.replace('#','')
+  for squat in squats when squat.slug == hash
+    squat.marker.openPopup()
+
 $(->
   squats_url = $("#map").data("squats-url")
   if squats_url
     $.ajax(squats_url).success((squats)->
       window.squats = squats
       addSquat squat for squat in squats
+      openSquatFromHash()
     )
 
   $('#geocode').click (e) ->

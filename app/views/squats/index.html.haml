@@ -3,11 +3,23 @@
 
 - content_for :menu_right do
   %li
-    %a#legend_menu{href: "#"}= t(:legend)
+    %a.dynamic_menu{href: "#legend"}= t(:legend)
+  %li
+    %a.dynamic_menu{href: "#sidebar"}= Squat.model_name.human(:count => 2)
 
 = render("shared/legend")
 
-#map.full{ data: { squats_url: city_squats_path(@city, format: :json), mode: :index, latlng: @city.latlng, bounds: @city.squat_bounds, zoom: 10 } }
+#sidebar.full-height
+  #squat_list
+    %h2= Squat.model_name.human(:count => 2)
+    - @squats.group_by{ |u| u.name[0] }.each do |alpha, squats|
+      %h3= alpha
+      %ul
+        - squats.each do |squat|
+          %li
+            %a{href: '#' + squat.slug}= squat.name
+
+#map.full-height{ data: { squats_url: city_squats_path(@city, format: :json), mode: :index, latlng: @city.latlng, bounds: @city.squat_bounds, zoom: 10 } }
 
 - content_for :footer do
   %nav#footer.navbar.navbar-default.navbar-fixed-bottom

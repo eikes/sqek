@@ -65,11 +65,13 @@ de:
 
   activerecord:
     models:
-      squat: Squat
       period: Zeitraum
       city:
         one: Stadt
         other: Städte
+      squat:
+        one: Squat
+        other: Squats
     attributes:
       squat:
         name: "Name"

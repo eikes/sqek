@@ -7,7 +7,7 @@ class SquatsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @squats = @city.squats.includes(:periods)
+    @squats = @city.squats.includes(:periods).order(:name)
     respond_with(@squats)
   end
 

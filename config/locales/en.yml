@@ -77,3 +77,6 @@ en:
       city:
         one: City
         other: Cities
+      squat:
+        one: Squat
+        other: Squats

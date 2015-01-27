@@ -18,25 +18,30 @@ addSquat = (squat) ->
     m = L.marker squat.latlng
     if (squat.icon)
       m.setIcon getIcon(squat.icon)
-    m.bindPopup squat.popup
     m.on "click", (e) ->
       document.location.hash = squat.slug
     m.addTo map
     squat.marker = m
 
+popup = L.popup()
+
 openSquatFromHash = ->
-  hash = document.location.hash.replace('#','')
-  for squat in squats when squat.slug == hash
-    squat.marker.openPopup()
+  slug = document.location.hash.replace '#', ''
+  for squat in squats when squat.slug == slug
+    popup.setLatLng squat.latlng
+    popup.setContent squat.popup
+    popup.openOn map
+    map.panTo squat.latlng
+
+$(window).on "hashchange", openSquatFromHash
 
 $(->
   squats_url = $("#map").data("squats-url")
   if squats_url
-    $.ajax(squats_url).success((squats)->
+    $.ajax(squats_url).success (squats) ->
       window.squats = squats
       addSquat squat for squat in squats
       openSquatFromHash()
-    )
 
   $('#geocode').click (e) ->
     e.preventDefault()
@@ -98,8 +103,8 @@ $(->
       showSquatsInYear(year)
   )
 
-  $('#legend_menu').click( (e) ->
+  $('.dynamic_menu').click( (e) ->
     e.preventDefault()
-    $('#legend').toggle()
+    $($(this).attr("href")).toggle()
   )
 )

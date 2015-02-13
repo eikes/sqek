@@ -50,12 +50,11 @@ $(->
       url: "http://nominatim.openstreetmap.org/search.php?format=json&q=" + address,
       dataType: "jsonp",
       jsonp: "json_callback"
-    }).success((data)->
-    if data.length
-      latlng = {lat: data[0].lat, lng: data[0].lon}
-      update_marker latlng
-      map.panTo latlng
-    )
+    }).success (data) ->
+      if data.length
+        latlng = {lat: data[0].lat, lng: data[0].lon}
+        update_marker latlng
+        map.panTo latlng
 
   $('#set-lat-lng').click (e) ->
     e.preventDefault()

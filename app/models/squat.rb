@@ -6,9 +6,14 @@ class Squat < ActiveRecord::Base
 
   has_many :periods, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name,
+            :lat,
+            :lng,
+            presence: true
 
-  validates :slug, presence: true, uniqueness: true
+  validates :slug,
+            presence: true,
+            uniqueness: true
 
   validates_associated :periods
 

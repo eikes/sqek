@@ -4,7 +4,13 @@ class City < ActiveRecord::Base
 
   has_many :squats
 
-  validates :slug, presence: true, uniqueness: true
+  validates :slug,
+            presence: true,
+            uniqueness: true
+
+  validates :lat,
+            :lng,
+            presence: true
   
   friendly_id :name, use: :slugged
 

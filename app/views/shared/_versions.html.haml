@@ -14,7 +14,7 @@
         %tr
           %td= version.id
           %td= version.created_at
-          %td= User.find(version.whodunnit).email
+          %td= User.find(version.whodunnit).email unless version.whodunnit.nil?
           %td.version-diff
             .show-diff.btn.btn-default
               = t(:show_diff)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112002932) do
+ActiveRecord::Schema.define(version: 20150213152647) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20150112002932) do
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true
 
+  create_table "images", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
   create_table "periods", force: :cascade do |t|
     t.integer  "squat_id"
     t.integer  "start_year"

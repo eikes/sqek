@@ -46,6 +46,9 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
+gem 'carrierwave'
+gem 'pry', '~> 0.10.1'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

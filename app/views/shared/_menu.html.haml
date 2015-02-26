@@ -11,7 +11,7 @@
     .collapse.navbar-collapse#main-nav-inner
       %ul.nav.navbar-nav
         %li.dropdown
-          %a.dropdown-toggle{ href:"#", "data-toggle": "dropdown", role: "button", "aria-expanded": "false" }
+          %a.dropdown-toggle{ href:"#", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false" }
             = City.model_name.human(:count => 2)
             %span.caret
           %ul.dropdown-menu{ role: "menu" }

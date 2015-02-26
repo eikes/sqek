@@ -12,6 +12,8 @@ class Squat < ActiveRecord::Base
 
   validates_associated :periods
 
+  has_and_belongs_to_many :images
+
   # has at least one period
   validate do
     errors.add(:base, I18n.t(:at_least_one_period_error)) if periods.empty?

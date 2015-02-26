@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20150224232548) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "images_squats", id: false, force: :cascade do |t|
+    t.integer "image_id", null: false
+    t.integer "squat_id", null: false
+  end
+
   create_table "periods", force: :cascade do |t|
     t.integer  "squat_id"
     t.integer  "start_year"

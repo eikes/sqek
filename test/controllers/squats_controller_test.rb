@@ -4,7 +4,7 @@ class SquatsControllerTest < ActionController::TestCase
 
   setup do
     @city = cities(:berlin)
-    @squat = squats(:one)
+    @squat = squats(:kopi)
   end
 
   test "should get index" do
@@ -24,7 +24,6 @@ class SquatsControllerTest < ActionController::TestCase
     assert_difference('Squat.count') do
       post :create, locale: :en, city_id: @city.id, squat: { body: @squat.body, lat: @squat.lat, lng: @squat.lng, name: @squat.name, periods_attributes: [ { start_year: 2000 } ] }
     end
-
     assert_redirected_to city_squat_path(@city, assigns(:squat))
   end
 

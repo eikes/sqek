@@ -1,15 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: Haushaus
-  body: MyText
-  lat: 52.512
-  lng: 13.512
+kopi:
+  name: "Köpi"
+  slug: kopi
   city: berlin
-
-two:
-  name: Bude
-  body: MyText
-  lat: 52.622
-  lng: 13.622
-  city: berlin
+  lat: 52.5077
+  lng: 13.426

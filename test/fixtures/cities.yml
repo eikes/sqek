@@ -2,12 +2,6 @@
 
 berlin:
   name: Berlin
-  body: Wall was here
-  lat: 52.52
-  lng: 13.39
-
-london:
-  name: London
-  body: Sex Pistols
-  lat: 1.5123
-  lng: 1.5123
+  slug: berlin
+  lat: 52.516
+  lng: 13.383

@@ -15,7 +15,7 @@
       .col-md-4
         %p
           &nbsp;
-        %a.btn.btn-default#geocode{"data-city-name": @city.name}
+        %a.btn.btn-default#geocode{"data-city-name" => @city.name}
           = t(:geocode_address)
 
     = f.input :body

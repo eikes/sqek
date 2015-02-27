@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224232548) do
+ActiveRecord::Schema.define(version: 20150226172633) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -24,19 +24,6 @@ ActiveRecord::Schema.define(version: 20150224232548) do
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true
-
-  create_table "images", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "images_squats", id: false, force: :cascade do |t|
-    t.integer "image_id", null: false
-    t.integer "squat_id", null: false
-  end
 
   create_table "periods", force: :cascade do |t|
     t.integer  "squat_id"
@@ -51,6 +38,19 @@ ActiveRecord::Schema.define(version: 20150224232548) do
   end
 
   add_index "periods", ["squat_id"], name: "index_periods_on_squat_id"
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "picture"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "pictures_squats", id: false, force: :cascade do |t|
+    t.integer "picture_id", null: false
+    t.integer "squat_id",   null: false
+  end
 
   create_table "squats", force: :cascade do |t|
     t.string   "name"

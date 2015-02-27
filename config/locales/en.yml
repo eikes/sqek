@@ -88,3 +88,6 @@ en:
       squat:
         one: Squat
         other: Squats
+      picture:
+        one: Picture
+        other: Picture

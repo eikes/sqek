@@ -64,3 +64,20 @@ squat_2.save
 squat_3.save
 
 
+# tommy = Squat.new(
+#   name: "Tommy-Weisbecker-Haus",
+#   slug: "tommy-weisbecker-haus",
+#   city: berlin,
+#   lat: 52.5013,
+#   lng: 13.389
+# )
+# tommy.save(validate: false)
+# Period.create(
+#   start_year: 1973,
+#   start_month: 3,
+#   squat: tommy
+# )
+
+squat_1.pictures.create({title: "Pic1", description: "Awesome pic", picture: "foo.jpg"})
+squat_2.pictures.create({title: "pic2", description: "Awesome pic2", picture: "foo2.jpg"})
+

@@ -3,7 +3,7 @@ class Squat < ActiveRecord::Base
   extend FriendlyId
 
   belongs_to :city
-
+  has_and_belongs_to_many :pictures
   has_many :periods, dependent: :destroy
 
   validates :name,
@@ -17,7 +17,6 @@ class Squat < ActiveRecord::Base
 
   validates_associated :periods
 
-  has_and_belongs_to_many :images
 
   # has at least one period
   validate do

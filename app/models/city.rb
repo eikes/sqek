@@ -3,6 +3,7 @@ class City < ActiveRecord::Base
   extend FriendlyId
 
   has_many :squats
+  has_many :pictures, through: :squats
 
   validates :slug,
             presence: true,

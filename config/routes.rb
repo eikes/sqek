@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   scope "/:locale" do
     devise_for :users
     resources :cities do
+      resources :pictures
       resources :squats do
         member do
           get 'version/:version_id', action: :version, as: 'version'

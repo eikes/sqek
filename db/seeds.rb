@@ -37,3 +37,6 @@ Period.create(
   start_month: 3,
   squat: tommy
 )
+
+kopi.pictures.create({title: "Pic1", description: "Awesome pic", picture: "foo.jpg"})
+tommy.pictures.create({title: "pic2", description: "Awesome pic2", picture: "foo2.jpg"})

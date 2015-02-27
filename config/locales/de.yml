@@ -72,6 +72,9 @@ de:
       squat:
         one: Squat
         other: Squats
+      picture:
+        one: Foto
+        other: Fotos
     attributes:
       squat:
         name: "Name"

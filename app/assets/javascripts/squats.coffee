@@ -25,17 +25,24 @@ addSquat = (squat) ->
 
 popup = L.popup()
 
-openSquatFromHash = ->
+opening_popup = false
+$(window).on "hashchange", ->
   slug = document.location.hash.replace '#', ''
-  for squat in squats when squat.slug == slug
-    popup.setLatLng squat.latlng
-    popup.setContent squat.popup
-    popup.openOn map
-    map.panTo squat.latlng
-
-$(window).on "hashchange", openSquatFromHash
+  if slug.length == 0
+    map.closePopup()
+  if slug.length > 0
+    for squat in squats when squat.slug == slug
+      popup.setLatLng squat.latlng
+      popup.setContent squat.popup
+      opening_popup = true
+      popup.openOn map
+      opening_popup = false
 
 $(->
+  map.on "popupclose", (e) ->
+    if !opening_popup
+      document.location.hash = ""
+
   squats_url = $("#map").data("squats-url")
   if squats_url
     $.ajax(squats_url).success (squats) ->

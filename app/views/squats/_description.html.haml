@@ -11,7 +11,7 @@
     .period
       = simple_format p.to_s
 
--unless squat.tags.empty?
+-unless squat.tags.blank?
   .tags
     %h5= t(:tags)
     %ul

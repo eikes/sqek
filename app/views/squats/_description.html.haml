@@ -6,8 +6,13 @@
   = link_to squat.link, squat.link, class: :link
 
 .periods
-  %h5
-    = t(:squat_period)
+  %h5= t(:squat_period)
   - squat.periods.each do |p|
     .period
       = simple_format p.to_s
+
+.tags
+  %h5= t(:tags)
+  %ul
+    - squat.tags.try(:each) do |tag|
+      %li= t(tag.to_sym)

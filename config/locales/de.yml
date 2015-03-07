@@ -48,6 +48,10 @@ de:
   invalid_link_url: "Der link ist ungültig. Der link muss mit http:// oder https:// anfangen."
   legend: "Legende"
   squatted_after: "Besetzt nach"
+  tags: "Bemerkungen"
+  uncertain_date: "Ungefähres Datum"
+  uncertain_location: "Ungefährer Ort"
+  social_center: "Soziales Zentrum"
   # periods
   squat_period: "Besetzungszeitraum"
   remove_period: "Zeitraum entfernen"

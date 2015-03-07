@@ -1,10 +1,18 @@
 class Squat < ActiveRecord::Base
 
+  TAGS = [
+    'uncertain_date',
+    'uncertain_location',
+    'social_center',
+  ]
+
   extend FriendlyId
 
   belongs_to :city
 
   has_many :periods, dependent: :destroy
+
+  serialize :tags, JSON
 
   validates :name,
             :lat,
@@ -51,11 +59,21 @@ class Squat < ActiveRecord::Base
     end
   end
 
+  before_save :clean_tags
+
   accepts_nested_attributes_for :periods, allow_destroy: true
   
   friendly_id :name, use: [:slugged, :finders]
 
   has_paper_trail
+
+  def self.form_tags
+    TAGS.map { |tag| [I18n.t(tag), tag] }
+  end
+
+  def clean_tags
+    tags.reject! { |t| t.blank? }
+  end
 
   def latlng
     lat && lng ? [lat, lng] : nil

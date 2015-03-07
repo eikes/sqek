@@ -50,6 +50,8 @@
           = p.link_to_remove t(:remove_period), class: "pull-right"
       = f.link_to_add t(:add_period), :periods
 
+    = f.input :tags, collection: Squat.form_tags, as: :check_boxes, label: t(:tags)
+
   .form-actions.btn-group
     = f.button :submit, value: t(:update_squat), class: "btn btn-default"
     - if @squat.id?

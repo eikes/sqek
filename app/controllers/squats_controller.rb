@@ -67,6 +67,7 @@ class SquatsController < ApplicationController
 
     def squat_params
       params.require(:squat).permit(:name, :body, :link, :address, :lat, :lng,
+        tags: [],
         periods_attributes: [:id, 
           :start_year, :start_month, :start_day, 
           :end_year, :end_month, :end_day, 

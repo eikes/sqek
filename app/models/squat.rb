@@ -4,6 +4,7 @@ class Squat < ActiveRecord::Base
     'uncertain_date',
     'uncertain_location',
     'social_center',
+    'self_evicted'
   ]
 
   extend FriendlyId

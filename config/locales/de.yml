@@ -52,6 +52,7 @@ de:
   uncertain_date: "Ungefähres Datum"
   uncertain_location: "Ungefährer Ort"
   social_center: "Soziales Zentrum"
+  self_evicted: "Selbst geräumt"
   # periods
   squat_period: "Besetzungszeitraum"
   remove_period: "Zeitraum entfernen"

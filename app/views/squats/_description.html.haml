@@ -11,8 +11,9 @@
     .period
       = simple_format p.to_s
 
-.tags
-  %h5= t(:tags)
-  %ul
-    - squat.tags.try(:each) do |tag|
-      %li= t(tag.to_sym)
+-unless squat.tags.empty?
+  .tags
+    %h5= t(:tags)
+    %ul
+      - squat.tags.try(:each) do |tag|
+        %li= t(tag.to_sym)

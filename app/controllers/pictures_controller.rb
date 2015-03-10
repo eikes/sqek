@@ -1,10 +1,16 @@
 class PicturesController < ApplicationController
   before_action :set_city
+  before_action :set_picture, only: [:update]
   load_and_authorize_resource
 
+  respond_to :html, :json
+
   def index
-    @pictures = Picture.all
-    #pictures deren squat_id(Squat) zu city gehört ()
+    @squats = @city.squats
+    @pictures = @city.pictures
+  end
+
+  def show
 
   end
 
@@ -13,8 +19,23 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.create(picture_params)
+    @picture = Picture.new(picture_params)
+    @picture.squats = @city.squats
+    @picture.save
+    flash[:notice] = "Picture created"
+
     redirect_to city_pictures_path(@city)
+  end
+
+  def update
+    @picture.update(picture_params)
+    flash[:notice] = "Picture updated"
+    redirect_to city_pictures_path(@city)
+  end
+
+  def destroy
+    @picture.destroy
+    respond_with(@picture, @city)
   end
 
   private
@@ -26,6 +47,10 @@ class PicturesController < ApplicationController
 
   def set_city
     @city = City.friendly.find(params[:city_id])
+  end
+
+  def set_picture
+    @picture = Picture.find(params[:id])
   end
 
 end

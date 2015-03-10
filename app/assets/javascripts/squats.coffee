@@ -26,7 +26,7 @@ addSquat = (squat) ->
 popup = L.popup()
 
 opening_popup = false
-$(window).on "hashchange", ->
+hashchange = ->
   slug = document.location.hash.replace '#', ''
   if slug.length == 0
     map.closePopup()
@@ -37,6 +37,7 @@ $(window).on "hashchange", ->
       opening_popup = true
       popup.openOn map
       opening_popup = false
+$(window).on "hashchange", hashchange
 
 $(->
   map.on "popupclose", (e) ->
@@ -48,7 +49,7 @@ $(->
     $.ajax(squats_url).success (squats) ->
       window.squats = squats
       addSquat squat for squat in squats
-      openSquatFromHash()
+      hashchange()
 
   $('#geocode').click (e) ->
     e.preventDefault()

@@ -71,6 +71,7 @@ group :development, :test do
 
   gem "pry-rails"
   gem "pry-byebug"
+  gem 'quiet_assets'
 end
 
 group :production do

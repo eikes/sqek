@@ -49,12 +49,12 @@ class Period < ActiveRecord::Base
 
     unless start_string.blank?
       if start_day.blank? and start_month.blank?
-        result << I18n.t(:squated_in_year, date: start_string)
+        result << I18n.t(:squatted_in_year, date: start_string)
       elsif start_day.blank?
-        result << I18n.t(:squated_in_month, date: start_string)
+        result << I18n.t(:squatted_in_month, date: start_string)
       else
         d = Date.new(start_year, start_month, start_day)
-        result << I18n.t(:squated_on_day, date: d.strftime(I18n.t('date.formats.long')))
+        result << I18n.t(:squatted_on_day, date: d.strftime(I18n.t('date.formats.long')))
       end
     end
 

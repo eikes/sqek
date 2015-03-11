@@ -51,6 +51,7 @@ en:
   invalid_link_url: "The link is invalid. Make sure it starts with http:// or https://"
   legend: "Legend"
   squatted_after: "Squatted after"
+  squatted_after_but_evicted: "Squatted after (now evicted)"
   tags: "Annotations"
   uncertain_date: "Uncertain date"
   uncertain_location: "Uncertain location"

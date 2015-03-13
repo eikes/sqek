@@ -2,6 +2,7 @@
 $(->
   # map setup
   map_div  = document.getElementById("map")
+  return unless map_div
   map_data = $(map_div).data()
   mode     = map_data.mode
 

@@ -1,6 +1,20 @@
 = simple_nested_form_for([@city, @picture]) do |f|
-  = f.label :picture
-  = f.input :title
-  = f.input :description
-  = f.file_field :picture
-  = f.submit
+
+  .control-group
+    = f.input :title
+    = f.input :description
+    = f.file_field :picture, style: "display: none"
+
+    .input-append
+      %input#file-display.form-control.uneditable-input{type: 'text'}
+      %a#upload-btn.btn.btn-default
+        %i.icon-upload-alt
+        Browse
+      
+
+  .form-actions.btn-group
+    = f.button :submit, class: "btn btn-default"
+    - if @picture.id?
+      = link_to t(:destroy), [@city, @picture], :method => :delete, :data => { :confirm => t(:confirm_question) }, class: "btn btn-default"
+      = link_to t(:show), [@city, @picture], class: "btn btn-default"
+    = link_to t(:back), city_pictures_path(@city), class: "btn btn-default"

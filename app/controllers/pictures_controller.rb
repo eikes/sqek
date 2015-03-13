@@ -35,7 +35,7 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture.destroy
-    respond_with(@picture, @city)
+    redirect_to city_pictures_path(@city)
   end
 
   private

@@ -15,7 +15,7 @@
       .col-md-4
         %p
           &nbsp;
-        %a.btn.btn-default#geocode{"data-city-name": @city.name}
+        %a.btn.btn-default#geocode{'data-source': '#squat_address', 'data-city-name': @city.name}
           = t(:geocode_address)
 
     = f.input :body
@@ -53,7 +53,7 @@
     = f.input :tags, collection: Squat.form_tags, as: :check_boxes, label: t(:tags)
 
   .form-actions.btn-group
-    = f.button :submit, value: t(:update_squat), class: "btn btn-default"
+    = f.button :submit, value: (@squat.id? ? t(:update_squat) : t(:create_squat)), class: "btn btn-default"
     - if @squat.id?
       = link_to t(:destroy), [@city, @squat], :method => :delete, :data => { :confirm => t(:confirm_question) }, class: "btn btn-default"
       = link_to t(:show), [@city, @squat], class: "btn btn-default"

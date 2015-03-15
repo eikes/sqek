@@ -3,6 +3,9 @@
 
   .form-inputs
     = f.input :name, label: t(:label_name)
+    %a.btn.btn-default#geocode{'data-source': '#city_name'}
+      = t(:geocode_address)
+
     = f.input :body, label: t(:label_body)
 
     - if @city.id?
@@ -10,11 +13,11 @@
     - else
       #map{ data: { mode: :create, latlng: [47, 11], zoom: 4, icon: get_default_icon } }
 
-    = f.input :lat, wrapper_html: {class: "hide"}
-    = f.input :lng, wrapper_html: {class: "hide"}
+    = f.input :lat, wrapper_html: { class: "hide" }
+    = f.input :lng, wrapper_html: { class: "hide" }
 
   .form-actions.btn-group
-    = f.button :submit, value: t(:update_city), class: "btn btn-default"
+    = f.button :submit, value: (@city.id? ? t(:update_city) : t(:create_city)), class: "btn btn-default"
     - if @city.id?
       = link_to t(:destroy), @city, :method => :delete, :data => { :confirm => t(:confirm_question) }, class: "btn btn-default"
       = link_to t(:show), @city, class: "btn btn-default"

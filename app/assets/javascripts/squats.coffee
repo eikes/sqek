@@ -51,19 +51,6 @@ $(->
       addSquat squat for squat in squats
       hashchange()
 
-  $('#geocode').click (e) ->
-    e.preventDefault()
-    address = $('#squat_address').val().replace("\n", ", ") + ", " + $(this).data("city-name")
-    $.ajax({
-      url: "http://nominatim.openstreetmap.org/search.php?format=json&q=" + address,
-      dataType: "jsonp",
-      jsonp: "json_callback"
-    }).success (data) ->
-      if data.length
-        latlng = {lat: data[0].lat, lng: data[0].lon}
-        update_marker latlng
-        map.panTo latlng
-
   $('#set-lat-lng').click (e) ->
     e.preventDefault()
     lat = parseFloat($('[name*=lat]').val().replace(",", "."))

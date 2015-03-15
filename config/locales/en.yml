@@ -39,6 +39,7 @@ en:
   # squat pages
   new_squat: 'New Squat'
   editing_squat: "Editing Squat"
+  create_squat: "Create Squat"
   update_squat: "Update Squat"
   back_to_city: 'Back to city'
   address: "Address"
@@ -76,6 +77,7 @@ en:
   # city pages
   new_city: "New City"
   editing_city: "Editing City"
+  create_city: "Create City"
   update_city: "Update City"
 
   activerecord:

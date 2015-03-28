@@ -89,16 +89,18 @@ $(->
       showSquatsInYear(ui.value)
   })
 
-  $('#all_years').change( ->
+  $('#all_years').change ->
     if $(this).is(":checked")
       showAllSquats()
     else
       year = $('#slider').slider("value")
       showSquatsInYear(year)
-  )
 
-  $('.dynamic_menu').click( (e) ->
+  $('.dynamic_menu').click (e) ->
     e.preventDefault()
     $($(this).attr("href")).toggle()
-  )
+  $('#legend_menu').click()
+  $('#close_legend').click (e) ->
+    $('#legend_menu').click()
+
 )

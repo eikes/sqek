@@ -1,6 +1,10 @@
 #legend
   %table
     %tr
+      %th{colspan:7}
+        = t(:legend)
+        %i#close_legend.glyphicon.glyphicon-remove.pull-right
+    %tr
       %th
         = t(:squatted_after)
       - ["1960", "1970", "1980", "1990", "2000", "2010"].each do |year|

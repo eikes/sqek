@@ -3,7 +3,7 @@
 
 - content_for :menu_right do
   %li
-    %a.dynamic_menu{href: "#legend"}= t(:legend)
+    %a.dynamic_menu#legend_menu{href: "#legend"}= t(:legend)
   %li
     %a.dynamic_menu{href: "#sidebar"}= Squat.model_name.human(:count => 2)
 

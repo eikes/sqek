@@ -38,6 +38,7 @@ class Ability
       can :manage, :all # logged in admin user
     elsif user.role == "user"
       can :manage, Squat # logged in regular user
+      can :update, City # logged in regular user
     else
     end
   end

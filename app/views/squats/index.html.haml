@@ -5,19 +5,26 @@
   %li
     %a.dynamic_menu#legend_menu{href: "#legend"}= t(:legend)
   %li
-    %a.dynamic_menu{href: "#sidebar"}= Squat.model_name.human(:count => 2)
+    %a.dynamic_menu{href: "#squat_list"}= Squat.model_name.human(:count => 2)
+  %li
+    %a.dynamic_menu{href: "#city_text"}= @city.name
 
 = render("shared/legend")
 
-#sidebar.full-height
-  #squat_list
-    %h2= Squat.model_name.human(:count => 2)
-    - @squats.group_by{ |u| u.name.upcase[0] }.each do |alpha, squats|
-      %h3= alpha
-      %ul
-        - squats.each do |squat|
-          %li
-            %a{href: '#' + squat.slug}= squat.name
+#sidebar
+  #squat_list.sidebar-content.full-height
+    .sidebar-inner-content
+      %h2= Squat.model_name.human(:count => 2)
+      - @squats.group_by{ |u| u.name.upcase[0] }.each do |alpha, squats|
+        %h3= alpha
+        %ul
+          - squats.each do |squat|
+            %li
+              %a{href: '#' + squat.slug}= squat.name
+  #city_text.sidebar-content.full-height
+    .sidebar-inner-content
+      %h2= @city.name
+      = simple_format @city.body
 
 #map.full-height{ data: { squats_url: city_squats_path(@city, format: :json), mode: :index, latlng: @city.latlng, bounds: @city.squat_bounds, zoom: 10 } }
 

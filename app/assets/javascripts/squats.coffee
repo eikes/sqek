@@ -98,7 +98,9 @@ $(->
 
   $('.dynamic_menu').click (e) ->
     e.preventDefault()
-    $($(this).attr("href")).toggle()
+    target = $(this).attr("href")
+    $("#sidebar .sidebar-content").not(target).hide()
+    $(target).toggle()
   $('#legend_menu').click()
   $('#close_legend').click (e) ->
     $('#legend_menu').click()

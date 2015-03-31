@@ -32,7 +32,7 @@ class CitiesController < ApplicationController
   def update
     @city.update(city_params)
     flash[:notice] = "City updated."
-    respond_with(@city)
+    redirect_to city_squats_path(@city)
   end
 
   def destroy

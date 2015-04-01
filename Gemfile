@@ -47,6 +47,8 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'carrierwave'
+gem "select2-rails"
+gem 'turbolinks'
 
 
 # Use Unicorn as the app server

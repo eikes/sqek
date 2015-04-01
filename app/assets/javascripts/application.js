@@ -19,5 +19,7 @@
 //= require jquery_nested_form
 //= require settings
 //= require resize
+//= require select2
 //= require map
+//= require turbolinks
 //= require_tree .

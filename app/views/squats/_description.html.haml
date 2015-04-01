@@ -1,4 +1,4 @@
-= simple_format squat.address, {}, wrapper_tag: "address"
+= simple_format squat.address, {}, wrapper_tag: "address" if squat.address != squat.name
 
 .body= sanitize squat.body
 

@@ -24,7 +24,7 @@
   #city_text.sidebar-content.full-height
     .sidebar-inner-content
       %h2= @city.name
-      = simple_format @city.body
+      = sanitize @city.body
 
 #map.full-height{ data: { squats_url: city_squats_path(@city, format: :json), mode: :index, latlng: @city.latlng, bounds: @city.squat_bounds, zoom: 10 } }
 

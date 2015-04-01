@@ -41,10 +41,6 @@
 #   squat: tommy
 # )
 #
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create!(email: "admin@admin.de", password: "password1", password_confirmation: "password1", role: "admin" )
 User.create!(email: "user@user.de", password: "password2", password_confirmation: "password2", role: "user" )
 

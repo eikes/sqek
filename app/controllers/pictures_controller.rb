@@ -20,7 +20,7 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
-    @picture.squats = @city.squats
+    @picture.squats = Squat.find(params[:picture][:squat_ids].delete_if { |squat| squat.empty? })
     @picture.save
     flash[:notice] = "Picture created"
 

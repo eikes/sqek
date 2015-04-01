@@ -1,5 +1,4 @@
-$(document).ready ->
-
+@prepareUploader = ->
   $realInputField = $('#picture_picture')
 
   $('#upload-btn').click (evt) ->
@@ -8,3 +7,6 @@ $(document).ready ->
 
   $realInputField.change ->
     $('#file-display').val $(@).val().replace(/^.*[\\\/]/, '')
+
+  $("#picture_squat_ids").select2()
+

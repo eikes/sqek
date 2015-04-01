@@ -17,6 +17,9 @@
 //= require leaflet
 //= require bootstrap
 //= require jquery_nested_form
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales
+//= require settings
 //= require resize
 //= require map
 //= require_tree .

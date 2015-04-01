@@ -14,6 +14,7 @@
  *= require_self
  *= require jquery-ui/slider
  *= require leaflet
+ *= require bootstrap-wysihtml5
  */
 
 //= depend_on_asset "layers.png"
@@ -40,10 +41,6 @@ label.boolean.optional.checkbox
   &.full
     margin-bottom: 0
 
-.form-actions,
-.btn-group
-  margin-bottom: 40px
-
 .periods
   .period
     p
@@ -64,7 +61,19 @@ div.city-icon
   margin-bottom: 0
 
 #main
+  padding: 0 0 40px 0
+#main.container
+  .alert
+    margin-top: 30px
+#main.container-fluid
   padding: 0
+  .alert
+    position: absolute
+    bottom: 50px
+    z-index: 1234
+    left: 50%
+    width: 300px
+    margin-left: -150px
 
 #footer
   text-align: center

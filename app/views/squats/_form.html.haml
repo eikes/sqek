@@ -18,7 +18,7 @@
         %a.btn.btn-default#geocode{'data-source': '#squat_address', 'data-city-name': @city.name}
           = t(:geocode_address)
 
-    = f.input :body
+    = f.input :body, as: :wysihtml5, label: t(:label_body)
     = f.input :link, as: :string
 
     .row

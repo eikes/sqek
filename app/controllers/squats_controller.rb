@@ -35,7 +35,7 @@ class SquatsController < ApplicationController
   def update
     @squat.update(squat_params)
     flash[:notice] = "Squat updated."
-    respond_with(@city, @squat)
+    redirect_to city_squats_path(@city, anchor: @squat.slug)
   end
 
   def destroy

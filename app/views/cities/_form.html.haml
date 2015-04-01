@@ -6,7 +6,7 @@
     %a.btn.btn-default#geocode{'data-source': '#city_name'}
       = t(:geocode_address)
 
-    = f.input :body, label: t(:label_body)
+    = f.input :body, as: :wysihtml5, label: t(:label_body)
 
     - if @city.id?
       #map{ data: { mode: :edit, latlng: @city.latlng, zoom: 8, icon: get_default_icon } }

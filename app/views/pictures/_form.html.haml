@@ -4,10 +4,12 @@
     = f.input :title
     = f.input :description
     = f.file_field :picture, style: "display: none"
+    = f.association :squats, collection: @city.squats
 
     .input-append
+      %label.select.optional.control-label{:for => "pictures"} Pictures
       %input#file-display.form-control.uneditable-input{type: 'text'}
-      %a#upload-btn.btn.btn-default
+      %a#upload-btn.btn.btn-default.browse
         %i.icon-upload-alt
         Browse
       
@@ -18,3 +20,6 @@
       = link_to t(:destroy), [@city, @picture], :method => :delete, :data => { :confirm => t(:confirm_question) }, class: "btn btn-default"
       = link_to t(:show), [@city, @picture], class: "btn btn-default"
     = link_to t(:back), city_pictures_path(@city), class: "btn btn-default"
+
+:javascript
+  prepareUploader()

@@ -21,7 +21,7 @@
               %li= link_to ( city.name + " (" + city.squats.count.to_s + ")" ), city_squats_path(city)
         - if can? :create, City
           %li= link_to t(:new_city), new_city_path
-        - if can?(:update, City) && @city
+        - if can?(:update, City) && @city && !@city.id.nil?
           %li= link_to t(:update_city), edit_city_path(@city)
         - if @city.present? and !@city.id.nil? and can? :create, Squat
           %li= link_to t(:new_squat), new_city_squat_path(@city)

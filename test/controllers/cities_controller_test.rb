@@ -46,7 +46,7 @@ class CitiesControllerTest < ActionController::TestCase
   test "should update city" do
     create_user_and_sign_in
     patch :update, locale: :en, id: @city, city: { body: @city.body, lat: @city.lat, lng: @city.lng, name: @city.name }
-    assert_redirected_to city_path(assigns(:city))
+    assert_redirected_to city_squats_path(@city)
   end
 
   test "should destroy city" do

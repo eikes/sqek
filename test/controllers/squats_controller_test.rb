@@ -22,7 +22,14 @@ class SquatsControllerTest < ActionController::TestCase
   test "should create squat" do
     create_user_and_sign_in
     assert_difference('Squat.count') do
-      post :create, locale: :en, city_id: @city.id, squat: { body: @squat.body, lat: @squat.lat, lng: @squat.lng, name: @squat.name, periods_attributes: [ { start_year: 2000 } ] }
+      post :create, locale: :en, city_id: @city.id, squat: {
+        body: @squat.body,
+        lat: @squat.lat,
+        lng: @squat.lng,
+        name: @squat.name,
+        periods_attributes: [ { start_year: 2000 } ],
+        tags: []
+      }
     end
     assert_redirected_to city_squat_path(@city, assigns(:squat))
   end
@@ -40,8 +47,15 @@ class SquatsControllerTest < ActionController::TestCase
 
   test "should update squat" do
     create_user_and_sign_in
-    patch :update, locale: :en, city_id: @city.id, id: @squat, squat: { body: @squat.body, lat: @squat.lat, lng: @squat.lng, name: @squat.name, periods_attributes: [ { start_year: 2000 } ] }
-    assert_redirected_to city_squat_path(@city, assigns(:squat))
+    patch :update, locale: :en, city_id: @city.id, id: @squat, squat: {
+      body: @squat.body,
+      lat: @squat.lat,
+      lng: @squat.lng,
+      name: @squat.name,
+      periods_attributes: [ { start_year: 2000 } ],
+      tags: []
+    }
+    assert_redirected_to city_squats_path(@city, anchor: @squat.slug)
   end
 
   test "should destroy squat" do

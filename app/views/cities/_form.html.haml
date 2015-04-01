@@ -7,7 +7,9 @@
       %a.btn.btn-default#geocode{'data-source': '#city_name'}
         = t(:geocode_address)
 
-    = f.input :body, as: :wysihtml5, label: t(:label_body)
+    = tinymce_assets
+    = f.text_area :body, class: 'tinymce', rows: 20, cols: 120, label: t(:label_body)
+    = tinymce
 
     - if can?(:update_city_location, @city)
       - if @city.id?

@@ -1,6 +1,6 @@
 = simple_format squat.address, {}, wrapper_tag: "address"
 
-= simple_format squat.body, class: :body
+.body= sanitize squat.body
 
 - if squat.link
   = link_to squat.link, squat.link, class: :link, target: '_blank'

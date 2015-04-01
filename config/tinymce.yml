@@ -1,0 +1,7 @@
+toolbar:
+  - bold italic underline strikethrough | blockquote | bullist numlist | link | undo redo | code
+plugins:
+  - link
+  - code
+menubar: false
+statusbar: false

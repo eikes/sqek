@@ -41,7 +41,7 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:title, :description, :picture)
+    params.require(:picture).permit(:title, :description, :picture, squat_ids: [])
   end
 
 

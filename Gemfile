@@ -58,7 +58,6 @@ gem 'turbolinks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development do
-  gem 'quiet_assets'
   gem 'awesome_print', require: 'ap'
 end
 

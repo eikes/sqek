@@ -51,6 +51,10 @@ gem 'mini_magick'
 gem "select2-rails"
 gem 'turbolinks'
 
+source 'https://rails-assets.org/' do
+  gem 'rails-assets-lightbox'
+end
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

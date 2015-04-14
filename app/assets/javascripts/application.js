@@ -22,4 +22,5 @@
 //= require select2
 //= require map
 //= require turbolinks
+//= require lightbox
 //= require_tree .

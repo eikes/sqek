@@ -4,6 +4,3 @@
 
 - if can? :update, squat
   = link_to t(:edit), edit_city_squat_path(squat.city, squat)
-- squat.pictures.each do |picture|
-  = link_to(picture.picture_url, "data-lightbox" => "picture") do
-    = image_tag(picture.picture_url(:thumb), size: "40x40")

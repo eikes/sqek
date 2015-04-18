@@ -17,3 +17,8 @@
     %ul
       - squat.tags.try(:each) do |tag|
         %li= t(tag.to_sym)
+
+.pictures
+  - squat.pictures.each do |picture|
+    = link_to(picture.picture_url, "data-lightbox" => "picture", class: 'picture') do
+      = image_tag(picture.picture_url(:thumb), size: '100x100')

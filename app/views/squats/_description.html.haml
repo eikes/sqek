@@ -20,5 +20,8 @@
 
 .pictures
   - squat.pictures.each do |picture|
-    = link_to(picture.picture_url, "data-lightbox" => "picture", class: 'picture') do
-      = image_tag(picture.picture_url(:thumb), size: '100x100')
+    %figure.picture
+      = link_to(picture.picture_url, data: { lightbox: 'picture', title: picture.title }) do
+        = image_tag(picture.picture_url(:thumb), size: '95x95')
+      %figcaption
+        = picture.title

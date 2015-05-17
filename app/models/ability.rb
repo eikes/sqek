@@ -35,11 +35,14 @@ class Ability
     can :read, City
 
     if user.role == "admin"
-      can :manage, :all # logged in admin user
+      # logged in admin user
+      can :manage, :all
       can :update_location, City
     elsif user.role == "user"
-      can :manage, Squat # logged in regular user
-      can :update, City # logged in regular user
+      # logged in regular user
+      can :manage, Squat
+      can :update, City
+      can :manage, Picture
     else
     end
   end

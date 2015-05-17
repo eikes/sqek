@@ -1,14 +1,15 @@
-- squat_names = []
-- squat_names << @picture.squats.map {|squat| squat.name}
-
 .row
   = image_tag(@picture.picture_url(:show))
 .row
   %h2
     = @picture.title
-  = "(Squats: #{squat_names.join(', ')})"
-  %br
   = @picture.description
+.row
+  %h3
+    Squats
+  %ul
+    - @picture.squats.each do |squat|
+      %li= link_to squat.name, city_squat_path(squat.city, squat)
 .row
   = link_to t(:edit), edit_city_picture_path(@city, @picture), class: "btn btn-default"
   = link_to t(:destroy), [@city, @picture], method: :delete, data: {confirm: t(:confirm_question)}, class: "btn btn-default"

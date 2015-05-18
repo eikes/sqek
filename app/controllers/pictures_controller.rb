@@ -15,6 +15,9 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    if params[:squat_id]
+      @picture.squats << Squat.find(params[:squat_id])
+    end
   end
 
   def create

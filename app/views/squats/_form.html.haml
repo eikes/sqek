@@ -61,4 +61,4 @@
     - if @squat.id?
       = link_to t(:destroy), [@city, @squat], :method => :delete, :data => { :confirm => t(:confirm_question) }, class: "btn btn-default"
       = link_to t(:show), [@city, @squat], class: "btn btn-default"
-    = link_to t(:back_to_city), city_squats_path(@city), class: "btn btn-default"
+    = link_to t(:back_to_city), city_squats_path(@city, anchor: @squat.slug), class: "btn btn-default"

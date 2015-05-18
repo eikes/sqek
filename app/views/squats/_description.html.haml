@@ -27,6 +27,3 @@
           = image_tag(picture.picture_url(:thumb), size: '95x95')
         %figcaption
           = can?(:update, Picture) ? link_to(picture.title, city_picture_path(squat.city, picture)) : picture.title
-
-- if can? :create, Picture
-  = link_to t(:upload_picture), new_city_picture_path(squat.city, squat_id: squat.id), class: "btn btn-default"

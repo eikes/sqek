@@ -38,6 +38,7 @@ de:
   menu_cities: "Alle Städte"
   # squat pages
   new_squat: 'Neues Squat'
+  edit_squat: "Squat Bearbeiten"
   editing_squat: "Squat Bearbeiten"
   create_squat: "Squat Erstellen"
   update_squat: "Squat Speichern"

@@ -38,6 +38,7 @@ en:
   menu_cities: "All Cities"
   # squat pages
   new_squat: 'New Squat'
+  editing_squat: "Edit Squat"
   editing_squat: "Editing Squat"
   create_squat: "Create Squat"
   update_squat: "Update Squat"

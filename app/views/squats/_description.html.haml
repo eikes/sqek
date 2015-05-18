@@ -18,11 +18,12 @@
       - squat.tags.try(:each) do |tag|
         %li= t(tag.to_sym)
 
-.pictures
-  %h5= t(:pictures)
-  - squat.pictures.each do |picture|
-    %figure.picture
-      = link_to(picture.picture_url, data: { lightbox: 'picture', title: picture.title }) do
-        = image_tag(picture.picture_url(:thumb), size: '95x95')
-      %figcaption
-        = can?(:update, Picture) ? link_to(picture.title, city_picture_path(squat.city, picture)) : picture.title
+-unless squat.pictures.blank?
+  .pictures
+    %h5= t(:pictures)
+    - squat.pictures.each do |picture|
+      %figure.picture
+        = link_to(picture.picture_url, data: { lightbox: 'picture', title: picture.title }) do
+          = image_tag(picture.picture_url(:thumb), size: '95x95')
+        %figcaption
+          = can?(:update, Picture) ? link_to(picture.title, city_picture_path(squat.city, picture)) : picture.title

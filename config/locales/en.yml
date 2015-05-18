@@ -58,9 +58,13 @@ en:
   uncertain_location: "Uncertain location"
   social_center: "Social center"
   self_evicted: "Self evicted"
+  picture: "Picture"
   pictures: "Pictures"
+  title: "Title"
+  description: "Description"
   all_pictures: "All Pictures"
   upload_pictures: "Upload Pictures"
+  browse: "Browse"
   # periods
   start_year: "Start year"
   start_month: "Start month"

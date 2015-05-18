@@ -58,9 +58,13 @@ de:
   uncertain_location: "Ungefährer Ort"
   social_center: "Soziales Zentrum"
   self_evicted: "Selbst geräumt"
+  picture: "Bild"
   pictures: "Bilder"
+  title: "Titel"
+  description: "Beschreibung"
   all_pictures: "Alle Bilder"
   upload_pictures: "Bilder hochladen"
+  browse: "Durchsuchen"
   # periods
   squat_period: "Besetzungszeitraum"
   remove_period: "Zeitraum entfernen"

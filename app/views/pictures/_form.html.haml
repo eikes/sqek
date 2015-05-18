@@ -1,17 +1,17 @@
 = simple_nested_form_for([@city, @picture]) do |f|
 
   .control-group
-    = f.input :title
-    = f.input :description
+    = f.input :title, label: t(:title)
+    = f.input :description, label: t(:description)
     = f.file_field :picture, style: "display: none"
     = f.association :squats, collection: @city.squats
 
     .input-append
-      %label.select.optional.control-label{:for => "pictures"} Pictures
-      %input#file-display.form-control.uneditable-input{type: 'text'}
+      %label.select.optional.control-label{:for => "pictures"}= t(:picture)
+      %input#file-display.form-control.uneditable-input{type: 'text', readonly: true}
       %a#upload-btn.btn.btn-default.browse
         %i.icon-upload-alt
-        Browse
+        = t(:browse)
 
   .form-actions.btn-group
     = f.button :submit, class: "btn btn-default"

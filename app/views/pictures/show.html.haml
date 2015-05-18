@@ -1,8 +1,9 @@
 .row
-  = image_tag(@picture.picture_url(:show))
-.row
   %h2
     = @picture.title
+.row
+  = image_tag(@picture.picture_url(:show))
+.row
   = @picture.description
 .row
   %h3

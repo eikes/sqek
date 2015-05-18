@@ -1,19 +1,12 @@
-- squat_names = []
-
-%h1 All pictures of #{@city.name} (#{@pictures.count} in total)
-- @pictures.uniq.each do |picture|
-  - squat_names << picture.squats.map {|squat| squat.name}.join(', ')
+%h1
+  = link_to @city.name, city_squats_path(@city)
+  = t(:pictures)
+- @pictures.uniq.each_slice(4) do |row|
   .row
-    .col-md-4
-      %h2
-        = "#{picture.title}"
-      = "(Squats: #{squat_names.uniq.join(', ')})"
-      %br  
-        = picture.description
-      
-
-    .col-md-4
-      = image_tag(picture.picture_url(:index), class: "img-rounded")
-    .col-md-4
-      = link_to t(:edit), edit_city_picture_path(@city, picture), class: "btn btn-default"
-      = link_to t(:destroy), [@city, picture], method: :delete, data: {confirm: t(:confirm_question)}, class: "btn btn-default"
+    - row.each do |picture|
+      .picture.col-md-3
+        %h2= link_to picture.title, city_picture_path(@city, picture)
+        = image_tag picture.picture_url(:thumb)
+        %p= picture.description
+        - picture.squats.each do |squat|
+          = link_to squat.name, city_squat_path(@city, squat)

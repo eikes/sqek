@@ -31,6 +31,9 @@ de:
   latitude: Latitude
   longitude: Longitude
   all_years: Alle Jahre
+  # general labels
+  label_name: "Name"
+  label_body: "Beschreibung"
   # menu
   menu_cities: "Alle Städte"
   # squat pages

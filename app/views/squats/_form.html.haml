@@ -13,26 +13,27 @@
       .col-md-8
         = f.input :address, as: :text
       .col-md-4
-        %p
+        %label(style='display: block')
           &nbsp;
         %a.btn.btn-default#geocode{'data-source' => '#squat_address', 'data-city-name' => @city.name}
           = t(:geocode_address)
+
+    .row
+      .col-md-4
+        = f.input :lat, label: t(:latitude), as: :string
+      .col-md-4
+        = f.input :lng, label: t(:longitude), as: :string
+      .col-md-4
+        %label(style='display: block')
+          &nbsp;
+        %a.btn.btn-default#set-lat-lng
+          = t(:set_lat_lng)
 
     = tinymce_assets
     = f.text_area :body, class: 'tinymce', rows: 20, cols: 120, label: t(:label_body)
     = tinymce
 
     = f.input :link, as: :string
-
-    .row
-      .col-md-8
-        = f.input :lat, label: t(:latitude), as: :string
-        = f.input :lng, label: t(:longitude), as: :string
-      .col-md-4
-        %p
-          &nbsp;
-        %a.btn.btn-default#set-lat-lng
-          = t(:set_lat_lng)
     .row
       .col-md-8
         = link_to "Upload new Picture", new_city_picture_path(@city), class: "btn btn-default"

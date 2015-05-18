@@ -39,20 +39,23 @@
       %h2= t(:squat_period)
       = f.simple_fields_for :periods do |p|
         .period.row
-          .col-md-2
+          .col-md-1
             = p.input :start_day, collection: (1..31).to_a
           .col-md-2
             = p.input :start_month, collection: (1..12).to_a.map{|i| [I18n.t("date.month_names")[i], i]}
           .col-md-2
             = p.input :start_year
-          .col-md-2
+          .col-md-1
             = p.input :end_day, collection: (1..31).to_a
           .col-md-2
             = p.input :end_month, collection: (1..12).to_a.map{|i| [I18n.t("date.month_names")[i], i]}
           .col-md-2
             = p.input :end_year
-          = p.link_to_remove t(:remove_period), class: "pull-right"
-      = f.link_to_add t(:add_period), :periods
+          .col-md-2
+            %label(style='display: block')
+              &nbsp;
+            = p.link_to_remove t(:remove_period), data: { confirm: t(:confirm_question) }, class: "pull-right btn btn-danger btn-xs"
+      = f.link_to_add t(:add_period), :periods, class: "btn btn-primary btn-xs"
 
     = f.input :tags, collection: Squat.form_tags, as: :check_boxes, label: t(:tags)
 

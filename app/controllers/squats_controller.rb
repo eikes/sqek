@@ -7,7 +7,10 @@ class SquatsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @squats = @city.squats.includes(:periods).order(:name)
+    @squats = @city.squats
+                   .includes(:periods)
+                   .includes(:pictures)
+                   .order(:name)
     respond_with(@squats)
   end
 
@@ -68,9 +71,9 @@ class SquatsController < ApplicationController
     def squat_params
       params.require(:squat).permit(:name, :body, :link, :address, :lat, :lng,
         tags: [],
-        periods_attributes: [:id, 
-          :start_year, :start_month, :start_day, 
-          :end_year, :end_month, :end_day, 
+        periods_attributes: [:id,
+          :start_year, :start_month, :start_day,
+          :end_year, :end_month, :end_day,
           :_destroy])
     end
 end

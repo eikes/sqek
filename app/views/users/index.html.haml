@@ -1,0 +1,17 @@
+%h1 Listing users
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Email
+      %th Role
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.email, edit_user_path(user)
+        %td= user.role
+
+%br
+
+= link_to 'New User', new_user_path, class: 'btn btn-primary'

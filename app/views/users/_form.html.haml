@@ -1,0 +1,16 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email
+    = f.input :role, collection: {"Admin" => :admin, "User" => :user}
+    = f.input :password
+    = f.input :password_confirmation
+    .alert.alert-info
+      Leave both password fields blank if you dont want to change it
+
+  .form-actions.btn-group
+    = f.button :submit
+    - if @user.persisted?
+      = link_to 'Destroy', @user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+    = link_to 'Back', users_path, class: 'btn btn-default'

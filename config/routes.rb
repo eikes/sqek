@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
   scope "/:locale" do
     devise_for :users
+    scope "/admin" do
+      resources :users, except: 'show'
+    end
     resources :cities do
       resources :pictures
       resources :squats do

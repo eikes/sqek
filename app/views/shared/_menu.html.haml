@@ -25,7 +25,7 @@
           %li= link_to t(:update_city), edit_city_path(@city)
         - if @city.present? and !@city.id.nil? and can? :create, Squat
           %li= link_to t(:new_squat), new_city_squat_path(@city)
-        - if @city.present? and can? :create, Picture
+        - if @city.present? and @city.persisted? and can? :create, Picture
           %li.dropdown
             %a.dropdown-toggle{ href:"#", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false" }
               = t(:pictures)

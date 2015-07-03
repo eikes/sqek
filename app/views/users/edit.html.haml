@@ -1,3 +1,22 @@
 %h1 Editing user
 
 = render 'form'
+
+%h2
+  User stats
+
+%table.table.striped
+  %tr
+    %th Edits
+    %td= PaperTrail::Version.where(whodunnit: @user.id).count
+  %tr
+    %th Edited squats by city
+    - squat_ids = PaperTrail::Version.where(whodunnit: @user.id, item_type: 'Squat').select(:item_id).distinct
+    - city_ids = Squat.where(id: squat_ids).select(:city_id).distinct
+    - cities = City.where(id: city_ids)
+    %td
+      %table.table
+        - cities.each do |city|
+          %tr
+            %td= link_to(city.name, city_squats_path(city))
+            %td= Squat.where(id: squat_ids, city: city).count

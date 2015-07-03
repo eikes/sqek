@@ -40,7 +40,11 @@ class Ability
       can :update_location, City
     elsif user.role == "user"
       # logged in regular user
-      can :manage, Squat
+      can [:read, :update, :destroy], Squat, city: { id: user.cities.pluck(:id) }
+      can :create, Squat do |squat, city|
+        puts city
+        user.cities.include? city
+      end
       can :update, City
       can :manage, Picture
     else

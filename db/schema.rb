@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226172633) do
+ActiveRecord::Schema.define(version: 20150703134752) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20150226172633) do
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true
+
+  create_table "cities_users", id: false, force: :cascade do |t|
+    t.integer "city_id", null: false
+    t.integer "user_id", null: false
+  end
 
   create_table "periods", force: :cascade do |t|
     t.integer  "squat_id"

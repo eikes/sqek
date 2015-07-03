@@ -1,7 +1,8 @@
 class City < ActiveRecord::Base
-  
+
   extend FriendlyId
 
+  has_and_belongs_to_many :users
   has_many :squats
   has_many :pictures, through: :squats
 
@@ -12,7 +13,7 @@ class City < ActiveRecord::Base
   validates :lat,
             :lng,
             presence: true
-  
+
   friendly_id :name, use: :slugged
 
   has_paper_trail

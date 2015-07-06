@@ -42,7 +42,6 @@ class Ability
       # logged in regular user
       can [:read, :update, :destroy], Squat, city: { id: user.cities.pluck(:id) }
       can :create, Squat do |squat, city|
-        puts city
         user.cities.include? city
       end
       can :update, City

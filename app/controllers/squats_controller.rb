@@ -11,7 +11,12 @@ class SquatsController < ApplicationController
                    .includes(:periods)
                    .includes(:pictures)
                    .order(:name)
-    respond_with(@squats)
+                   
+    if @city.external_url == nil
+      respond_with(@squats)
+    else
+      redirect_to @city.external_url
+    end
   end
 
   def show

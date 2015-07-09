@@ -37,9 +37,14 @@
       %ul.nav.navbar-nav.navbar-right
         - if content_for?(:menu_right)
           = yield(:menu_right)
-        - I18n.available_locales.each do |l|
-          %li{ class: (l.to_s + " language-selector") }
-            = link_to l, locale: l
+        %li.dropdown
+          %a.dropdown-toggle{ href:"#", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false" }
+            %i.glyphicon.glyphicon-globe
+            %span.caret
+          %ul.dropdown-menu{ role: "menu" }
+            - I18n.available_locales.each do |l|
+              %li{ class: (l.to_s + " language-selector") }
+                = link_to language_for(l), locale: l
         - if can? :manage, User
           %li= link_to t(:users), users_path
         - if user_signed_in?

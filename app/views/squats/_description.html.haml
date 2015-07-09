@@ -1,25 +1,25 @@
 = simple_format squat.address, {}, wrapper_tag: "address" if squat.address != squat.name
 
-.body= sanitize squat.body
-
-- if squat.link
-  = link_to squat.link, squat.link, class: :link, target: '_blank'
-
-.periods
+.periods.squat-info
   %h5= t(:squat_period)
   - squat.periods.each do |p|
     .period
       = simple_format p.to_s
 
 -unless squat.tags.blank?
-  .tags
+  .tags.squat-info
     %h5= t(:tags)
     %ul
       - squat.tags.try(:each) do |tag|
         %li= t(tag.to_sym)
 
+.body= sanitize squat.body
+
+- if squat.link
+  = link_to squat.link, squat.link, class: :link, target: '_blank'
+
 -unless squat.pictures.blank?
-  .pictures
+  .pictures.squat-info
     %h5= t(:pictures)
     - squat.pictures.each do |picture|
       %figure.picture

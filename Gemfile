@@ -51,7 +51,7 @@ gem 'mini_magick'
 gem "select2-rails"
 
 source 'https://rails-assets.org/' do
-  gem 'rails-assets-lightbox'
+  gem 'rails-assets-lightbox', '~> 2.7.4'
 end
 
 

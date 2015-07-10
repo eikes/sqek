@@ -154,7 +154,7 @@ GEM
       railties (= 4.2.0)
       sprockets-rails
     rails-assets-jquery (2.1.4)
-    rails-assets-lightbox (2.8.0)
+    rails-assets-lightbox (2.7.4)
       rails-assets-jquery (~> 2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -258,7 +258,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.2.0)
-  rails-assets-lightbox!
+  rails-assets-lightbox (~> 2.7.4)!
   rails-i18n (~> 4.0.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

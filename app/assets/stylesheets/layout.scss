@@ -1,0 +1,14 @@
+ul#update li {
+  
+  list-style-type: none;
+
+    a {
+      color: #23527c;
+      text-decoration: none;
+    }
+
+    :hover, :focus, :visited, :active {
+      color: black;
+      text-decoration: none;
+    }
+}

@@ -30,9 +30,14 @@ class CitiesController < ApplicationController
   end
 
   def update
+    @cities = City.all
     @city.update(city_params)
     flash[:notice] = "City updated."
-    redirect_to city_squats_path(@city)
+    if @city.external_url
+      redirect_to cities_path
+    else
+      redirect_to city_squats_path(@city)
+    end
   end
 
   def destroy
@@ -46,6 +51,6 @@ class CitiesController < ApplicationController
     end
 
     def city_params
-      params.require(:city).permit(:name, :body, :lat, :lng)
+      params.require(:city).permit(:name, :body, :lat, :lng, :external_url)
     end
 end

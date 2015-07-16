@@ -3,6 +3,7 @@
 
   .form-inputs
     = f.input :name, label: t(:label_name)
+    = f.input :external_url, label: t(:external_url)
     - if can?(:update_city_location, @city)
       %a.btn.btn-default#geocode{'data-source': '#city_name'}
         = t(:geocode_address)

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  email: MyString
+  published: false
+  commentable_id: 
+  commentable_type: Commentable
+
+two:
+  title: MyString
+  body: MyText
+  email: MyString
+  published: false
+  commentable_id: 
+  commentable_type: Commentable

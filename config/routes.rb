@@ -24,7 +24,7 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :comments
+    resources :comments#, except: [:index, :show, :new]
   end
 
   # Example of regular route:

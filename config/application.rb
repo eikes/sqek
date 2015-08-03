@@ -25,5 +25,8 @@ module Sqek
     config.active_record.raise_in_transactional_callbacks = true
 
     config.app_generators.scaffold_controller :responders_controller
+    config.generators do |g|
+      g.stylesheets false
+    end
   end
 end

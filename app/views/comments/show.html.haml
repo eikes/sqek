@@ -8,11 +8,10 @@
   %b Email:
   = @comment.email
 %p
-  %b Published:
-  = @comment.published
-%p
-  %b Commentable:
-  = render partial: 'commentable_link', locals: { commentable: @comment.commentable }
+  %b
+    Comment on:
+    = link_to @comment.commentable.name, commentable_path(@comment.commentable)
+    = @comment.commentable.class
 
 .form-actions.btn-group
   = link_to 'Edit', edit_comment_path(@comment), class: 'btn btn-primary'

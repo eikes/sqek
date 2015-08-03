@@ -6,4 +6,4 @@
 - if can? :create, Picture
   = link_to t(:upload_picture), new_city_picture_path(squat.city, squat_id: squat.id), class: "btn btn-primary btn-xs"
 
-= render partial: "description", locals: {squat: squat}
+= render partial: "description", locals: { squat: squat, show_create_comment_link: true }

@@ -88,6 +88,9 @@ en:
   editing_city: "Editing City"
   create_city: "Create City"
   update_city: "Update City"
+  # comments
+  new_comment: "New comment"
+  new_comment_for: "New comment for"
 
   activerecord:
     models:
@@ -100,4 +103,7 @@ en:
       picture:
         one: Picture
         other: Pictures
+      comment:
+        one: Comment
+        other: Comments
 

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_commentable_from_params, only: [:new, :create]
+  before_action :set_commentable, except: [:new, :create, :index]
 
   load_and_authorize_resource
 
@@ -41,6 +43,16 @@ class CommentsController < ApplicationController
   private
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def set_commentable_from_params
+      type = params[:comment][:commentable_type]
+      id   = params[:comment][:commentable_id]
+      @commentable = type.constantize.find(id)
+    end
+
+    def set_commentable
+      @commentable = @comment.commentable
     end
 
     def comment_params

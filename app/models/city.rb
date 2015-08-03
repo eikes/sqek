@@ -5,6 +5,7 @@ class City < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :squats
   has_many :pictures, through: :squats
+  has_many :comments, as: :commentable
 
   validates :slug,
             presence: true,

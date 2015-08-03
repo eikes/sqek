@@ -5,13 +5,14 @@
     = f.input :title
     = f.input :body
     = f.input :email
-    = f.input :published
-    = f.input :commentable_id
-    = f.input :commentable_type, collection: ['City', 'Squat']
+    - unless @comment.persisted?
+      = f.input :commentable_id, as: :hidden, input_html: { value: params[:comment][:commentable_id] }
+      = f.input :commentable_type, as: :hidden, input_html: { value: params[:comment][:commentable_type] }
 
   .form-actions.btn-group
     = f.button :submit
     - if @comment.persisted?
       = link_to 'Destroy', @comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
-    = link_to 'Back', comments_path, class: 'btn btn-default'
+    - if can? :update, @comment
+      = link_to 'Back', comments_path, class: 'btn btn-default'
 

@@ -25,6 +25,7 @@
     .sidebar-inner-content
       %h2= @city.name
       = sanitize @city.body
+      = render partial: 'shared/comments', locals: { commentable: @city, show_create_comment_link: true }
 
 #map.full-height{ data: { squats_url: city_squats_path(@city, format: :json), mode: :index, latlng: @city.latlng, bounds: @city.squat_bounds, zoom: 10 } }
 

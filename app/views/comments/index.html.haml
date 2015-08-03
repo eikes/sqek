@@ -5,25 +5,19 @@
     %tr
       %th Title
       %th Body
+      %th Comment on
       %th Email
       %th Published
-      %th Commentable
-      %th
-      %th
-      %th
 
   %tbody
     - @comments.each do |comment|
       %tr
-        %td= comment.title
-        %td= comment.body
+        %td= link_to comment.title, comment
+        %td= truncate comment.body
+        %td= render partial: 'commentable_link', locals: { commentable: comment.commentable }
         %td= comment.email
         %td= comment.published
-        %td= comment.commentable
-        %td= link_to 'Show', comment
-        %td= link_to 'Edit', edit_comment_path(comment)
-        %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Comment', new_comment_path
+= link_to 'New Comment', new_comment_path, class: 'btn btn-primary'

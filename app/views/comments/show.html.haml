@@ -1,11 +1,9 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @comment.title
-%p
-  %b Body:
-  = @comment.body
+%h1= @comment.title
+
+.comment-body= @comment.body
+
 %p
   %b Email:
   = @comment.email
@@ -14,8 +12,9 @@
   = @comment.published
 %p
   %b Commentable:
-  = @comment.commentable
+  = render partial: 'commentable_link', locals: { commentable: @comment.commentable }
 
-= link_to 'Edit', edit_comment_path(@comment)
-\|
-= link_to 'Back', comments_path
+.form-actions.btn-group
+  = link_to 'Edit', edit_comment_path(@comment), class: 'btn btn-primary'
+  = link_to 'Destroy', @comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+  = link_to 'Back', comments_path, class: 'btn btn-default'

@@ -1,0 +1,5 @@
+- if commentable.class == City
+  = link_to commentable.name, commentable
+- if commentable.class == Squat
+  = link_to commentable.name, [commentable.city, commentable]
+= "(#{commentable.class})"

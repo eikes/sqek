@@ -6,7 +6,12 @@
     = f.input :body
     = f.input :email
     = f.input :published
-    = f.association :commentable
+    = f.input :commentable_id
+    = f.input :commentable_type, collection: ['City', 'Squat']
 
-  .form-actions
+  .form-actions.btn-group
     = f.button :submit
+    - if @comment.persisted?
+      = link_to 'Destroy', @comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+    = link_to 'Back', comments_path, class: 'btn btn-default'
+

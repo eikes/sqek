@@ -1,8 +1,7 @@
 class SquatsController < ApplicationController
-  before_action :set_squat, only: [:show, :edit, :update, :destroy, :version, :restore_version]
   before_action :set_city
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:new, :create]
 
   respond_to :html, :json
 
@@ -21,6 +20,7 @@ class SquatsController < ApplicationController
   def new
     @squat = Squat.new
     @squat.periods.build
+    authorize! :create, @squat, @city
     respond_with(@squat)
   end
 
@@ -30,6 +30,7 @@ class SquatsController < ApplicationController
   def create
     @squat = Squat.new(squat_params)
     @squat.city = @city
+    authorize! :create, @squat, @city
     @squat.save
     flash[:notice] = "Squat created."
     respond_with(@city, @squat)
@@ -60,9 +61,6 @@ class SquatsController < ApplicationController
   end
 
   private
-    def set_squat
-      @squat = Squat.find(params[:id])
-    end
 
     def set_city
       @city = City.friendly.find(params[:city_id])

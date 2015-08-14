@@ -23,7 +23,7 @@
           %li= link_to t(:new_city), new_city_path
         - if can?(:update, City) && @city && !@city.id.nil?
           %li= link_to t(:update_city), edit_city_path(@city)
-        - if @city.present? and !@city.id.nil? and can? :create, Squat
+        - if @city.present? and !@city.id.nil? and can? :create, Squat.new, @city
           %li= link_to t(:new_squat), new_city_squat_path(@city)
         - if @city.present? and @city.persisted? and can? :create, Picture
           %li.dropdown

@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%h1= @comment.title
+
+.comment-body= @comment.body
+
+- if can? :view_email, @comment
+  %p
+    %b Email:
+    = @comment.email
+
+%p
+  %b
+    Comment on:
+    = link_to @comment.commentable.name, commentable_path(@comment.commentable)
+    = @comment.commentable.class
+
+.form-actions.btn-group
+  - if can? :update, @comment
+    = link_to 'Edit', edit_comment_path(@comment), class: 'btn btn-primary'
+  - if can? :destroy, @comment
+    = link_to 'Destroy', @comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+  = link_to 'Back', comments_path, class: 'btn btn-default'

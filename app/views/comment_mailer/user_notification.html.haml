@@ -1,0 +1,30 @@
+%h1
+  Hello
+  = @user.email
+
+%p
+  Someone has written a new comment on
+  = @comment.commentable.name
+
+%p You can edit or delete this comment here:
+
+%p= link_to(comment_url(@comment, locale: 'en'), comment_url(@comment, locale: 'en'))
+
+%hr
+
+%h2 Comment author
+
+%p= @comment.email
+
+%hr
+
+%h2 Comment title
+
+%p= @comment.title
+
+%hr
+
+%h2 Comment body
+
+%p= @comment.body
+

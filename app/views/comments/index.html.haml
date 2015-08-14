@@ -1,0 +1,23 @@
+%h1
+  = Comment.model_name.human(count: Comment.all.count)
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Body
+      %th Comment on
+      %th Type
+      %th Email
+
+  %tbody
+    - @comments.each do |comment|
+      %tr
+        %td= link_to comment.title, comment
+        %td= truncate comment.body
+        %td= link_to comment.commentable.name, commentable_path(comment.commentable)
+        %td= comment.commentable.class
+        %td
+          - if can? :view_email, comment
+            = comment.email
+

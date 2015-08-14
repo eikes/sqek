@@ -12,6 +12,7 @@ class Squat < ActiveRecord::Base
   belongs_to :city
   has_and_belongs_to_many :pictures
   has_many :periods, dependent: :destroy
+  has_many :comments, as: :commentable
 
   serialize :tags, JSON
 

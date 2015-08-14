@@ -5,12 +5,14 @@
     %tr
       %th Email
       %th Role
+      %th Cities
 
   %tbody
     - @users.each do |user|
       %tr
         %td= link_to user.email, edit_user_path(user)
         %td= user.role
+        %td= user.cities.map(&:name).join(', ')
 
 %br
 

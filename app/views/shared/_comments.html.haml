@@ -1,0 +1,14 @@
+-unless commentable.comments.blank?
+  .comments
+    %h5= Comment.model_name.human(count: commentable.comments.count)
+    %ul
+      - commentable.comments.try(:each) do |comment|
+        %li
+          - if can? :edit, comment
+            %b= link_to comment.title, edit_comment_path(comment)
+          -else
+            %b= comment.title
+          .comment-body= comment.body
+
+- if can?(:create, Comment) && show_create_comment_link
+  = link_to t(:new_comment), new_comment_path(comment: { commentable_id: commentable.id, commentable_type: commentable.class }), class: 'btn btn-default btn-xs'

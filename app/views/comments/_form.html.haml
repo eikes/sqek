@@ -1,0 +1,18 @@
+= simple_form_for(@comment) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :body
+    = f.input :email
+    - unless @comment.persisted?
+      = f.input :commentable_id, as: :hidden, input_html: { value: params[:comment][:commentable_id] }
+      = f.input :commentable_type, as: :hidden, input_html: { value: params[:comment][:commentable_type] }
+
+  .form-actions.btn-group
+    = f.button :submit
+    - if @comment.persisted?
+      = link_to 'Destroy', @comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+    - if can? :update, @comment
+      = link_to 'Back', comments_path, class: 'btn btn-default'
+

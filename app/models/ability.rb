@@ -33,6 +33,7 @@ class Ability
     # Everyone can see the cities and the squats
     can :read, Squat
     can :read, City
+    can [:create, :read], Comment
 
     if user.role == "admin"
       # logged in admin user
@@ -40,7 +41,13 @@ class Ability
       can :update_location, City
     elsif user.role == "user"
       # logged in regular user
-      can :manage, Squat
+      can [:read, :update, :destroy], Squat, city: { id: user.cities.pluck(:id) }
+      can :create, Squat do |squat, city|
+        user.cities.include? city
+      end
+      can :manage, Comment do |comment|
+        user.cities.include? comment.city
+      end
       can :update, City
       can :manage, Picture
     else

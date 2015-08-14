@@ -1,0 +1,35 @@
+Hello
+= @user.email
+
+Someone has written a new comment on
+= @comment.commentable.name
+
+You can edit or delete this comment here:
+
+
+= comment_url(@comment, locale: 'en')
+
+
+Here is the content of the new comment:
+
+
+*****************
+
+Author email:
+
+= @comment.email
+
+
+*****************
+
+Comment title
+
+= @comment.title
+
+
+*****************
+
+Comment body
+
+= @comment.body
+

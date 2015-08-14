@@ -82,6 +82,9 @@ de:
   editing_city: "Stadt Bearbeiten"
   create_city: "Stadt Erstellen"
   update_city: "Stadt Speichern"
+  # comments
+  new_comment: "Neuer Kommentar"
+  new_comment_for: "Neuer Kommentar für"
 
   activerecord:
     models:
@@ -95,6 +98,9 @@ de:
       picture:
         one: Foto
         other: Fotos
+      comment:
+        one: Kommentar
+        other: Kommentare
     attributes:
       squat:
         name: "Name"

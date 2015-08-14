@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226172633) do
+ActiveRecord::Schema.define(version: 20150802200920) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 20150226172633) do
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true
+
+  create_table "cities_users", id: false, force: :cascade do |t|
+    t.integer "city_id", null: false
+    t.integer "user_id", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "email"
+    t.boolean  "published"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
 
   create_table "periods", force: :cascade do |t|
     t.integer  "squat_id"
@@ -64,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150226172633) do
     t.string   "address"
     t.text     "link"
     t.text     "tags"
+    t.boolean  "published"
   end
 
   add_index "squats", ["city_id"], name: "index_squats_on_city_id"

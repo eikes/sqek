@@ -5,13 +5,11 @@ one:
   body: MyText
   email: MyString
   published: false
-  commentable_id: 
-  commentable_type: Commentable
+  commentable: berlin (City)
 
 two:
   title: MyString
   body: MyText
   email: MyString
   published: false
-  commentable_id: 
-  commentable_type: Commentable
+  commentable: berlin (City)

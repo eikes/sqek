@@ -4,9 +4,11 @@
 
 .comment-body= @comment.body
 
-%p
-  %b Email:
-  = @comment.email
+- if can? :view_email, @comment
+  %p
+    %b Email:
+    = @comment.email
+
 %p
   %b
     Comment on:
@@ -14,6 +16,8 @@
     = @comment.commentable.class
 
 .form-actions.btn-group
-  = link_to 'Edit', edit_comment_path(@comment), class: 'btn btn-primary'
-  = link_to 'Destroy', @comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+  - if can? :update, @comment
+    = link_to 'Edit', edit_comment_path(@comment), class: 'btn btn-primary'
+  - if can? :destroy, @comment
+    = link_to 'Destroy', @comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
   = link_to 'Back', comments_path, class: 'btn btn-default'

@@ -27,6 +27,9 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save
+    @comment.city.users.each do |user|
+      CommentMailer.user_notification(user, @comment).deliver_now
+    end
     respond_with(@comment)
   end
 

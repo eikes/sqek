@@ -17,5 +17,7 @@
         %td= truncate comment.body
         %td= link_to comment.commentable.name, commentable_path(comment.commentable)
         %td= comment.commentable.class
-        %td= comment.email
+        %td
+          - if can? :view_email, comment
+            = comment.email
 

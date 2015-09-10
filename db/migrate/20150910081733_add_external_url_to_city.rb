@@ -1,5 +1,5 @@
 class AddExternalUrlToCity < ActiveRecord::Migration
   def change
-    add_column :cities, :external_url, :string, default: 0
+    add_column :cities, :external_url, :string
   end
 end

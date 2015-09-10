@@ -21,6 +21,7 @@
       = f.input :lng, wrapper_html: { class: "hide" }
 
     = f.input :external_url
+    = f.input :label_position, collection: City.label_positions.keys
 
   .form-actions.btn-group
     = f.button :submit, value: (@city.id? ? t(:update_city) : t(:create_city)), class: "btn btn-default"

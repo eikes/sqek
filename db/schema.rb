@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910081733) do
+ActiveRecord::Schema.define(version: 20150910084248) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.text     "body"
     t.float    "lat"
     t.float    "lng"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "slug"
     t.string   "external_url"
+    t.integer  "label_position"
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true

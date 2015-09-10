@@ -7,7 +7,7 @@ get_city_icon = (city) ->
     className: 'city-icon',
     html: "<img src='#{ map.default_icon_url }'>
            <br>
-           <span class='city-icon-name'>
+           <span class='city-icon-name city-icon-#{city.label_position}'>
              #{ city.name }
            </span>",
     iconSize: [60, 50],

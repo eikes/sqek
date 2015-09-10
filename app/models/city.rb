@@ -21,6 +21,8 @@ class City < ActiveRecord::Base
 
   scope :by_name, -> { order(:name) }
 
+  enum label_position: { bottom: 0, right: 1, top: 2 }
+
   def latlng
     lat && lng ? [lat, lng] : nil
   end

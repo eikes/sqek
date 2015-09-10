@@ -20,6 +20,8 @@
       = f.input :lat, wrapper_html: { class: "hide" }
       = f.input :lng, wrapper_html: { class: "hide" }
 
+    = f.input :external_url
+
   .form-actions.btn-group
     = f.button :submit, value: (@city.id? ? t(:update_city) : t(:create_city)), class: "btn btn-default"
     - if @city.id?

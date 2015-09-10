@@ -6,11 +6,15 @@ class SquatsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @squats = @city.squats
-                   .includes(:periods)
-                   .includes(:pictures)
-                   .order(:name)
-    respond_with(@squats)
+    if @city.external_url.present?
+      redirect_to @city.external_url
+    else
+      @squats = @city.squats
+                     .includes(:periods)
+                     .includes(:pictures)
+                     .order(:name)
+      respond_with(@squats)
+    end
   end
 
   def show

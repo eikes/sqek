@@ -37,4 +37,12 @@ class City < ActiveRecord::Base
       ]
     end
   end
+
+  def menu_name
+    if external_url.blank?
+      "#{name} (#{squats.count})"
+    else
+      name
+    end
+  end
 end

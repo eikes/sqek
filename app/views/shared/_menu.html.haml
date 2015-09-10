@@ -18,7 +18,7 @@
             %li= link_to t(:menu_cities), root_path
             %li.divider
             - City.by_name.each do |city|
-              %li= link_to ( city.name + " (" + city.squats.count.to_s + ")" ), city_squats_path(city)
+              %li= link_to city.menu_name, city_squats_path(city)
         - if can? :create, City
           %li= link_to t(:new_city), new_city_path
         - if can?(:update, City) && @city && !@city.id.nil?

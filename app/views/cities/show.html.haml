@@ -4,6 +4,9 @@
 
 %p= @city.body
 
+%p
+  = link_to @city.external_url, @city.external_url
+
 .btn-group
   - if can? :update, @city
     = link_to t(:edit), edit_city_path(@city), class: "btn btn-default"

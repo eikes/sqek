@@ -33,6 +33,7 @@ class Ability
     # Everyone can see the cities and the squats
     can :read, Squat
     can :read, City
+    can :read, Picture
     can [:create, :read], Comment
 
     if user.role == "admin"

@@ -1,0 +1,24 @@
+- content_for :menu_right do
+  %li
+    %a.dynamic_menu#legend_menu{href: "#legend"}= t(:legend)
+
+- content_for :menu_left do
+  %li.dropdown
+    %a.dropdown-toggle{ href:"#", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false" }
+      = @city.name
+      %span.caret
+    %ul.dropdown-menu{ role: "menu" }
+      %li
+        %a.dynamic_menu{href: "#city_text"}= t(:info_text)
+      %li
+        %a.dynamic_menu{href: "#squat_list"}= Squat.model_name.human(:count => 2)
+      %li= link_to t(:pictures), city_pictures_path(@city)
+      - if can?(:update, City)
+        %li.divider
+        %li= link_to t(:change_city_info), edit_city_path(@city)
+      - if can? :create, Squat.new, @city
+        %li.divider
+        %li= link_to t(:new_squat), new_city_squat_path(@city)
+      - if can? :create, Picture
+        %li.divider
+        %li= link_to t(:upload_picture), new_city_picture_path(@city)

@@ -1,3 +1,5 @@
+= render("menu")
+
 %h1
   = link_to @city.name, city_squats_path(@city)
   = t(:pictures)
@@ -9,4 +11,4 @@
         = image_tag picture.picture_url(:thumb)
         %p= picture.description
         - picture.squats.each do |squat|
-          = link_to squat.name, city_squat_path(@city, squat)
+          = link_to squat.name, city_squats_path(@city, anchor: squat.slug)

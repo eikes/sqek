@@ -4,11 +4,11 @@
 #
 # To use the locales, use `I18n.t`:
 #
-#     I18n.t 'hello'
+#     I18n.t hello
 #
 # In views, this is aliased to just `t`:
 #
-#     <%= t('hello') %>
+#     <%= t(hello) %>
 #
 # To use a different locale, set it with `I18n.locale`:
 #
@@ -21,78 +21,81 @@
 
 en:
   # generic words
-  account: "Account"
-  edit: "Edit"
-  destroy: "Destroy"
-  show: "Show"
-  back: "Back"
-  confirm_question: 'Are you sure?'
-  error_message: 'Please review the problems below'
+  account: Account
+  edit: Edit
+  destroy: Destroy
+  show: Show
+  back: Back
+  confirm_question: Are you sure?
+  error_message: Please review the problems below
   latitude: Latitude
   longitude: Longitude
   all_years: All years
+  map: Map
   # general labels
-  label_name: "Name"
-  label_body: "Body"
+  label_name: Name
+  label_body: Body
   # menu
-  menu_cities: "All Cities"
+  menu_cities: All Cities
   # squat pages
-  new_squat: 'New Squat'
-  editing_squat: "Edit Squat"
-  editing_squat: "Editing Squat"
-  create_squat: "Create Squat"
-  update_squat: "Update Squat"
-  back_to_city: 'Back to city'
-  address: "Address"
-  geocode_address: "Show address on map"
-  set_lat_lng: "Show these coordinates on the map"
-  at_least_one_period_error: "At least one squatting period is required"
-  overlapping_periods_error: "Two periods are overlapping"
-  two_open_ended_periods_error: "Maximum of one open ended period allowed"
-  location_required: "A location is required"
-  invalid_link_url: "The link is invalid. Make sure it starts with http:// or https://"
-  legend: "Legend"
-  squatted_after: "Squatted after"
-  squatted_after_but_evicted: "Squatted after (now evicted)"
-  tags: "Annotations"
-  uncertain_date: "Uncertain date"
-  uncertain_location: "Uncertain location"
-  social_center: "Social center"
-  self_evicted: "Self evicted"
-  occupied_public_space: "Occupied public space"
-  caravan_site: "Caravan site"
-  picture: "Picture"
-  pictures: "Pictures"
-  title: "Title"
-  description: "Description"
-  all_pictures: "All Pictures"
-  upload_picture: "Upload Picture"
-  upload_a_picture_for: "Upload a picture for"
-  browse: "Browse"
+  new_squat: New Squat
+  editing_squat: Edit Squat
+  editing_squat: Editing Squat
+  create_squat: Create Squat
+  update_squat: Update Squat
+  back_to_city: Back to city
+  change_city_info: Change city informationen
+  info_text: Information text
+  address: Address
+  geocode_address: Show address on map
+  set_lat_lng: Show these coordinates on the map
+  at_least_one_period_error: At least one squatting period is required
+  overlapping_periods_error: Two periods are overlapping
+  two_open_ended_periods_error: Maximum of one open ended period allowed
+  location_required: A location is required
+  invalid_link_url: The link is invalid. Make sure it starts with http:// or https://
+  legend: Legend
+  squatted_after: Squatted after
+  squatted_after_but_evicted: Squatted after (now evicted)
+  tags: Annotations
+  uncertain_date: Uncertain date
+  uncertain_location: Uncertain location
+  social_center: Social center
+  self_evicted: Self evicted
+  occupied_public_space: Occupied public space
+  caravan_site: Caravan site
+  picture: Picture
+  pictures: Pictures
+  title: Title
+  description: Description
+  all_pictures: All Pictures
+  upload_picture: Upload Picture
+  upload_a_picture_for: Upload a picture for
+  browse: Browse
   # periods
-  start_year: "Start year"
-  start_month: "Start month"
-  start_day: "Start day"
-  end_year: "End year"
-  end_month: "End month"
-  end_day: "End day"
-  squat_period: "Squatting period"
-  remove_period: "Remove period"
-  add_period: "Add period"
-  squatted_on_day: "Squatted on %{date}"
-  evicted_on_day: "Evicted on %{date}"
-  squatted_in_month: "Squatted in %{date}"
-  evicted_in_month: "Evicted in %{date}"
-  squatted_in_year: "Squatted in %{date}"
-  evicted_in_year: "Evicted in %{date}"
+  start_year: Start year
+  start_month: Start month
+  start_day: Start day
+  end_year: End year
+  end_month: End month
+  end_day: End day
+  squat_period: Squatting period
+  remove_period: Remove period
+  add_period: Add period
+  squatted_on_day: Squatted on %{date}
+  evicted_on_day: Evicted on %{date}
+  squatted_in_month: Squatted in %{date}
+  evicted_in_month: Evicted in %{date}
+  squatted_in_year: Squatted in %{date}
+  evicted_in_year: Evicted in %{date}
   # city pages
-  new_city: "New City"
-  editing_city: "Editing City"
-  create_city: "Create City"
-  update_city: "Update City"
+  new_city: New City
+  editing_city: Editing City
+  create_city: Create City
+  update_city: Update City
   # comments
-  new_comment: "New comment"
-  new_comment_for: "New comment for"
+  new_comment: New comment
+  new_comment_for: New comment for
 
   activerecord:
     models:

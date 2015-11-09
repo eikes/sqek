@@ -4,11 +4,11 @@
 #
 # To use the locales, use `I18n.t`:
 #
-#     I18n.t 'hello'
+#     I18n.t hello
 #
 # In views, this is aliased to just `t`:
 #
-#     <%= t('hello') %>
+#     <%= t(hello) %>
 #
 # To use a different locale, set it with `I18n.locale`:
 #
@@ -21,72 +21,75 @@
 
 de:
   #generic words
-  account: "Benutzerkonto"
-  edit: "Bearbeiten"
-  destroy: "Löschen"
-  show: "Anzeigen"
-  back: "Zurück"
-  confirm_question: 'Sind Sie sicher?'
-  error_message: 'Bitte beachten sie diese Fehler'
+  account: Benutzerkonto
+  edit: Bearbeiten
+  destroy: Löschen
+  show: Anzeigen
+  back: Zurück
+  confirm_question: Sind Sie sicher?
+  error_message: Bitte beachten sie diese Fehler
   latitude: Latitude
   longitude: Longitude
   all_years: Alle Jahre
+  map: Karte
   # general labels
-  label_name: "Name"
-  label_body: "Beschreibung"
+  label_name: Name
+  label_body: Beschreibung
   # menu
-  menu_cities: "Alle Städte"
+  menu_cities: Alle Städte
   # squat pages
-  new_squat: 'Neues Squat'
-  edit_squat: "Squat Bearbeiten"
-  editing_squat: "Squat Bearbeiten"
-  create_squat: "Squat Erstellen"
-  update_squat: "Squat Speichern"
-  back_to_city: 'Zurück zur Stadt'
-  address: "Adresse"
-  geocode_address: "Adresse auf Karte zeigen"
-  set_lat_lng: "Zeige diese Koordinaten auf der Karte"
-  at_least_one_period_error: "Mindestens ein Besetzungszeitraum wird benötigt"
-  overlapping_periods_error: "Zwei Besetzungszeiträume überschneiden sich"
-  two_open_ended_periods_error: "Höchstens ein Besetzungszeitraum ohne Ende erlaubt"
-  location_required: "Ein Ort muss gewählt sein"
-  invalid_link_url: "Der link ist ungültig. Der link muss mit http:// oder https:// anfangen."
-  legend: "Legende"
-  squatted_after: "Besetzt nach"
-  squatted_after_but_evicted: "Besetzt nach (jetzt geräumt)"
-  tags: "Bemerkungen"
-  uncertain_date: "Ungefähres Datum"
-  uncertain_location: "Ungefährer Ort"
-  social_center: "Soziales Zentrum"
-  self_evicted: "Selbst geräumt"
-  occupied_public_space: "Besetzter öffentlicher Raum"
-  caravan_site: "Bauwagenplatz"
-  picture: "Bild"
-  pictures: "Bilder"
-  title: "Titel"
-  description: "Beschreibung"
-  all_pictures: "Alle Bilder"
-  upload_picture: "Bild hochladen"
-  upload_a_picture_for: "Bild hochladen für"
-  browse: "Durchsuchen"
+  new_squat: Neues Squat
+  edit_squat: Squat Bearbeiten
+  editing_squat: Squat Bearbeiten
+  create_squat: Squat Erstellen
+  update_squat: Squat Speichern
+  back_to_city: Zurück zur Stadt
+  change_city_info: Stadt Informationen bearbeiten
+  info_text: Informationstext
+  address: Adresse
+  geocode_address: Adresse auf Karte zeigen
+  set_lat_lng: Zeige diese Koordinaten auf der Karte
+  at_least_one_period_error: Mindestens ein Besetzungszeitraum wird benötigt
+  overlapping_periods_error: Zwei Besetzungszeiträume überschneiden sich
+  two_open_ended_periods_error: Höchstens ein Besetzungszeitraum ohne Ende erlaubt
+  location_required: Ein Ort muss gewählt sein
+  invalid_link_url: Der link ist ungültig. Der link muss mit http:// oder https:// anfangen.
+  legend: Legende
+  squatted_after: Besetzt nach
+  squatted_after_but_evicted: Besetzt nach (jetzt geräumt)
+  tags: Bemerkungen
+  uncertain_date: Ungefähres Datum
+  uncertain_location: Ungefährer Ort
+  social_center: Soziales Zentrum
+  self_evicted: Selbst geräumt
+  occupied_public_space: Besetzter öffentlicher Raum
+  caravan_site: Bauwagenplatz
+  picture: Bild
+  pictures: Bilder
+  title: Titel
+  description: Beschreibung
+  all_pictures: Alle Bilder
+  upload_picture: Bild hochladen
+  upload_a_picture_for: Bild hochladen für
+  browse: Durchsuchen
   # periods
-  squat_period: "Besetzungszeitraum"
-  remove_period: "Zeitraum entfernen"
-  add_period: "Zeitraum hinzufügen"
-  squatted_on_day: "Am %{date} besetzt"
-  evicted_on_day: "Am %{date} geräumt"
-  squatted_in_month: "Im %{date} besetzt"
-  evicted_in_month: "Im %{date} geräumt"
+  squat_period: Besetzungszeitraum
+  remove_period: Zeitraum entfernen
+  add_period: Zeitraum hinzufügen
+  squatted_on_day: Am %{date} besetzt
+  evicted_on_day: Am %{date} geräumt
+  squatted_in_month: Im %{date} besetzt
+  evicted_in_month: Im %{date} geräumt
   squatted_in_year: "%{date} besetzt"
   evicted_in_year: "%{date} geräumt"
   # city pages
-  new_city: "Neue Stadt"
-  editing_city: "Stadt Bearbeiten"
-  create_city: "Stadt Erstellen"
-  update_city: "Stadt Speichern"
+  new_city: Neue Stadt
+  editing_city: Stadt Bearbeiten
+  create_city: Stadt Erstellen
+  update_city: Stadt Speichern
   # comments
-  new_comment: "Neuer Kommentar"
-  new_comment_for: "Neuer Kommentar für"
+  new_comment: Neuer Kommentar
+  new_comment_for: Neuer Kommentar für
 
   activerecord:
     models:
@@ -105,21 +108,21 @@ de:
         other: Kommentare
     attributes:
       squat:
-        name: "Name"
-        body: "Beschreibung"
-        address: "Adresse"
-        periods: "Zeiträume"
+        name: Name
+        body: Beschreibung
+        address: Adresse
+        periods: Zeiträume
       squat/periods:
-        start_year: "Besetzungszeitraum Start Jahr"
-        start_month: "Besetzungszeitraum Start Monat"
-        start_day: "Besetzungszeitraum Start Tag"
-        end_year: "Besetzungszeitraum End Jahr"
-        end_month: "Besetzungszeitraum End Monat"
-        end_day: "Besetzungszeitraum End Tag"
+        start_year: Besetzungszeitraum Start Jahr
+        start_month: Besetzungszeitraum Start Monat
+        start_day: Besetzungszeitraum Start Tag
+        end_year: Besetzungszeitraum End Jahr
+        end_month: Besetzungszeitraum End Monat
+        end_day: Besetzungszeitraum End Tag
       period:
-        start_year: "Start Jahr"
-        start_month: "Start Monat"
-        start_day: "Start Tag"
-        end_year: "End Jahr"
-        end_month: "End Monat"
-        end_day: "End Tag"
+        start_year: Start Jahr
+        start_month: Start Monat
+        start_day: Start Tag
+        end_year: End Jahr
+        end_month: End Monat
+        end_day: End Tag

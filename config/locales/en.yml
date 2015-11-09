@@ -59,6 +59,8 @@ en:
   uncertain_location: "Uncertain location"
   social_center: "Social center"
   self_evicted: "Self evicted"
+  occupied_public_space: "Occupied public space"
+  caravan_site: "Caravan site"
   picture: "Picture"
   pictures: "Pictures"
   title: "Title"

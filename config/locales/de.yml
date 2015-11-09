@@ -59,6 +59,8 @@ de:
   uncertain_location: "Ungefährer Ort"
   social_center: "Soziales Zentrum"
   self_evicted: "Selbst geräumt"
+  occupied_public_space: "Besetzter öffentlicher Raum"
+  caravan_site: "Bauwagenplatz"
   picture: "Bild"
   pictures: "Bilder"
   title: "Titel"

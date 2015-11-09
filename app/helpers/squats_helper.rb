@@ -4,13 +4,13 @@ module SquatsHelper
     start_decade = squat.periods.first.start_year / 10 * 10
     inhabited = squat.periods.last.end_year.nil?
 
-    if squat.tags.present? && squat.tags.include? 'caravan_site'
+    if squat.tags.try(:include?, 'caravan_site')
       if inhabited
         asset_path "icons/wagenplatz_#{ start_decade }er.png"
       else
         asset_path "icons/wagenplatz_geraumt.png"
       end
-    elsif squat.tags.present? && squat.tags.include? 'occupied_public_space'
+    elsif squat.tags.try(:include?, 'occupied_public_space')
       if inhabited
         asset_path "icons/zelt_#{ start_decade }er.png"
       else

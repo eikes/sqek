@@ -32,6 +32,8 @@ de:
   longitude: Longitude
   all_years: Alle Jahre
   map: Karte
+  house: Haus
+  evicted: Geräumt
   # general labels
   label_name: Name
   label_body: Beschreibung
@@ -56,7 +58,6 @@ de:
   invalid_link_url: Der link ist ungültig. Der link muss mit http:// oder https:// anfangen.
   legend: Legende
   squatted_after: Besetzt nach
-  squatted_after_but_evicted: Besetzt nach (jetzt geräumt)
   tags: Bemerkungen
   uncertain_date: Ungefähres Datum
   uncertain_location: Ungefährer Ort

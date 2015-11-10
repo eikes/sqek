@@ -1,22 +1,54 @@
 #legend
   %table
     %tr
-      %th{colspan:7}
+      %th{colspan:2}
         = t(:legend)
         %i#close_legend.glyphicon.glyphicon-remove.pull-right
     %tr
       %th
         = t(:squatted_after)
-      - ["1960", "1970", "1980", "1990", "2000", "2010"].each do |year|
-        %td
-          = image_tag( "icons/haus_#{year}er.png" )
-          %br
-          = year
+      %td
+        %table(style="width:100%")
+          %tbody
+            %tr
+              %td.year-color(style="background-color:#f7a800")
+              %td.year-color(style="background-color:#e94e24")
+              %td.year-color(style="background-color:#c90c0f")
+              %td.year-color(style="background-color:#25431e")
+              %td.year-color(style="background-color:#63425a")
+              %td.year-color(style="background-color:#0b6973")
+            %tr
+              %td
+                1960
+              %td
+                1970
+              %td
+                1980
+              %td
+                1990
+              %td
+                2000
+              %td
+                2010
     %tr
-      %th
-        = t(:squatted_after_but_evicted)
-      - ["1960", "1970", "1980", "1990", "2000", "2010"].each do |year|
-        %td
-          = image_tag( "icons/haus_evicted_#{year}er.png" )
-          %br
-          = year
+      %td{colspan:2}
+        %table
+          %tbody
+            %tr
+              %td
+                = image_tag( "icons/haus_grau.png" )
+              %td
+                = image_tag( "icons/wagenplatz_grau.png" )
+              %td
+                = image_tag( "icons/zelt_grau.png" )
+              %td
+                = image_tag( "icons/raeumung.png" )
+            %tr
+              %td(style="width:25%;")
+                = t(:house)
+              %td(style="width:25%;")
+                = t(:caravan_site)
+              %td(style="width:25%;")
+                = t(:occupied_public_space)
+              %td(style="width:25%;")
+                = t(:evicted)

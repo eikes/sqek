@@ -1,0 +1,27 @@
+Squatting Europe Kollective - Squat Notification
+\
+Someone has created a new squat in
+= @squat.city.name
+\
+The new squat is not currently published (visible on the map). You can edit (publish) or delete this squat here:
+= city_squat_url(@squat, locale: 'en', city_id: @squat.city)
+\
+Here is the content of the new squat:
+\
+*****************
+\
+Submitted by
+\
+= @squat.external_user_email
+\
+*****************
+\
+Squat name
+\
+= @squat.name
+\
+*****************
+\
+Squat description
+\
+= @squat.body

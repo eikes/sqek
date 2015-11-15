@@ -31,7 +31,7 @@ class Ability
 
     user ||= User.new
     # Everyone can see the cities and the squats
-    can :read, Squat
+    can [:create, :read], Squat
     can :read, City
     can :read, Picture
     can [:create, :read], Comment

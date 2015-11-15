@@ -32,17 +32,17 @@ class City < ActiveRecord::Base
       nil
     else
       [
-        [ squats.minimum(:lat),
-          squats.minimum(:lng)],
-        [ squats.maximum(:lat),
-          squats.maximum(:lng)]
+        [ squats.published.minimum(:lat),
+          squats.published.minimum(:lng)],
+        [ squats.published.maximum(:lat),
+          squats.published.maximum(:lng)]
       ]
     end
   end
 
   def menu_name
     if external_url.blank?
-      "#{name} (#{squats.count})"
+      "#{name} (#{squats.published.count})"
     else
       name
     end

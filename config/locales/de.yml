@@ -45,6 +45,9 @@ de:
   editing_squat: Squat Bearbeiten
   create_squat: Squat Erstellen
   update_squat: Squat Speichern
+  squat_created: Squat wurde erstellt
+  squat_submitted_for_review: Squat wurde erstellt und zur Prüfung gespeichert
+  squat_updated: Squat wurde aktualisiert
   back_to_city: Zurück zur Stadt
   change_city_info: Stadt Informationen bearbeiten
   info_text: Informationstext
@@ -65,6 +68,8 @@ de:
   self_evicted: Selbst geräumt
   occupied_public_space: Besetzter öffentlicher Raum
   caravan_site: Bauwagenplatz
+  published: Veröffentlicht
+  not_published: Nicht veröffentlicht
   picture: Bild
   pictures: Bilder
   title: Titel

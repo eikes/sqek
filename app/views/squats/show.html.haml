@@ -1,8 +1,17 @@
 %h1= @squat.name
 
+- if !@squat.published
+  .alert.alert-danger
+    = t(:not_published)
+
 #map{ data: { squats_url: city_squat_url(@city, @squat, format: :json), mode: :show, latlng: @squat.latlng, zoom: 14 } }
 
 = render partial: "description", locals: { squat: @squat, show_create_comment_link: false }
+
+- if current_user.present?
+  .external_user_email.squat-info
+    %h5= t(:external_user_email)
+    = @squat.external_user_email
 
 .btn-group
   - if can? :update, @squat

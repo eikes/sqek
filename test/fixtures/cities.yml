@@ -5,3 +5,9 @@ berlin:
   slug: berlin
   lat: 52.516
   lng: 13.383
+
+london:
+  name: London
+  slug: london
+  lat: 51.509
+  lng: -0.118

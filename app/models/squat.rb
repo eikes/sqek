@@ -1,5 +1,7 @@
 class Squat < ActiveRecord::Base
 
+  attr_accessor :current_user
+
   TAGS = [
     'uncertain_date',
     'uncertain_location',
@@ -18,6 +20,8 @@ class Squat < ActiveRecord::Base
 
   serialize :tags, JSON
 
+  scope :published, -> { where(published: true) }
+
   validates :name,
             :lat,
             :lng,
@@ -27,8 +31,11 @@ class Squat < ActiveRecord::Base
             presence: true,
             uniqueness: true
 
-  validates_associated :periods
+  validates :external_user_email,
+            presence: true,
+            if: "current_user.nil?"
 
+  validates_associated :periods
 
   # has at least one period
   validate do
@@ -67,7 +74,7 @@ class Squat < ActiveRecord::Base
   before_save :clean_tags
 
   accepts_nested_attributes_for :periods, allow_destroy: true
-  
+
   friendly_id :name, use: [:slugged, :finders]
 
   has_paper_trail

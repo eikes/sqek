@@ -6,3 +6,4 @@ kopi:
   city: berlin
   lat: 52.5077
   lng: 13.426
+  published: true

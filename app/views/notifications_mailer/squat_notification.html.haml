@@ -1,0 +1,27 @@
+%h3
+  Squat Notification
+
+%p
+  Someone has created a new squat in
+  = @squat.city.name
+
+%p The new squat is not currently published (visible on the map). You can edit (publish) or delete this squat here:
+
+- squat_link = city_squat_url(@squat, locale: 'en', city_id: @squat.city)
+%p= link_to(squat_link, squat_link)
+
+%dl.dl-horizontal
+  %dt
+    Submitted by
+  %dd
+    = @squat.external_user_email
+
+  %dt
+    Squat name
+  %dd
+    = @squat.name
+
+  %dt
+    Squat description
+  %dd
+    = @squat.body

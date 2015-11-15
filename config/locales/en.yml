@@ -38,13 +38,17 @@ en:
   label_name: Name
   label_body: Body
   # menu
-  menu_cities: All Cities
+  menu_cities: All cities
   # squat pages
-  new_squat: New Squat
-  editing_squat: Edit Squat
-  editing_squat: Editing Squat
-  create_squat: Create Squat
-  update_squat: Update Squat
+  new_squat: New squat
+  editing_squat: Edit squat
+  editing_squat: Editing squat
+  create_squat: Create squat
+  create_squat: Create squat
+  update_squat: Update squat
+  squat_created: Squat created
+  squat_submitted_for_review: Squat created and submitted for review
+  squat_updated: Squat updated
   back_to_city: Back to city
   change_city_info: Change city informationen
   info_text: Information text
@@ -65,12 +69,14 @@ en:
   self_evicted: Self evicted
   occupied_public_space: Occupied public space
   caravan_site: Caravan site
+  published: Published
+  not_published: Not published
   picture: Picture
   pictures: Pictures
   title: Title
   description: Description
-  all_pictures: All Pictures
-  upload_picture: Upload Picture
+  all_pictures: All pictures
+  upload_picture: Upload picture
   upload_a_picture_for: Upload a picture for
   browse: Browse
   # periods
@@ -90,10 +96,10 @@ en:
   squatted_in_year: Squatted in %{date}
   evicted_in_year: Evicted in %{date}
   # city pages
-  new_city: New City
-  editing_city: Editing City
-  create_city: Create City
-  update_city: Update City
+  new_city: New city
+  editing_city: Editing city
+  create_city: Create city
+  update_city: Update city
   # comments
   new_comment: New comment
   new_comment_for: New comment for

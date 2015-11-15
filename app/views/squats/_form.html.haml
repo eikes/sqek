@@ -4,6 +4,12 @@
   .form-inputs
     = f.input :name
 
+    - if @squat.id && !@squat.published
+      .alert.alert-danger
+        = t(:not_published)
+    - if @squat.id?
+      = f.input :published, label: t(:published)
+
     - if @squat.id?
       #map{ data: { mode: :edit, latlng: @squat.latlng, zoom: 14, icon: get_default_icon } }
     - else
@@ -58,6 +64,17 @@
       = f.link_to_add t(:add_period), :periods, class: "btn btn-primary btn-xs"
 
     = f.input :tags, collection: Squat.form_tags, as: :check_boxes, label: t(:tags)
+
+    - if current_user.nil?
+      .well
+        = f.input :external_user_email, label: 'Email address for questions'
+    - elsif @squat.try(:external_user_email)
+      .form-group
+        %label.control-label
+          External User Email
+        %div
+          %p.form-control-static
+            = @squat.try(:external_user_email)
 
   .form-actions.btn-group
     = f.button :submit, value: (@squat.id? ? t(:update_squat) : t(:create_squat)), class: "btn btn-default"

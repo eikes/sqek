@@ -10,6 +10,7 @@ class SquatsController < ApplicationController
       redirect_to @city.external_url
     else
       @squats = @city.squats
+                     .published
                      .includes(:periods)
                      .includes(:pictures)
                      .order(:name)
@@ -33,16 +34,28 @@ class SquatsController < ApplicationController
 
   def create
     @squat = Squat.new(squat_params)
-    @squat.city = @city
     authorize! :create, @squat, @city
-    @squat.save
-    flash[:notice] = "Squat created."
+
+    @squat.city = @city
+    @squat.current_user = current_user
+    @squat.published = current_user.present?
+
+    if @squat.save
+      if current_user.nil?
+        recipients = @city.users.pluck(:email)
+        NotificationsMailer.squat_notification(recipients, @squat).deliver_now
+        flash[:notice] = t(:squat_submitted_for_review)
+      else
+        flash[:notice] = t(:squat_created)
+      end
+    end
     respond_with(@city, @squat)
   end
 
   def update
-    @squat.update(squat_params)
-    flash[:notice] = "Squat updated."
+    if @squat.update(squat_params)
+      flash[:notice] = t(:squat_updated)
+    end
     redirect_to city_squats_path(@city, anchor: @squat.slug)
   end
 
@@ -71,7 +84,7 @@ class SquatsController < ApplicationController
     end
 
     def squat_params
-      params.require(:squat).permit(:name, :body, :link, :address, :lat, :lng,
+      params.require(:squat).permit(:name, :body, :link, :address, :lat, :lng, :external_user_email, :published,
         tags: [],
         periods_attributes: [:id,
           :start_year, :start_month, :start_day,

@@ -22,6 +22,9 @@ Rails.application.routes.draw do
           get 'version/:version_id', action: :version, as: 'version'
           get 'revert_to_version/:version_id', action: :revert_to_version, as: 'revert_to_version'
         end
+        collection do
+          get 'unpublished'
+        end
       end
     end
     resources :comments#, except: [:index, :show, :new]

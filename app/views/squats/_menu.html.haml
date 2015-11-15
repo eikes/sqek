@@ -22,3 +22,6 @@
       - if can? :create, Picture
         %li.divider
         %li= link_to t(:upload_picture), new_city_picture_path(@city)
+      - if current_user
+        %li.divider
+        %li= link_to "#{t(:not_published)} (#{@city.squats.unpublished.count})", unpublished_city_squats_path(@city)

@@ -21,6 +21,7 @@ class Squat < ActiveRecord::Base
   serialize :tags, JSON
 
   scope :published, -> { where(published: true) }
+  scope :unpublished, -> { where(published: false) }
 
   validates :name,
             :lat,

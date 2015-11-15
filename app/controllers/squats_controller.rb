@@ -9,6 +9,7 @@ class SquatsController < ApplicationController
     if @city.external_url.present?
       redirect_to @city.external_url
     else
+      @squats_url = city_squats_path(@city, format: :json)
       @squats = @city.squats
                      .published
                      .includes(:periods)
@@ -16,6 +17,16 @@ class SquatsController < ApplicationController
                      .order(:name)
       respond_with(@squats)
     end
+  end
+
+  def unpublished
+    @squats_url = unpublished_city_squats_path(@city, format: :json)
+    @squats = @city.squats
+                   .unpublished
+                   .includes(:periods)
+                   .includes(:pictures)
+                   .order(:name)
+    respond_with(@squats, template: 'squats/index')
   end
 
   def show

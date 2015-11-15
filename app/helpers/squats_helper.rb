@@ -1,7 +1,7 @@
 module SquatsHelper
 
   def squat_get_icon(squat)
-    start_decade = squat.periods.first.start_year / 10 * 10
+    start_decade = [squat.periods.first.start_year / 10 * 10, 1960].max
     inhabited = squat.periods.last.end_year.nil?
 
     if squat.tags.try(:include?, 'caravan_site')

@@ -108,7 +108,8 @@ class SquatsControllerTest < ActionController::TestCase
           locale:  :en,
           city_id: @city,
           id:      @squat,
-          squat:   @valid_squat_params
+          squat:   @valid_squat_params.merge(name: 'New Name')
+    assert @squat.reload.name == 'New Name'
     assert_redirected_to city_squats_path(@city, anchor: @squat.slug)
   end
 

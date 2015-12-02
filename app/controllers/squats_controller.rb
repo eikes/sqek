@@ -64,10 +64,13 @@ class SquatsController < ApplicationController
   end
 
   def update
+    @squat.current_user = current_user
     if @squat.update(squat_params)
       flash[:notice] = t(:squat_updated)
+      redirect_to city_squats_path(@city, anchor: @squat.slug)
+    else
+      render 'edit'
     end
-    redirect_to city_squats_path(@city, anchor: @squat.slug)
   end
 
   def destroy

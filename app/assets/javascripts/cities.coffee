@@ -4,12 +4,14 @@
 
 get_city_icon = (city) ->
   L.divIcon({
-    className: 'city-icon',
-    html: "<img src='#{ map.default_icon_url }'>
-           <br>
-           <span class='city-icon-name city-icon-#{city.label_position}'>
-             #{ city.name }
-           </span>",
+    className: "city-icon",
+    html: "<div class='outer-city-icon-div outer-city-icon-#{city.label_position}'>
+             <img src='#{ map.default_icon_url }'>
+             <br>
+             <span class='city-icon-name city-icon-#{city.label_position}'>
+               #{ city.name }
+             </span>
+           </div>",
     iconSize: [60, 50],
     iconAnchor: [30, 40]
   })

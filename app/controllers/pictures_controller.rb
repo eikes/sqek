@@ -22,12 +22,14 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
-    @picture.squats = Squat.find(params[:picture][:squat_ids].delete_if { |squat| squat.empty? })
+    @picture.squats = Squat.find(params[:picture][:squat_ids].delete_if { |id| id.empty? })
+    # assign the current user, because the squat is invalid otherwise, which causes the picture upload to fail.
+    @picture.squats.each { |squat| squat.current_user = current_user }
     if @picture.save
       flash[:notice] = "Picture created"
       redirect_to city_picture_path(@city, @picture)
     else
-      flash[:error] = "Picture could not be saved: #{@picture.errors.full_messages.join('. ')}"
+      flash[:error] = "Picture could not be created: #{@picture.errors.full_messages.join('. ')}"
       render 'new'
     end
   end

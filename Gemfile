@@ -48,7 +48,8 @@ gem 'devise-i18n-views'
 
 gem 'carrierwave'
 gem 'mini_magick'
-gem "select2-rails"
+gem 'select2-rails'
+gem 'rails_autolink'
 
 source 'https://rails-assets.org/' do
   gem 'rails-assets-lightbox', '~> 2.7.4'

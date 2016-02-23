@@ -2,7 +2,7 @@
 
 %h1= @comment.title
 
-.comment-body= @comment.body
+.comment-body= auto_link(@comment.body, link: :urls)
 
 - if can? :view_email, @comment
   %p

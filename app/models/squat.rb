@@ -92,4 +92,8 @@ class Squat < ActiveRecord::Base
     lat && lng ? [lat, lng] : nil
   end
 
+  def full_address
+    [address, address_city].reject(&:blank?).join(", ")
+  end
+
 end

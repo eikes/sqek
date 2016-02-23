@@ -99,11 +99,14 @@ class SquatsController < ApplicationController
     end
 
     def squat_params
-      params.require(:squat).permit(:name, :body, :link, :address, :lat, :lng, :external_user_email, :published,
+      params.require(:squat).permit(
+        :name, :body, :link, :address, :address_city, :lat, :lng, :external_user_email, :published,
         tags: [],
         periods_attributes: [:id,
           :start_year, :start_month, :start_day,
           :end_year, :end_month, :end_day,
-          :_destroy])
+          :_destroy
+        ]
+      )
     end
 end

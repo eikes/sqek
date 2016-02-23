@@ -18,11 +18,15 @@
     .row
       .col-md-8
         = f.input :address, as: :text
+        = f.input :address_city, label: t(:address_city)
       .col-md-4
         %label(style='display: block')
           &nbsp;
-        %a.btn.btn-default#geocode{'data-source' => '#squat_address', 'data-city-name' => @city.name}
+        %a.btn.btn-default#geocode{'data-sources': ['#squat_address', '#squat_address_city']}
           = t(:geocode_address)
+
+    #geocode-error.alert.alert-danger(style="display:none")
+      = t(:geocode_error)
 
     .row
       .col-md-4

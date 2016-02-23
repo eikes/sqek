@@ -53,7 +53,9 @@ en:
   change_city_info: Change city information
   info_text: Information text
   address: Address
+  address_city: Address city
   geocode_address: Show address on map
+  geocode_error: This address could not be found
   set_lat_lng: Show these coordinates on the map
   at_least_one_period_error: At least one squatting period is required
   overlapping_periods_error: Two periods are overlapping

@@ -52,7 +52,9 @@ de:
   change_city_info: Stadt Informationen bearbeiten
   info_text: Informationstext
   address: Adresse
+  address_city: Ort der Adresse
   geocode_address: Adresse auf Karte zeigen
+  geocode_error: Diese Adresse wurde nicht gefunden
   set_lat_lng: Zeige diese Koordinaten auf der Karte
   at_least_one_period_error: Mindestens ein Besetzungszeitraum wird benötigt
   overlapping_periods_error: Zwei Besetzungszeiträume überschneiden sich

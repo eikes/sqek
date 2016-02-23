@@ -36,6 +36,7 @@ class SquatsController < ApplicationController
   def new
     @squat = Squat.new
     @squat.periods.build
+    @squat.address_city = @city.name
     authorize! :create, @squat, @city
     respond_with(@squat)
   end

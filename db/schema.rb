@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115112429) do
+ActiveRecord::Schema.define(version: 20160223112353) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20151115112429) do
     t.text     "tags"
     t.boolean  "published"
     t.string   "external_user_email"
+    t.string   "address_city"
   end
 
   add_index "squats", ["city_id"], name: "index_squats_on_city_id"

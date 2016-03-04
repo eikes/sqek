@@ -51,6 +51,9 @@ gem 'mini_magick'
 gem 'select2-rails'
 gem 'rails_autolink'
 
+gem 'premailer-rails'
+gem 'nokogiri'
+
 source 'https://rails-assets.org/' do
   gem 'rails-assets-lightbox', '~> 2.7.4'
 end

@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class CitiesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
 
   setup do
-    @city = cities(:berlin)
+    @berlin = cities(:berlin)
   end
 
   test "should get index" do
@@ -18,41 +19,51 @@ class CitiesControllerTest < ActionController::TestCase
   end
 
   test "authenticated should get new" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     get :new, locale: :en
     assert_response :success
   end
 
   test "should create city" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     assert_difference('City.count') do
-      post :create, locale: :en, city: { body: @city.body, lat: @city.lat, lng: @city.lng, name: @city.name }
+      post :create, locale: :en, city: {
+        body: @berlin.body,
+        lat:  @berlin.lat,
+        lng:  @berlin.lng,
+        name: @berlin.name
+      }
     end
 
     assert_redirected_to city_path(assigns(:city))
   end
 
   test "should show city" do
-    get :show, locale: :en, id: @city
+    get :show, locale: :en, id: @berlin
     assert_response :success
   end
 
   test "should get edit" do
-    create_user_and_sign_in
-    get :edit, locale: :en, id: @city
+    sign_in users(:admin)
+    get :edit, locale: :en, id: @berlin
     assert_response :success
   end
 
   test "should update city" do
-    create_user_and_sign_in
-    patch :update, locale: :en, id: @city, city: { body: @city.body, lat: @city.lat, lng: @city.lng, name: @city.name }
-    assert_redirected_to city_squats_path(@city)
+    sign_in users(:berlin_user)
+    patch :update, locale: :en, id: @berlin, city: {
+      body: @berlin.body,
+      lat:  @berlin.lat,
+      lng:  @berlin.lng,
+      name: @berlin.name
+    }
+    assert_redirected_to city_squats_path(@berlin)
   end
 
   test "should destroy city" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     assert_difference('City.count', -1) do
-      delete :destroy, locale: :en, id: @city
+      delete :destroy, locale: :en, id: @berlin
     end
 
     assert_redirected_to cities_path

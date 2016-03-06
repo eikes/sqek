@@ -1,9 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
-    create_user_and_sign_in
     @user = users(:admin)
+    sign_in @user
   end
 
   test "should get index" do

@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
 
   setup do
     @city = cities(:berlin)
-    @comment = comments(:one)
+    @comment = comments(:spam)
     @city_user = users(:berlin_user)
     @not_city_user = users(:london_user)
     @valid_comment_params = {
@@ -21,6 +22,15 @@ class CommentsControllerTest < ActionController::TestCase
     get :index, locale: :en
     assert_response :success
     assert_not_nil assigns(:comments)
+    assert_includes(assigns(:comments), @comment)
+  end
+
+  test "should bulk_delete" do
+    sign_in users(:admin)
+    assert_difference('Comment.count', -2) do
+      post :bulk_delete, locale: :en, comment_ids: [comments(:berlin_comment).id, comments(:london_comment).id]
+    end
+    assert_redirected_to comments_path
   end
 
   test "should get new" do
@@ -58,13 +68,13 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     get :edit, locale: :en, id: @comment
     assert_response :success
   end
 
   test "should update comment" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     patch :update,
           locale:  :en,
           id:      @comment,
@@ -73,7 +83,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should destroy comment" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     assert_difference('Comment.count', -1) do
       delete :destroy, locale: :en, id: @comment
     end

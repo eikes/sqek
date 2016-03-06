@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-admin:
-  email:  admin@example.com
-  role:   admin
-
 berlin_user:
   email:  berlin_user@example.com
   role:   user
@@ -13,3 +9,7 @@ london_user:
   email:  london_user@example.com
   role:   user
   cities: [london]
+
+admin:
+  email:  admin@example.com
+  role:   admin

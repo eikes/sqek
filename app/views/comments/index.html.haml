@@ -1,23 +1,30 @@
 %h1
   = Comment.model_name.human(count: Comment.all.count)
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th Comment on
-      %th Type
-      %th Email
-
-  %tbody
-    - @comments.each do |comment|
+= form_tag(bulk_delete_comments_path) do
+  %table.table.table-striped
+    %thead
       %tr
-        %td= link_to comment.title, comment
-        %td= truncate comment.body
-        %td= link_to comment.commentable.name, commentable_path(comment.commentable)
-        %td= comment.commentable.class
-        %td
-          - if can? :view_email, comment
-            = comment.email
+        %th
+        %th Title
+        %th Body
+        %th Comment on
+        %th Type
+        %th Email
 
+    %tbody
+      - @comments.each do |comment|
+        %tr
+          %td= check_box_tag 'comment_ids[]', comment.id if can? :bulk_delete, Comment
+          %td= link_to comment.title, comment
+          %td= truncate comment.body
+          %td= link_to comment.commentable.name, commentable_path(comment.commentable)
+          %td= comment.commentable.class
+          %td
+            - if can? :view_email, comment
+              = comment.email
+
+  - if can? :bulk_delete, Comment
+    = submit_tag 'Delete selected',
+                 data: { confirm: 'Are you sure you want to delete all of these comments?' },
+                 class: 'btn btn-danger'

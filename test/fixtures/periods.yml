@@ -1,6 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 p1:
-  squat: kopi
+  squat: berlin_squat
   start_year: 1990
   end_year: 1995
+
+p2:
+  squat: london_squat
+  start_year: 1999

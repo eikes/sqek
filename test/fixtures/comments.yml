@@ -1,15 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  body: MyText
-  email: MyString
+berlin_comment:
+  title: Shalala
+  body: Shalala
+  email: shala@lala.la
   published: false
   commentable: berlin (City)
 
-two:
-  title: MyString
-  body: MyText
-  email: MyString
+london_comment:
+  title: Shalala
+  body: Shalala
+  email: shala@lala.la
+  published: false
+  commentable: london (City)
+
+spam:
+  title: Spam
+  body: Spam
+  email: Spam@Spam.de
   published: false
   commentable: berlin (City)

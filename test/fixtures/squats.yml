@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-kopi:
+berlin_squat:
   name: "Köpi"
   slug: kopi
   city: berlin
   lat: 52.5077
   lng: 13.426
+  published: true
+
+london_squat:
+  name: "LARC"
+  slug: larc
+  city: london
+  lat: 51.517
+  lng: -0.065
   published: true

@@ -30,26 +30,20 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new
-    # Everyone can see the cities and the squats
-    can [:create, :read], Squat
+
     can :read, City
     can :read, Picture
+    can [:create, :read], Squat
     can [:create, :read], Comment
 
     if user.role == "admin"
       # logged in admin user
       can :manage, :all
-      can :update_location, City
     elsif user.role == "user"
       # logged in regular user
-      can [:read, :update, :destroy], Squat, city: { id: user.cities.pluck(:id) }
-      can :create, Squat do |squat, city|
-        user.cities.include? city
-      end
-      can :manage, Comment do |comment|
-        user.cities.include? comment.city
-      end
-      can :update, City
+      can [:update, :destroy], Squat, city: { id: user.cities.pluck(:id) }
+      can [:update, :destroy], Comment, city: { id: user.cities.pluck(:id) }
+      can :update, City, id: user.cities.pluck(:id)
       can :manage, Picture
     else
     end

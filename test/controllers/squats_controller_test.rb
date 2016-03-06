@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class SquatsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
 
   setup do
     @city = cities(:berlin)
-    @squat = squats(:kopi)
+    @squat = squats(:berlin_squat)
     @city_user = users(:berlin_user)
     @not_city_user = users(:london_user)
     @valid_squat_params = {
@@ -26,7 +27,7 @@ class SquatsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     get :new,
         locale:  :en,
         city_id: @city
@@ -34,7 +35,7 @@ class SquatsControllerTest < ActionController::TestCase
   end
 
   test "should create squat" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     assert_difference('Squat.count') do
       post :create,
            locale:  :en,
@@ -76,7 +77,7 @@ class SquatsControllerTest < ActionController::TestCase
   end
 
   test "#create should not send mail when registered user creates squat" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     assert_no_difference('ActionMailer::Base.deliveries.count') do
       post :create,
            locale:  :en,
@@ -94,7 +95,7 @@ class SquatsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     get :edit,
         locale:  :en,
         city_id: @city,
@@ -103,7 +104,7 @@ class SquatsControllerTest < ActionController::TestCase
   end
 
   test "should update squat" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     patch :update,
           locale:  :en,
           city_id: @city,
@@ -114,7 +115,7 @@ class SquatsControllerTest < ActionController::TestCase
   end
 
   test "should destroy squat" do
-    create_user_and_sign_in
+    sign_in users(:admin)
     assert_difference('Squat.count', -1) do
       delete :destroy,
              locale:  :en,

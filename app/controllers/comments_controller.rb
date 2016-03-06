@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_commentable_from_params, only: [:new, :create]
-  before_action :set_commentable, except: [:new, :create, :index]
+  before_action :set_commentable, except: [:new, :create, :index, :bulk_delete]
 
   load_and_authorize_resource
 
@@ -10,6 +10,11 @@ class CommentsController < ApplicationController
   def index
     @comments = Comment.all
     respond_with(@comments)
+  end
+
+  def bulk_delete
+    Comment.where(id: params['comment_ids']).destroy_all
+    redirect_to comments_path
   end
 
   def show

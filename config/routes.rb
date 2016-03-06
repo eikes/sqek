@@ -27,7 +27,11 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :comments#, except: [:index, :show, :new]
+    resources :comments do#, except: [:index, :show, :new]
+      collection do
+        post 'bulk_delete'
+      end
+    end
   end
 
   # Example of regular route:

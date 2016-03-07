@@ -14,7 +14,7 @@ class AbilityTest < ActiveSupport::TestCase
     @admin_ability       = Ability.new(@admin)
 
     @berlin = cities(:berlin)
-    @london = cities(:berlin)
+    @london = cities(:london)
 
     @berlin_squat = squats(:berlin_squat)
     @london_squat = squats(:london_squat)

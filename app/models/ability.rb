@@ -34,13 +34,14 @@ class Ability
     can :read, City
     can :read, Picture
     can [:create, :read], Squat
-    can [:create, :read], Comment
+    can :read, Comment
 
     if user.role == "admin"
       # logged in admin user
       can :manage, :all
     elsif user.role == "user"
       # logged in regular user
+      can :create, Comment
       can [:update, :destroy], Squat, city: { id: user.cities.pluck(:id) }
       can [:update, :destroy], Comment, city: { id: user.cities.pluck(:id) }
       can :update, City, id: user.cities.pluck(:id)

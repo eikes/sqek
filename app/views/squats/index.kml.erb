@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <% @squats.each do |squat| %>
+  <Placemark>
+    <name><%= squat.name %></name>
+    <description><%= render( { partial: "squats/description", formats: [:html], locals: { squat: squat, show_create_comment_link: false } } ) %></description>
+    <Point>
+      <coordinates><%= squat.lng %>,<%= squat.lat %></coordinates>
+    </Point>
+  </Placemark>
+  <% end %>
+</Document>
+</kml>

@@ -9,6 +9,7 @@
   #squat_list.sidebar-content.full-height
     .sidebar-inner-content
       %h2= Squat.model_name.human(:count => 2)
+      = link_to 'Download KML', city_squats_path(format: :kml), class: 'btn btn-default'
       - @squats.group_by{ |u| u.name.upcase[0] }.each do |alpha, squats|
         %h3= alpha
         %ul

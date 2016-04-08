@@ -3,7 +3,7 @@ class SquatsController < ApplicationController
 
   load_and_authorize_resource except: [:new, :create]
 
-  respond_to :html, :json
+  respond_to :html, :json, :kml
 
   def index
     if @city.external_url.present?

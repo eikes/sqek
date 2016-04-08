@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    @comment.commentable = @commentable
     respond_with(@comment)
   end
 

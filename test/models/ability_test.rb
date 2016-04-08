@@ -149,8 +149,8 @@ class AbilityTest < ActiveSupport::TestCase
 
   # Visitor Comment
 
-  test "visitor can create Comment" do
-    assert @visitor_ability.can?(:create, Comment)
+  test "visitor cannot create Comment" do
+    assert @visitor_ability.cannot?(:create, Comment)
   end
 
   test "visitor can read Comment" do

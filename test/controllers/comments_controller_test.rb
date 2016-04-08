@@ -34,6 +34,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    sign_in @not_city_user
     get :new, locale: :en, comment: {
       commentable_id:   @city.id,
       commentable_type: 'City'
@@ -42,6 +43,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should create comment" do
+    sign_in @not_city_user
     assert_difference('Comment.count') do
       post :create,
            locale:  :en,
@@ -52,6 +54,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "#create should send mail" do
+    sign_in @not_city_user
     assert_difference('ActionMailer::Base.deliveries.count') do
       post :create,
            locale:  :en,

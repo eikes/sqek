@@ -29,7 +29,7 @@ wb.add_worksheet(name: 'Squats') do |sheet|
         squat.lat,
         squat.lng,
         sanitize(squat.body, tags: [])
-      ] + Squat::TAGS.map { |t| squat.tags.include?(t) ? "Yes" : "" }
+      ] + Squat::TAGS.map { |t| squat.tags.include?(t) ? 1 : "" }
     end
 
     sheet.column_info[9].width = 25

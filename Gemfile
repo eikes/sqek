@@ -50,6 +50,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'select2-rails'
 gem 'rails_autolink'
+gem 'axlsx_rails'
 
 gem 'premailer-rails'
 gem 'nokogiri'

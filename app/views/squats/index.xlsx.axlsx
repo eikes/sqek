@@ -1,0 +1,39 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: 'Squats') do |sheet|
+  wb.styles do |s|
+    head = s.add_style b: true
+    wrap_text = s.add_style alignment: { wrap_text: true }
+
+    sheet.add_row [
+      'Name',
+      'Squatted Year',
+      'Squatted Month',
+      'Squatted Day',
+      'Evicted Year',
+      'Evicted Month',
+      'Evicted Day',
+      'Latitude',
+      'Longitude',
+      'Description'
+    ] + Squat::TAGS.map(&:humanize)
+
+    @squats.each do |squat|
+      sheet.add_row [
+        squat.name,
+        squat.periods.first.start_year,
+        squat.periods.first.start_month,
+        squat.periods.first.start_day,
+        squat.periods.last.end_year,
+        squat.periods.last.end_month,
+        squat.periods.last.end_day,
+        squat.lat,
+        squat.lng,
+        sanitize(squat.body, tags: [])
+      ] + Squat::TAGS.map { |t| squat.tags.include?(t) ? "Yes" : "" }
+    end
+
+    sheet.column_info[9].width = 25
+    sheet.row_style 0, head
+    sheet.col_style 9, wrap_text, row_offset: 1
+  end
+end

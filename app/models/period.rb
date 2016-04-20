@@ -1,6 +1,8 @@
 class Period < ActiveRecord::Base
   belongs_to :squat
 
+  default_scope { order(:start_year, :start_month, :start_day) }
+
   validates :start_year, presence: true
   validates :start_month, presence: true, if: :start_day
   validates :end_year, presence: true, if: :end_month

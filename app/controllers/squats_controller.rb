@@ -3,7 +3,7 @@ class SquatsController < ApplicationController
 
   load_and_authorize_resource except: [:new, :create]
 
-  respond_to :html, :json, :kml
+  respond_to :html, :json, :kml, :xlsx
 
   def index
     if @city.external_url.present?
@@ -15,7 +15,11 @@ class SquatsController < ApplicationController
                      .includes(:periods)
                      .includes(:pictures)
                      .order(:name)
-      respond_with(@squats)
+      respond_with(@squats) do |format|
+        format.xlsx do
+          response.headers['Content-Disposition'] = "attachment; filename=\"#{@city.slug}_squats.xlsx\""
+        end
+      end
     end
   end
 

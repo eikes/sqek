@@ -5,9 +5,10 @@
 
 = render("shared/legend")
 
-#sidebar
-  #squat_list.sidebar-content.full-height
-    .sidebar-inner-content
+#sidebar.full-height
+  .sidebar-outer-content
+    %i#close_sidebar.glyphicon.glyphicon-remove.pull-right
+    #squat_list.sidebar-content
       %h2= Squat.model_name.human(:count => 2)
       - @squats.group_by{ |u| u.name.upcase[0] }.each do |alpha, squats|
         %h3= alpha
@@ -15,8 +16,7 @@
           - squats.each do |squat|
             %li
               %a{href: '#' + squat.slug}= squat.name
-  #city_text.sidebar-content.full-height
-    .sidebar-inner-content
+    #city_text.sidebar-content
       %h2= @city.name
       = sanitize @city.body
       = render partial: 'shared/comments', locals: { commentable: @city, show_create_comment_link: true }

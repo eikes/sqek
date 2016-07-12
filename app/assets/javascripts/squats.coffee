@@ -98,11 +98,17 @@ $(->
 
   $('.dynamic_menu').click (e) ->
     e.preventDefault()
+    $('#sidebar').show()
     target = $(this).attr("href")
-    $("#sidebar .sidebar-content").not(target).hide()
-    $(target).toggle()
+    $("#sidebar .sidebar-content").hide()
+    $(target).show()
+  $('#legend_menu').click (e) ->
+    e.preventDefault()
+    $('#legend').toggle()
   $('#legend_menu').click()
   $('#close_legend').click (e) ->
-    $('#legend_menu').click()
+    $('#legend').hide()
+  $('#close_sidebar').click (e) ->
+    $('#sidebar').hide()
 
 )

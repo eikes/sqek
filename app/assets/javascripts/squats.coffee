@@ -102,10 +102,6 @@ $(->
     target = $(this).attr("href")
     $("#sidebar .sidebar-content").hide()
     $(target).show()
-  # $('#legend_menu').click (e) ->
-  #   e.preventDefault()
-  #   $('#legend').toggle()
-  # $('#legend_menu').click()
   $('#close_legend').click (e) ->
     $('#legend-label').click()
   $('#close_sidebar').click (e) ->

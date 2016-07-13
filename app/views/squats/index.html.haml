@@ -3,6 +3,9 @@
 
 = render("menu")
 
+%a#legend-label.toggle-label
+  = t(:legend)
+
 = render("shared/legend")
 
 #sidebar.full-height
@@ -24,6 +27,8 @@
 #map.full-height{ data: { squats_url: @squats_url, mode: :index, latlng: @city.latlng, bounds: @city.squat_bounds, zoom: 10 } }
 
 - content_for :footer do
+  %a#filter-label.toggle-label
+    Filter
   %nav#footer.navbar.navbar-default.navbar-fixed-bottom
     .container-fluid
       #all_years_container

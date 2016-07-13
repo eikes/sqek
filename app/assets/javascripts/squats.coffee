@@ -4,8 +4,8 @@
 
 icons = {}
 getIcon = (icon_path) ->
-  if !icons[icon_path] 
-    icons[icon_path] = 
+  if !icons[icon_path]
+    icons[icon_path] =
       L.icon({
         iconUrl: icon_path,
         iconSize: [35, 30],
@@ -59,7 +59,7 @@ $(->
     if lat && lng
       update_marker latlng
       map.panTo latlng
-  
+
   $(".show-diff").click (e) ->
     $(this).next("pre").toggle()
 
@@ -102,13 +102,22 @@ $(->
     target = $(this).attr("href")
     $("#sidebar .sidebar-content").hide()
     $(target).show()
-  $('#legend_menu').click (e) ->
-    e.preventDefault()
-    $('#legend').toggle()
-  $('#legend_menu').click()
+  # $('#legend_menu').click (e) ->
+  #   e.preventDefault()
+  #   $('#legend').toggle()
+  # $('#legend_menu').click()
   $('#close_legend').click (e) ->
-    $('#legend').hide()
+    $('#legend-label').click()
   $('#close_sidebar').click (e) ->
     $('#sidebar').hide()
+  $('#legend-label').click (e) ->
+    e.preventDefault()
+    $('#legend').toggleClass('hidden')
+    $(this).css("top", $('#legend').outerHeight() + $('#header').outerHeight())
+  $('#filter-label').click (e) ->
+    e.preventDefault()
+    $('#footer').toggleClass('hidden')
+    $(this).css("bottom", $('#footer').outerHeight())
+    $(window).resize()
 
 )

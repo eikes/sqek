@@ -29,14 +29,20 @@
 - content_for :footer do
   %a#filter-label.toggle-label
     Filter
-  %nav#footer.navbar.navbar-default.navbar-fixed-bottom
+  %nav#footer.navbar.navbar-default.navbar-fixed-bottom.hidden
     .container-fluid
-      #all_years_container
-        %input#all_years{type: :checkbox, title: t(:all_years), checked: true}
-        %br
-        %label{ for: "all_years"}
-          = t(:all_years)
-      #slider_container
-        #slider{ data: { from: city_start_year(@city), to: Date.today.year } }
-        #year
-          = t(:all_years)
+      .row
+        #all_years_container
+          %input#all_years{type: :checkbox, title: t(:all_years), checked: true}
+          %br
+          %label{ for: "all_years"}
+            = t(:all_years)
+        #slider_container
+          #slider{ data: { from: city_start_year(@city), to: Date.today.year } }
+          #year
+            = t(:all_years)
+      .row
+        - Squat.form_tags.each do |name, key|
+          .tag-filter
+            = check_box_tag key
+            = label_tag key, name

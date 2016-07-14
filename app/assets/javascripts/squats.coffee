@@ -63,23 +63,44 @@ $(->
   $(".show-diff").click (e) ->
     $(this).next("pre").toggle()
 
-  showSquatsInYear = (year) ->
-    $('#year').html(year)
+  filter_state = {
+    year: undefined,
+    tags: []
+  }
+
+  filter = ->
     for squat in squats
       visible = false
-      for period in squat.periods
-        if year >= period.start_year and (year <= period.end_year or !period.end_year)
-          visible = true
+      # first show the squat if it was squatted in the given year
+      if filter_state.year
+        for period in squat.periods
+          if filter_state.year >= period.start_year and (filter_state.year <= period.end_year or !period.end_year)
+            visible = true
+      else
+        visible = true
+      # secondly only show the squat if it matches any of the selected tags
+      if visible and filter_state.tags.length > 0
+        visible = false
+        for tag in squat.tags
+          if $.inArray(tag, filter_state.tags) != -1
+            visible = true
+      # hide or show the squat
       if visible
         $(squat.marker._icon).show()
       else
         $(squat.marker._icon).hide()
 
+
+  showSquatsInYear = (year) ->
+    $('#year').html(year)
+    filter_state.year = year
+    filter()
+
   all_years = $('#year').text()
   showAllSquats = () ->
     $('#year').html(all_years)
-    for squat in squats
-      $(squat.marker._icon).show()
+    filter_state.year = undefined
+    filter()
 
   $('#slider').slider({
     min: parseInt($('#slider').data("from")),
@@ -95,6 +116,16 @@ $(->
     else
       year = $('#slider').slider("value")
       showSquatsInYear(year)
+
+  $('.tag-filter input').change ->
+    key = this.name
+    if $(this).is(":checked")
+      # add tag to filters
+      filter_state.tags.push(key)
+    else
+      # remove tag from filters
+      filter_state.tags = $.grep(filter_state.tags, (a) -> return a != key)
+    filter()
 
   $('.dynamic_menu').click (e) ->
     e.preventDefault()

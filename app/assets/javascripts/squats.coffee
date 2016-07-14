@@ -124,7 +124,7 @@ $(->
       filter_state.tags.push(key)
     else
       # remove tag from filters
-      filter_state.tags = $.grep(filter_state.tags, (a) -> return a != key)
+      filter_state.tags = filter_state.tags.filter (tag) -> tag isnt key
     filter()
 
   $('.dynamic_menu').click (e) ->

@@ -81,7 +81,8 @@ $(->
       # secondly only show the squat if it matches any of the selected tags
       if visible and filter_state.tags.length > 0
         visible = false
-        for tag in squat.tags
+        squat_tags = squat.tags || [] # make sure, that it always is an array, even if the server returns null
+        for tag in squat_tags
           if $.inArray(tag, filter_state.tags) != -1
             visible = true
       # hide or show the squat

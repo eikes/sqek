@@ -22,6 +22,8 @@
 en:
   # generic words
   account: Account
+  create: Create
+  update: Update
   edit: Edit
   destroy: Destroy
   show: Show
@@ -105,6 +107,7 @@ en:
   # comments
   new_comment: New comment
   new_comment_for: New comment for
+  edit_comment_for: Edit comment for
 
   activerecord:
     models:

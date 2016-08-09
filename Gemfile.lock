@@ -58,6 +58,13 @@ GEM
     builder (3.2.2)
     byebug (8.2.2)
     cancancan (1.13.1)
+    capybara (2.7.1)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -75,6 +82,8 @@ GEM
     css_parser (1.3.7)
       addressable
     debug_inspector (0.0.2)
+    declarative (0.0.8)
+      uber (>= 0.0.15)
     devise (3.5.6)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -84,6 +93,10 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (0.12.1)
     devise-i18n-views (0.3.7)
+    disposable (0.2.6)
+      declarative (~> 0.0.6)
+      representable (>= 2.4.0, <= 3.1.0)
+      uber
     erubis (2.7.0)
     execjs (2.6.0)
     friendly_id (5.1.0)
@@ -125,6 +138,20 @@ GEM
     mini_magick (4.4.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    minitest-capybara (0.8.2)
+      capybara (~> 2.2)
+      minitest (~> 5.0)
+      rake
+    minitest-metadata (0.6.0)
+      minitest (>= 4.7, < 6.0)
+    minitest-rails (2.2.1)
+      minitest (~> 5.7)
+      railties (~> 4.1)
+    minitest-rails-capybara (2.1.2)
+      capybara (~> 2.7)
+      minitest-capybara (~> 0.8)
+      minitest-metadata (~> 0.6)
+      minitest-rails (~> 2.1)
     multi_json (1.11.2)
     mysql2 (0.4.3)
     nested_form (0.3.2)
@@ -166,7 +193,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.5)
       sprockets-rails
-    rails-assets-jquery (2.2.3)
+    rails-assets-jquery (2.2.4)
     rails-assets-lightbox (2.7.4)
       rails-assets-jquery (~> 2)
     rails-deprecated_sanitizer (1.0.3)
@@ -190,6 +217,13 @@ GEM
     rake (10.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
+    reform (2.1.0)
+      disposable (>= 0.2.2, < 0.3.0)
+      representable (>= 2.4.0, < 3.1.0)
+      uber (~> 0.0.11)
+    representable (3.0.0)
+      declarative (~> 0.0.5)
+      uber (~> 0.0.15)
     request_store (1.3.0)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
@@ -229,8 +263,17 @@ GEM
       railties (>= 3.1.1)
     touchpunch-rails (1.0.3)
       railties (>= 3.1)
+    trailblazer (1.1.1)
+      declarative
+      reform (>= 2.0.0, < 3.0.0)
+      uber (>= 0.0.15)
+    trailblazer-loader (0.0.9)
+    trailblazer-rails (0.2.4)
+      trailblazer (>= 1.0.4)
+      trailblazer-loader (>= 0.0.7)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.15)
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -241,6 +284,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -265,6 +310,7 @@ DEPENDENCIES
   jquery-ui-rails
   leaflet-rails
   mini_magick
+  minitest-rails-capybara
   mysql2
   nested_form
   nokogiri
@@ -277,6 +323,7 @@ DEPENDENCIES
   rails-assets-lightbox (~> 2.7.4)!
   rails-i18n (~> 4.0.0)
   rails_autolink
+  reform (~> 2.1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   select2-rails
@@ -285,5 +332,7 @@ DEPENDENCIES
   sqlite3
   tinymce-rails
   touchpunch-rails
+  trailblazer-loader
+  trailblazer-rails
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

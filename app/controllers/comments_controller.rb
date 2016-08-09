@@ -1,15 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :set_commentable_from_params, only: [:new, :create]
-  before_action :set_commentable, except: [:new, :create, :index, :bulk_delete]
 
-  load_and_authorize_resource
+  before_action :set_new_comment_and_commentable, only: [:new, :create]
+  before_action :set_comment_and_commentable, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  authorize_resource
 
   def index
     @comments = Comment.all
-    respond_with(@comments)
   end
 
   def bulk_delete
@@ -18,52 +15,55 @@ class CommentsController < ApplicationController
   end
 
   def show
-    respond_with(@comment)
   end
 
   def new
-    @comment = Comment.new
-    @comment.commentable = @commentable
-    respond_with(@comment)
-  end
-
-  def edit
+    @form = CommentNewForm.new(@comment)
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.save
-    recipients = @comment.city.users.pluck(:email)
-    NotificationsMailer.comment_notification(recipients, @comment).deliver_now
-    respond_with(@comment)
+    @form = CommentNewForm.new(@comment)
+    if @form.validate(params[:comment])
+      @form.save
+      recipients = @form.model.city.users.pluck(:email)
+      NotificationsMailer.comment_notification(recipients, @form.model).deliver_now
+      redirect_to @form.model
+    else
+      render action: :new
+    end
+  end
+
+  def edit
+    @form = CommentUpdateForm.new(@comment)
   end
 
   def update
-    @comment.update(comment_params)
-    respond_with(@comment)
+    @form = CommentUpdateForm.new(@comment)
+    if @form.validate(params[:comment])
+      @form.save
+      redirect_to @form.model
+    else
+      render action: :edit
+    end
   end
 
   def destroy
     @comment.destroy
-    respond_with(@comment)
+    redirect_to comments_path
   end
 
   private
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    def set_commentable_from_params
-      type = params[:comment][:commentable_type]
-      id   = params[:comment][:commentable_id]
-      @commentable = type.constantize.find(id)
-    end
+  def set_new_comment_and_commentable
+    type = params[:comment][:commentable_type]
+    id   = params[:comment][:commentable_id]
+    @commentable = type.constantize.find(id)
+    @comment = Comment.new(commentable: @commentable)
+  end
 
-    def set_commentable
-      @commentable = @comment.commentable
-    end
+  def set_comment_and_commentable
+    @comment = Comment.find(params[:id])
+    @commentable = @comment.commentable
+  end
 
-    def comment_params
-      params.require(:comment).permit(:title, :body, :email, :published, :commentable_id, :commentable_type)
-    end
 end

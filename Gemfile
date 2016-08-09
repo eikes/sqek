@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
@@ -55,10 +54,17 @@ gem 'axlsx_rails'
 gem 'premailer-rails'
 gem 'nokogiri'
 
+gem "trailblazer-rails"
+gem "trailblazer-loader"
+gem "reform", "~> 2.1.0"
+
 source 'https://rails-assets.org/' do
   gem 'rails-assets-lightbox', '~> 2.7.4'
 end
 
+group :test do
+  gem "minitest-rails-capybara"
+end
 
 # Use Unicorn as the app server
 # gem 'unicorn'

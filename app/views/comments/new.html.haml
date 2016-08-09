@@ -2,4 +2,18 @@
   = t(:new_comment_for)
   = @commentable.name
 
-= render 'form'
+= simple_form_for(@form, as: :comment, url: comments_path ) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, label: t(:title)
+    = f.input :body, label: t(:body)
+    = f.input :email
+    = f.input :commentable_id, as: :hidden
+    = f.input :commentable_type, as: :hidden
+
+  .form-actions.btn-group
+    = f.button :submit, value: t(:create)
+    - if can? :update, @comment
+      = link_to t(:back), comments_path, class: 'btn btn-default'
+

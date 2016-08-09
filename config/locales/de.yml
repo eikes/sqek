@@ -22,6 +22,8 @@
 de:
   #generic words
   account: Benutzerkonto
+  create: Erstellen
+  update: Aktualisieren
   edit: Bearbeiten
   destroy: Löschen
   show: Anzeigen
@@ -75,6 +77,7 @@ de:
   picture: Bild
   pictures: Bilder
   title: Titel
+  body: Text
   description: Beschreibung
   all_pictures: Alle Bilder
   upload_picture: Bild hochladen
@@ -98,6 +101,7 @@ de:
   # comments
   new_comment: Neuer Kommentar
   new_comment_for: Neuer Kommentar für
+  edit_comment_for: Bearbeiten des Kommentars für
 
   activerecord:
     models:

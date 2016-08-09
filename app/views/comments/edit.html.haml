@@ -1,3 +1,19 @@
-%h1 Editing comment
+%h1
+  = t(:edit_comment_for)
+  = @commentable.name
 
-= render 'form'
+= simple_form_for(@form, as: :comment, url: comment_path(@comment)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, label: t(:title)
+    = f.input :body, label: t(:body)
+    = f.input :email
+
+  .form-actions.btn-group
+    = f.button :submit, value: t(:update)
+    - if can? :delete, @comment
+      = link_to t(:destroy), @comment, method: :delete, data: { confirm: t(:confirm_question) }, class: 'btn btn-danger'
+    - if can? :update, @comment
+      = link_to t(:back), comments_path, class: 'btn btn-default'
+

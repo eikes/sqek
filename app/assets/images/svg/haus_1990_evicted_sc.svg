@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1"
+  baseProfile="full"
+  width="220px"
+  height="320px"
+  viewBox="0 0 220 320">
+  <style>
+    /* <![CDATA[ */
+    text {
+      fill: #ffffff;
+      stroke: #ffffff;
+      stroke-width: 5px;
+      font-family: Sans-Serif;
+      font-weight: bold;
+    }
+    .label-hsc {
+      
+        display: none;
+      
+    }
+    .label-h {
+      
+        display: none;
+      
+    }
+    .label-sc {
+      
+        display: block;
+      
+    }
+    /* ]]> */
+  </style>
+
+  <defs>
+    <polygon id="house" points="10,110 110,10 145,45 145,30 185,30 185,85 210,110 210,310 10,310"/>
+    <clipPath id="house-clip">
+      <use xlink:href="#house" />
+    </clipPath>
+    <line id="house-diagonal" x1="10" y1="310" x2="210" y2="110" clip-path="url(#house-clip)" />
+  </defs>
+
+  <!-- <rect x="0" y="0" width="220" height="320" fill="#333" /> -->
+
+  
+    <use xlink:href="#house" fill="#666" />
+  
+
+  
+    <use xlink:href="#house-diagonal" stroke="#ffffff" stroke-width="50" />
+    <use xlink:href="#house-diagonal" stroke="#25431e" stroke-width="40" />
+  
+
+  <text x="110" y="280" font-size="110" text-anchor="middle" class="label-hsc">SC</text>
+  <text x="110" y="180" font-size="110" text-anchor="middle" class="label-hsc">H</text>
+
+  <text x="110" y="270" font-size="200" text-anchor="middle" class="label-h">H</text>
+  <text x="110" y="250" font-size="120" text-anchor="middle" class="label-sc">SC</text>
+
+  <use xlink:href="#house" stroke="#ffffff" stroke-width="10" fill-opacity="0" id="white-outline" />
+
+</svg>

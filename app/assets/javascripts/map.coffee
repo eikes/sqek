@@ -8,7 +8,7 @@ $(->
 
   map = L.map(map_div)
 
-  tiles = L.tileLayer('http://{s}.tiles.mapbox.com/v3/eikes.he4660k4/{z}/{x}/{y}.png', {
+  tiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/eikes.he4660k4/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18
   })

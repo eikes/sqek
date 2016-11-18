@@ -8,10 +8,13 @@ $(->
 
   map = L.map(map_div)
 
-  tiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/eikes.he4660k4/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18
-  })
+  tiles_url = 'https://api.mapbox.com/styles/v1/eikes/civnq3kny002j2joi3d16t0kn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZWlrZXMiLCJhIjoiYTJRQ1JsMCJ9.M8P2KYfdrKAn0OnFRrhCiQ'
+  attribution = "Map data &copy;
+                <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors,
+                <a href='http://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>,
+                Imagery © <a href='http://mapbox.com'>Mapbox</a>"
+
+  tiles = L.tileLayer(tiles_url, { attribution: attribution, maxZoom: 18 })
 
   tiles.addTo map
 

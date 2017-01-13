@@ -55,6 +55,8 @@ gem 'axlsx_rails'
 gem 'premailer-rails'
 gem 'nokogiri'
 
+gem 'rb-readline'
+
 source 'https://rails-assets.org/' do
   gem 'rails-assets-lightbox', '~> 2.7.4'
 end

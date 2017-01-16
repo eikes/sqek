@@ -40,7 +40,7 @@ class Squat < ActiveRecord::Base
 
   # has at least one period
   validate do
-    errors.add(:base, I18n.t(:at_least_one_period_error)) if periods.empty?
+    errors.add(:base, I18n.t(:at_least_one_period_error)) if periods.reject(&:marked_for_destruction?).empty?
   end
 
   # has location

@@ -5,7 +5,7 @@ $(->
     address = ($(source).val().replace("\n", ", ") for source in sources).join ", "
 
     $.ajax({
-      url: "http://nominatim.openstreetmap.org/search.php?format=json&q=" + address,
+      url: "//nominatim.openstreetmap.org/search.php?format=json&q=" + address,
       dataType: "jsonp",
       jsonp: "json_callback"
     }).success (data) ->

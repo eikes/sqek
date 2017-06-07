@@ -5,13 +5,11 @@
   <Placemark>
     <name><%= squat.name %></name>
     <description><%=
-      render({
+      Nokogiri::HTML::fragment(render({
         partial: 'squats/description',
         formats: [:html],
         locals:  { squat: squat, show_create_comment_link: false }
-      }).gsub('<br>','<br/>')
-        .gsub(/\<img ([^>\/]*)\>/,'<img \1/>')
-        .html_safe
+      })).to_xml.html_safe
     %></description>
     <Point>
       <coordinates><%= squat.lng %>,<%= squat.lat %></coordinates>

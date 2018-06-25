@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/randym/axlsx.git
+  revision: c8ac844572b25fda358cc01d2104720c4c42f450
+  ref: c8ac844
+  specs:
+    axlsx (2.1.0.pre)
+      htmlentities (~> 4.3.4)
+      mimemagic (~> 0.3)
+      nokogiri (>= 1.6.6)
+      rubyzip (>= 1.2.1)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -41,13 +52,9 @@ GEM
     autoprefixer-rails (8.6.3)
       execjs
     awesome_print (1.6.1)
-    axlsx (2.0.1)
-      htmlentities (~> 4.3.1)
-      nokogiri (>= 1.4.1)
-      rubyzip (~> 1.0.0)
-    axlsx_rails (0.4.0)
+    axlsx_rails (0.5.2)
+      actionpack (>= 3.1)
       axlsx (>= 2.0.1)
-      rails (>= 3.1)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -127,6 +134,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mimemagic (0.3.2)
     mini_magick (4.4.0)
     mini_mime (1.0.0)
     mini_portile2 (2.1.0)
@@ -205,7 +213,7 @@ GEM
       railties (>= 4.2.0, < 5.1)
     ruby_parser (3.8.1)
       sexp_processor (~> 4.1)
-    rubyzip (1.0.0)
+    rubyzip (1.2.1)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -262,6 +270,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   awesome_print
+  axlsx!
   axlsx_rails
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.1)
@@ -292,6 +301,7 @@ DEPENDENCIES
   rails-i18n (~> 4.0.0)
   rails_autolink
   rb-readline
+  rubyzip (>= 1.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   select2-rails

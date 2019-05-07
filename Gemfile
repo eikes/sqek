@@ -92,5 +92,6 @@ end
 group :production do
   # MySQL database
   gem 'mysql2'
+  gem 'passenger'
 end
 

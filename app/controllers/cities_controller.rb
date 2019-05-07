@@ -6,7 +6,6 @@ class CitiesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @cities = City.all
     respond_with(@cities)
   end
 

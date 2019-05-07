@@ -43,4 +43,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
 
+  log_path = Rails.root.join('log', Rails.env + '.log')
+  config.logger = ActiveSupport::Logger.new log_path, 5, 10.megabytes # keep 5 of filesize around 10 MB
 end

@@ -15,11 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cities
-    @cities = if current_user.present?
-                City.all
-              else
-                City.joins(:squats).group(:city_id) # bit of a hack to only get cities with at least one squat
-              end
+    @cities = City.all
   end
 
   def default_url_options(options = {})

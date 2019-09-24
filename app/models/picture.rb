@@ -1,4 +1,4 @@
-class Picture < ActiveRecord::Base
+class Picture < ApplicationRecord
   default_scope{ order('created_at DESC')}
   mount_uploader :picture, PictureUploader
 

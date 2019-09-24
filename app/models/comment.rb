@@ -1,7 +1,7 @@
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
 
-  validates :title, :body, :email, :commentable, presence: true
+  validates :title, :email, :body, :commentable, presence: true
 
   def city
     if commentable.class == City

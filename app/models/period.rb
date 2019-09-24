@@ -1,4 +1,4 @@
-class Period < ActiveRecord::Base
+class Period < ApplicationRecord
   belongs_to :squat
 
   default_scope { order(:start_year, :start_month, :start_day) }

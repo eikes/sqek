@@ -1,4 +1,4 @@
-class Squat < ActiveRecord::Base
+class Squat < ApplicationRecord
 
   attr_accessor :current_user
 
@@ -34,7 +34,7 @@ class Squat < ActiveRecord::Base
 
   validates :external_user_email,
             presence: true,
-            if: "current_user.nil?"
+            if: Proc.new { current_user.nil? }
 
   validates_associated :periods
 
@@ -85,7 +85,7 @@ class Squat < ActiveRecord::Base
   end
 
   def clean_tags
-    tags.reject! { |t| t.blank? }
+    tags.reject! { |t| t.blank? } if tags.present?
   end
 
   def latlng

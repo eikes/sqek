@@ -32,10 +32,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.save
-    recipients = @comment.city.users.pluck(:email)
-    NotificationsMailer.comment_notification(recipients, @comment).deliver_now
-    respond_with(@comment)
+    @comment.email ||= current_user.email
+    if @comment.save
+      recipients = @comment.city.users.pluck(:email)
+      NotificationsMailer.comment_notification(recipients, @comment).deliver_now
+      respond_with(@comment)
+    else
+      render :edit
+    end
   end
 
   def update

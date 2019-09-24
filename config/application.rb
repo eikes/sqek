@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'rails/all'
 
@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Sqek
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.0
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -27,11 +30,13 @@ module Sqek
     }
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
 
     config.app_generators.scaffold_controller :responders_controller
     config.generators do |g|
       g.stylesheets false
     end
+
+    config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end

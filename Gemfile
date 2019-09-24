@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
+# Bootsnap speeds up development by keeping your application running in the background.
+gem 'bootsnap', require: false
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 5.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
+gem 'sqlite3', '= 1.3.13'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -31,7 +34,7 @@ gem 'cancancan'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'autoprefixer-rails'
-gem 'jquery-ui-rails', '~> 5.0'
+gem 'jquery-ui-rails', '= 5.0.5'
 gem 'touchpunch-rails'
 gem 'tinymce-rails'
 gem 'simple_form'
@@ -40,7 +43,7 @@ gem 'friendly_id'
 gem 'nested_form'
 gem 'paper_trail'
 
-gem 'rails-i18n', '~> 4.0'
+gem 'rails-i18n', '~> 5'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
@@ -66,6 +69,7 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development do
+  gem 'listen'
   gem 'awesome_print', require: 'ap'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -75,12 +79,11 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   # Debug nicely
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'quiet_assets'
+
+  gem 'rails-controller-testing'
 end
 
 group :production do

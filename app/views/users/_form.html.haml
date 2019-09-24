@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :email
-    = f.input :role, collection: {"Admin" => :admin, "User" => :user}
+    = f.input :role, collection: User::ROLES
     = f.association :cities, as: :check_boxes
 
     = f.input :password

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
 
   setup do
     @city = cities(:berlin)

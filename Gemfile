@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11.1'
+gem 'rails', '~> 4.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -36,7 +36,7 @@ gem 'autoprefixer-rails'
 gem 'jquery-ui-rails'
 gem 'touchpunch-rails'
 gem 'tinymce-rails'
-gem 'simple_form'
+gem 'simple_form', '~> 3.5'
 gem 'leaflet-rails'
 gem 'friendly_id', '~> 5.1.0.beta.1'
 gem 'nested_form'

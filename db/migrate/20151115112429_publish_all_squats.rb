@@ -1,4 +1,4 @@
-class PublishAllSquats < ActiveRecord::Migration
+class PublishAllSquats < ActiveRecord::Migration[4.2]
   def up
     Squat.update_all(published: true)
   end

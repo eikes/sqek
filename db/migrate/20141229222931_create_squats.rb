@@ -1,4 +1,4 @@
-class CreateSquats < ActiveRecord::Migration
+class CreateSquats < ActiveRecord::Migration[4.2]
   def change
     create_table :squats do |t|
       t.string :name

@@ -1,4 +1,4 @@
-class AddAddressCityToSquat < ActiveRecord::Migration
+class AddAddressCityToSquat < ActiveRecord::Migration[4.2]
   def up
     add_column :squats, :address_city, :string
     City.all.each do |city|

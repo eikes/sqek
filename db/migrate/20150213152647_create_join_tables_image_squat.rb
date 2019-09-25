@@ -1,4 +1,4 @@
-class CreateJoinTablesImageSquat < ActiveRecord::Migration
+class CreateJoinTablesImageSquat < ActiveRecord::Migration[4.2]
   def change
     create_join_table :images, :squats do |t|
       # t.index [:image_id, :squat_id]

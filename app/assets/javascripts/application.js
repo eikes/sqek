@@ -10,16 +10,17 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// Installed using yarn
+//
 //= require jquery
-//= require jquery_ujs
-//= require jquery-ui/slider
-//= require jquery.ui.touch-punch
-//= require leaflet
+//= require jquery-ujs
+//= require nouislider/distribute/nouislider
+//
+// Installed using ruby gems
+//
 //= require bootstrap
+//= require leaflet
 //= require jquery_nested_form
-//= require settings
-//= require resize
 //= require select2
-//= require map
 //= require lightbox
 //= require_tree .

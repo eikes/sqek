@@ -1,0 +1,13 @@
+{
+  "name": "sqek",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/eikes/sqek.git",
+  "author": "Eike Send <eike.send@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "jquery-ujs": "^1.2.2",
+    "nouislider": "^14.0.2"
+  }
+}

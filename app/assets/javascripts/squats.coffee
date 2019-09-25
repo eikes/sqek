@@ -39,6 +39,8 @@ hashchange = ->
       opening_popup = false
 $(window).on "hashchange", hashchange
 
+window.squats = []
+
 $(->
   map.on "popupclose", (e) ->
     if !opening_popup
@@ -91,7 +93,6 @@ $(->
       else
         $(squat.marker._icon).hide()
 
-
   showSquatsInYear = (year) ->
     $('#year').html(year)
     filter_state.year = year
@@ -103,19 +104,33 @@ $(->
     filter_state.year = undefined
     filter()
 
-  $('#slider').slider({
-    min: parseInt($('#slider').data("from")),
-    max: parseInt($('#slider').data("to")),
-    slide: ( event, ui ) ->
-      $('#all_years').prop("checked", false)
-      showSquatsInYear(ui.value)
+  sliderEl = $('#slider')
+  slider = sliderEl.get(0)
+  sliderMin = parseInt(sliderEl.data("from"))
+  sliderMax = parseInt(sliderEl.data("to"))
+  noUiSlider.create(slider, {
+    step: 1,
+    start: [sliderMin],
+    range: {
+      min: [sliderMin],
+      max: [sliderMax]
+    },
+    format: {
+      from: (value) ->
+        return parseInt(value);
+      to: (value) ->
+        return value + '';
+    }
   })
+  slider.noUiSlider.on 'update', (values, handle, unencoded, tap, positions) ->
+    $('#all_years').prop "checked", false
+    showSquatsInYear values[0]
 
   $('#all_years').change ->
     if $(this).is(":checked")
       showAllSquats()
     else
-      year = $('#slider').slider("value")
+      year = slider.noUiSlider.get()
       showSquatsInYear(year)
 
   $('.tag-filter input').change ->

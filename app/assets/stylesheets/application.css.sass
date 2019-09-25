@@ -14,7 +14,6 @@
  *= require_self
  *= require select2
  *= require select2-bootstrap
- *= require jquery-ui/slider
  *= require leaflet
  *= require lightbox
  */
@@ -22,10 +21,15 @@
 //= depend_on_asset "layers.png"
 //= depend_on_asset "layers-2x.png"
 
+// Installed using ruby gems
 @import "bootstrap-sprockets"
 @import "bootstrap"
 @import "bootstrap/theme"
 
+// Installed using Yarn
+@import "nouislider/distribute/nouislider"
+
+// other styles:
 #main .leaflet-container a ,
 body a,
 body a:hover,

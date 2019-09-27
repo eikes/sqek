@@ -6,7 +6,7 @@
       %tr
         %th= t(:version_id)
         %th= t(:version_created_at)
-        %th= t(:user)
+        %th= User.model_name.human
         %th.version-diff= t(:diff)
         %th= t(:actions)
     %tbody

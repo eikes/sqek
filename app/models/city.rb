@@ -1,6 +1,7 @@
 class City < ApplicationRecord
 
   extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
 
   has_and_belongs_to_many :users
   has_many :squats
@@ -14,8 +15,6 @@ class City < ApplicationRecord
   validates :lat,
             :lng,
             presence: true
-
-  friendly_id :name, use: :slugged
 
   has_paper_trail
 

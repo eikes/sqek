@@ -1,5 +1,8 @@
 class Squat < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   attr_accessor :current_user
 
   TAGS = [
@@ -10,8 +13,6 @@ class Squat < ApplicationRecord
     'occupied_public_space',
     'caravan_site'
   ]
-
-  extend FriendlyId
 
   belongs_to :city
   has_and_belongs_to_many :pictures
@@ -75,8 +76,6 @@ class Squat < ApplicationRecord
   before_save :clean_tags
 
   accepts_nested_attributes_for :periods, allow_destroy: true
-
-  friendly_id :name, use: [:slugged, :finders]
 
   has_paper_trail
 

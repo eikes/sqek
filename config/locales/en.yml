@@ -34,14 +34,6 @@ en:
   map: Map
   house: House
   evicted: Evicted
-  # shared versions
-  previous_versions: Previous versions
-  version_id: Version ID
-  version_created_at: Version created at
-  diff: Difference
-  actions: Actions
-  show_diff: Show difference
-  revert_to_version: Revert to version
   # general labels
   label_name: Name
   label_body: Body
@@ -89,7 +81,6 @@ en:
   upload_picture: Upload picture
   upload_a_picture_for: Upload a picture for
   browse: Browse
-  external_user_email: External user email
   # periods
   start_year: Start year
   start_month: Start month

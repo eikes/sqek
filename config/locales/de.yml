@@ -34,14 +34,6 @@ de:
   map: Karte
   house: Haus
   evicted: Geräumt
-  # shared versions
-  previous_versions: Vorherige Versionen
-  version_id: Version ID
-  version_created_at: Version erstellt am
-  diff: Unterschied
-  actions: Actions
-  show_diff: Unterschied zeigen
-  revert_to_version: Zur Version zurückkehren
   # general labels
   label_name: Name
   label_body: Beschreibung
@@ -88,7 +80,6 @@ de:
   upload_picture: Bild hochladen
   upload_a_picture_for: Bild hochladen für
   browse: Durchsuchen
-  external_user_email: Externer Benutzer E-Mail
   # periods
   squat_period: Besetzungszeitraum
   remove_period: Zeitraum entfernen

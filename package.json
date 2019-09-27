@@ -6,8 +6,8 @@
   "author": "Eike Send <eike.send@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@rails/ujs": "^6.0.0",
     "jquery": "^3.4.1",
+    "jquery-ujs": "^1.2.2",
     "nouislider": "^14.0.2"
   }
 }

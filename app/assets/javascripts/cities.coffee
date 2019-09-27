@@ -26,7 +26,7 @@ addCity = (city) ->
 $(->
   cities_url = $("#map").data("cities-url")
   if cities_url
-    $.ajax(cities_url).success((cities)->
+    $.ajax(cities_url).done((cities)->
       addCity city for city in cities
     )
 )

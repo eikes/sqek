@@ -42,9 +42,10 @@ $(window).on "hashchange", hashchange
 window.squats = []
 
 $(->
-  map.on "popupclose", (e) ->
-    if !opening_popup
-      document.location.hash = ""
+  if window.map
+    window.map.on "popupclose", (e) ->
+      if !opening_popup
+        document.location.hash = ""
 
   squats_url = $("#map").data("squats-url")
   if squats_url
@@ -106,25 +107,26 @@ $(->
 
   sliderEl = $('#slider')
   slider = sliderEl.get(0)
-  sliderMin = parseInt(sliderEl.data("from"))
-  sliderMax = parseInt(sliderEl.data("to"))
-  noUiSlider.create(slider, {
-    step: 1,
-    start: [sliderMin],
-    range: {
-      min: [sliderMin],
-      max: [sliderMax]
-    },
-    format: {
-      from: (value) ->
-        return parseInt(value);
-      to: (value) ->
-        return value + '';
-    }
-  })
-  slider.noUiSlider.on 'update', (values, handle, unencoded, tap, positions) ->
-    $('#all_years').prop "checked", false
-    showSquatsInYear values[0]
+  if(slider)
+    sliderMin = parseInt(sliderEl.data("from"))
+    sliderMax = parseInt(sliderEl.data("to"))
+    noUiSlider.create(slider, {
+      step: 1,
+      start: [sliderMin],
+      range: {
+        min: [sliderMin],
+        max: [sliderMax]
+      },
+      format: {
+        from: (value) ->
+          return parseInt(value);
+        to: (value) ->
+          return value + '';
+      }
+    })
+    slider.noUiSlider.on 'update', (values, handle, unencoded, tap, positions) ->
+      $('#all_years').prop "checked", false
+      showSquatsInYear values[0]
 
   $('#all_years').change ->
     if $(this).is(":checked")

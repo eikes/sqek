@@ -19,3 +19,9 @@
 /public/uploads/*
 
 yarn-error.log
+
+/public/packs
+/public/packs-test
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

@@ -13,7 +13,7 @@
 // Installed using yarn
 //
 //= require jquery
-//= require jquery-ujs
+//= require rails-ujs
 //= require nouislider/distribute/nouislider
 //
 // Installed using ruby gems

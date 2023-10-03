@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def get_default_icon
-    asset_path( "icons/haus_grau.png" )
+    asset_path( "svg/haus_grau.svg" )
   end
 
   def city_start_year(city)

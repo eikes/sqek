@@ -6,8 +6,8 @@ gem 'rails', '~> 6.1'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
+# Use Terser as compressor for JavaScript assets
+gem 'terser'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

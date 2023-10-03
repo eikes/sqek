@@ -7,7 +7,7 @@ module SquatsHelper
     end
 
     start_decade = [squat.periods.first.start_year / 10 * 10, 1960].max
-    evicted = squat.periods.last.end_year.nil?
+    evicted = squat.periods.last.end_year.present?
 
     if squat.tags.try(:include?, 'caravan_site')
       base = 'wagen'

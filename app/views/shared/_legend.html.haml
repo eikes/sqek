@@ -1,48 +1,36 @@
 #legend.hidden
   %table
     %tr
-      %th{colspan:2}
+      %th
         = t(:legend)
         %i#close_legend.glyphicon.glyphicon-remove.pull-right
     %tr
       %th
         = t(:squatted_after)
+    %tr
       %td
         %table(style="width:100%")
           %tbody
             %tr
-              %td.year-color(style="background-color:#f7a800")
-              %td.year-color(style="background-color:#e94e24")
-              %td.year-color(style="background-color:#c90c0f")
-              %td.year-color(style="background-color:#25431e")
-              %td.year-color(style="background-color:#63425a")
-              %td.year-color(style="background-color:#0b6973")
+              - LegendColors.until_now.values.each do |color|
+                %td.year-color(style="background-color:#{color}")
             %tr
-              %td
-                1960
-              %td
-                1970
-              %td
-                1980
-              %td
-                1990
-              %td
-                2000
-              %td
-                2010
+              - LegendColors.until_now.keys.each do |year|
+                %td
+                  = year
     %tr
-      %td{colspan:2}
+      %td
         %table
           %tbody
             %tr
               %td
-                = image_tag( "icons/haus_grau.png" )
+                = image_tag( "svg/haus_grau.svg", style: "width:22px;height:32px;" )
               %td
-                = image_tag( "icons/wagenplatz_grau.png" )
+                = image_tag( "svg/wagen_grau.svg", style: "width:22px;height:32px;" )
               %td
-                = image_tag( "icons/zelt_grau.png" )
+                = image_tag( "svg/zelt_grau.svg", style: "width:22px;height:32px;" )
               %td
-                = image_tag( "icons/raeumung.png" )
+                = image_tag( "svg/haus_grau_evicted.svg", style: "width:22px;height:32px;" )
             %tr
               %td(style="width:25%;")
                 = t(:house)

@@ -2,6 +2,7 @@
 # ruby generate_icons.rb
 
 require "erb"
+require __dir__ + '/../../config/initializers/legend_colors.rb'
 
 class Icon
   extend ERB::DefMethod
@@ -13,31 +14,22 @@ class Icon
 end
 
 class Haus < Icon
-  def_erb_method('render()', '../../app/views/icons/haus.svg.erb')
+  def_erb_method('render()', __dir__ + '/../../app/views/icons/haus.svg.erb')
 end
 
 class Wagen < Icon
-  def_erb_method('render()', '../../app/views/icons/wagen.svg.erb')
+  def_erb_method('render()', __dir__ + '/../../app/views/icons/wagen.svg.erb')
 end
 
 class Zelt < Icon
-  def_erb_method('render()', '../../app/views/icons/zelt.svg.erb')
+  def_erb_method('render()', __dir__ + '/../../app/views/icons/zelt.svg.erb')
 end
 
-colors = {
- '1960' => '#f7a800',
- '1970' => '#e94e24',
- '1980' => '#c90c0f',
- '1990' => '#25431e',
- '2000' => '#63425a',
- '2010' => '#0b6973'
-}
-
 [Haus, Wagen, Zelt].each do |klass|
-  [false, 'h', 'sc', 'hsc'].each do |label|
+  [false, 'sc'].each do |label| # 'h', 'hsc',
     [true, false].each do |evicted|
-      colors.each do |year, color|
-        filename = "../../app/assets/images/svg/#{ klass.name.downcase }_#{ year }"
+      LegendColors.colors.each do |year, color|
+        filename = __dir__ + "/../../app/assets/images/svg/#{ klass.name.downcase }_#{ year }"
         if evicted
           filename += '_evicted'
         end

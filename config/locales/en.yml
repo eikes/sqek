@@ -49,9 +49,8 @@ en:
   menu_cities: All cities
   # squat pages
   new_squat: New squat
-  editing_squat: Edit squat
+  edit_squat: Edit squat
   editing_squat: Editing squat
-  create_squat: Create squat
   create_squat: Create squat
   update_squat: Update squat
   squat_created: Squat created

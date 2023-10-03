@@ -1,16 +1,13 @@
 source 'https://rubygems.org'
 
-# Bootsnap speeds up development by keeping your application running in the background.
-gem 'bootsnap', require: false
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 6.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -19,8 +16,6 @@ gem 'coffee-rails'
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -39,7 +34,7 @@ gem 'friendly_id'
 gem 'nested_form'
 gem 'paper_trail'
 
-gem 'rails-i18n', '~> 5'
+gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
@@ -49,9 +44,8 @@ gem 'select2-rails'
 gem 'rails_autolink'
 
 # Export XLSX files
-gem 'rubyzip', '>= 1.2.1'
 gem 'caxlsx'
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
 
 gem 'premailer-rails'
 gem 'nokogiri'
@@ -73,11 +67,8 @@ group :development do
 end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  # Debug nicely
-  gem 'pry-rails'
-  gem 'pry-byebug'
+  gem 'debug'
+  gem 'webrick'
 
   gem 'rails-controller-testing'
 end

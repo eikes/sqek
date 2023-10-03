@@ -54,7 +54,7 @@
   <!-- <rect x="0" y="0" width="220" height="320" fill="#333" /> -->
 
   
-    <use xlink:href="#wagon" fill="#e94e24" />
+    <use xlink:href="#wagon" fill="#ff7f00" />
   
 
   <use xlink:href="#wagon" stroke="#ffffff" stroke-width="10" fill-opacity="0" id="white-outline" />

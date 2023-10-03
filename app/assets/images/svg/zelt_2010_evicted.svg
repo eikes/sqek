@@ -54,7 +54,7 @@
   
     <use xlink:href="#tent" fill="#666" />
     <use xlink:href="#tent-diagonal" stroke="#ffffff" stroke-width="50" />
-    <use xlink:href="#tent-diagonal" stroke="#0b6973" stroke-width="40" />
+    <use xlink:href="#tent-diagonal" stroke="#1f78b4" stroke-width="40" />
   
 
   <use xlink:href="#tent" stroke="#ffffff" stroke-width="10" fill-opacity="0" id="white-outline" />

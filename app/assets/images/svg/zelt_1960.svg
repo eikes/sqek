@@ -52,14 +52,14 @@
 
 
   
-    <use xlink:href="#tent" fill="#f7a800" />
+    <use xlink:href="#tent" fill="#fdbf6f" />
   
 
   <use xlink:href="#tent" stroke="#ffffff" stroke-width="10" fill-opacity="0" id="white-outline" />
 
   
-    <line x1="102" y1="140" x2="142" y2="48" stroke="#f7a800" stroke-width="20" />
-    <line x1="118" y1="140" x2="78" y2="48" stroke="#f7a800" stroke-width="20" />
+    <line x1="102" y1="140" x2="142" y2="48" stroke="#fdbf6f" stroke-width="20" />
+    <line x1="118" y1="140" x2="78" y2="48" stroke="#fdbf6f" stroke-width="20" />
   
 
   <text x="110" y="295" font-size="90" text-anchor="middle" class="label-hsc">SC</text>

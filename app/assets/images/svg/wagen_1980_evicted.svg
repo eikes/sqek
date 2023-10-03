@@ -56,7 +56,7 @@
   
     <use xlink:href="#wagon" fill="#666" />
     <use xlink:href="#wagon-diagonal" stroke="#ffffff" stroke-width="50" />
-    <use xlink:href="#wagon-diagonal" stroke="#c90c0f" stroke-width="40" />
+    <use xlink:href="#wagon-diagonal" stroke="#e31a1c" stroke-width="40" />
   
 
   <use xlink:href="#wagon" stroke="#ffffff" stroke-width="10" fill-opacity="0" id="white-outline" />

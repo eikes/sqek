@@ -45,7 +45,7 @@
   <!-- <rect x="0" y="0" width="220" height="320" fill="#333" /> -->
 
   
-    <use xlink:href="#house" fill="#e94e24" />
+    <use xlink:href="#house" fill="#ff7f00" />
   
 
   

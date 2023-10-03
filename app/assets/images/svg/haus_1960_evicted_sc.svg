@@ -50,7 +50,7 @@
 
   
     <use xlink:href="#house-diagonal" stroke="#ffffff" stroke-width="50" />
-    <use xlink:href="#house-diagonal" stroke="#f7a800" stroke-width="40" />
+    <use xlink:href="#house-diagonal" stroke="#fdbf6f" stroke-width="40" />
   
 
   <text x="110" y="280" font-size="110" text-anchor="middle" class="label-hsc">SC</text>

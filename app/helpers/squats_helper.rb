@@ -3,7 +3,7 @@ module SquatsHelper
   def squat_get_icon(squat)
     # temp fix for squats without periods
     if squat.periods.count == 0 || squat.periods.first.start_year.nil?
-      return asset_path "icons/haus_grau.png"
+      return asset_path "svg/haus_grau.svg"
     end
 
     start_decade = [squat.periods.first.start_year / 10 * 10, 1960].max

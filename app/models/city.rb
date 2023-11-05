@@ -27,7 +27,7 @@ class City < ApplicationRecord
   end
 
   def squat_bounds
-    if squats.empty?
+    if squats.count <= 1
       nil
     else
       [

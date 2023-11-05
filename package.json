@@ -8,6 +8,8 @@
   "dependencies": {
     "jquery": "^3.5.0",
     "jquery-ujs": "^1.2.2",
-    "nouislider": "^14.0.2"
+    "leaflet": "^1.7.1",
+    "nouislider": "^14.0.2",
+    "protomaps-leaflet": "^1.24.0"
   }
 }

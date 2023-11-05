@@ -147,9 +147,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    leaflet-rails (1.9.4)
-      actionpack (>= 4.2.0)
-      railties (>= 4.2.0)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -325,7 +322,6 @@ DEPENDENCIES
   friendly_id
   haml-rails
   jbuilder
-  leaflet-rails
   listen
   mini_magick
   mysql2

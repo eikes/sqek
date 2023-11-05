@@ -6,14 +6,53 @@ $(->
   map_data = $(map_div).data()
   mode     = map_data.mode
 
-  map = L.map(map_div)
+  window.map = map = L.map(map_div)
 
-  tiles_url = 'https://api.mapbox.com/styles/v1/eikes/civnq3kny002j2joi3d16t0kn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZWlrZXMiLCJhIjoiYTJRQ1JsMCJ9.M8P2KYfdrKAn0OnFRrhCiQ'
-  attribution = "Map data &copy;<a href='http://openstreetmap.org'>OpenStreetMap</a> contributors,<a href='http://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>,Imagery © <a href='http://mapbox.com'>Mapbox</a>"
+  sqek_theme = {
+    earth: "#FBFBFB",
+    glacier: "#FFFFFF",
+    residential: "#F4F4F4",
+    hospital: "#F6F6F6",
+    cemetery: "#EFEFEF",
+    school: "#F7F7F7",
+    industrial: "#EFEFEF",
+    wood: "#C5C5C5",
+    grass: "#D5D5D5",
+    park: "#D5D5D5",
+    water: "#B7B7B7",
+    sand: "#EBEBEB",
+    buildings: "#EDEDED",
+    highwayCasing: "#AEAEAE",
+    majorRoadCasing: "#AEAEAE",
+    mediumRoadCasing: "#AEAEAE",
+    minorRoadCasing: "#CECECE",
+    highway: "#CECECE",
+    majorRoad: "#CECECE",
+    mediumRoad: "#CECECE",
+    minorRoad: "#DEDEDE",
+    boundaries: "#9E9E9E",
+    mask: "#DDDDDD",
+    countryLabel: "#808080",
+    cityLabel: "#6C6C6C",
+    stateLabel: "#808080",
+    neighbourhoodLabel: "#808080",
+    landuseLabel: "#808080",
+    waterLabel: "#808080",
+    naturalLabel: "#6C6C6C",
+    roadsLabel: "#888888",
+    poisLabel: "#6C6C6C"
+  }
 
-  tiles = L.tileLayer(tiles_url, { attribution: attribution, maxZoom: 18 })
+  window.layer = layer = protomapsL.leafletLayer({
+    url: 'https://api.protomaps.com/tiles/v2/{z}/{x}/{y}.pbf?key=82e0381c8a4109c7',
+    paint_rules: protomapsL.paintRules(sqek_theme),
+    label_rules: protomapsL.labelRules(sqek_theme)
+  })
 
-  tiles.addTo map
+  # remove POIS and highway signs
+  layer.label_rules.pop()
+  layer.label_rules.pop()
+  layer.addTo(map)
 
   map.setView(map_data.latlng || [0,0], map_data.zoom)
 

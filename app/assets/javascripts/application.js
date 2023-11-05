@@ -20,6 +20,7 @@
 //
 //= require bootstrap
 //= require leaflet
+//= require protomaps-leaflet
 //= require jquery_nested_form
 //= require select2
 //= require lightbox

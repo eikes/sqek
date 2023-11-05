@@ -17,6 +17,10 @@
 /tmp
 
 /public/uploads/*
+/public/assets/*
+
+passenger.3000.pid
+passenger.3000.pid.lock
 
 yarn-error.log
 /node_modules/*

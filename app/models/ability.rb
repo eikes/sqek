@@ -33,7 +33,7 @@ class Ability
 
     can :read, City
     can :read, Picture
-    can [:create, :read], Squat
+    can :read, Squat
     can :read, Comment
 
     if user.role == "admin"

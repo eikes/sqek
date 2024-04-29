@@ -17,6 +17,7 @@ jobs:
       mariadb:
         image: mariadb:10
         env:
+          MARIADB_RANDOM_ROOT_PASSWORD: true
           MARIADB_DATABASE: sqek_test
           MARIADB_USER: rails
           MARIADB_PASSWORD: password

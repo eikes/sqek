@@ -6,7 +6,6 @@ default: &default
   password: <%= ENV['MARIADB_PASSWORD'] %>
   pool: 10
   port: 3306
-  reconnect: true
 
 development:
   <<: *default

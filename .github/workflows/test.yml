@@ -32,13 +32,26 @@ jobs:
       RAILS_ENV: test
       DATABASE_URL: "mysql2://rails:password@127.0.0.1:3306/sqek_test"
     steps:
-      - name: Checkout code
+      - name: Pull repository
         uses: actions/checkout@v4
-      # Add or replace dependency steps here
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+
+      - name: Set up Node and yarn cache
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 16
+          cache: yarn
+
+      - name: yarn install
+        run: yarn install --frozen-lockfile
+
+      - name: Bundle install and cache result
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+
+      - name: assets precompile
+        run: bundle exec rake assets:precompile --trace
+
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load

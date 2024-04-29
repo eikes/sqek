@@ -22,18 +22,11 @@ jobs:
           MARIADB_PASSWORD: password
         ports:
           - 3306:3306
-        healthcheck:
-          interval: 30s
-          retries: 3
-          test:
-            [
-              "CMD",
-              "healthcheck.sh",
-              "--su-mysql",
-              "--connect",
-              "--innodb_initialized"
-            ]
-          timeout: 30s
+        options: >-
+          --health-cmd 'healthcheck.sh --su-mysql --connect --innodb_initialized'
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     env:
       RAILS_ENV: test
       DATABASE_URL: "mysql2://rails:password@127.0.0.1:3306/sqek_test"

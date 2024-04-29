@@ -24,7 +24,10 @@ jobs:
           - 3306:3306
     env:
       RAILS_ENV: test
-      DATABASE_URL: "mysql2://rails:password@127.0.0.1:3306/sqek_test"
+      MARIADB_DATABASE: sqek
+      MARIADB_USER: rails
+      MARIADB_PASSWORD: password
+      # DATABASE_URL: "mysql2://rails:password@127.0.0.1:3306/sqek_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

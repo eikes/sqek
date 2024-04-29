@@ -41,6 +41,7 @@ class Ability
       can :manage, :all
     elsif user.role == "user"
       # logged in regular user
+      can :create, Squat
       can :create, Comment
       can [:update, :destroy], Squat, city: { id: user.cities.pluck(:id) }
       can [:update, :destroy], Comment, city: { id: user.cities.pluck(:id) }

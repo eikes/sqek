@@ -83,8 +83,8 @@ class AbilityTest < ActiveSupport::TestCase
 
   # Visitor squat
 
-  test "visitor can create Squat" do
-    assert @visitor_ability.can?(:create, Squat)
+  test "visitor cannot create Squat" do
+    assert @visitor_ability.cannot?(:create, Squat)
   end
 
   test "visitor can read Squat" do

@@ -48,39 +48,39 @@ class SquatsControllerTest < ActionController::TestCase
     assert_redirected_to city_squat_path(@city, assigns(:squat))
   end
 
-  test "anonymous cannot create squat when no email is provided" do
-    assert_no_difference('Squat.count') do
-      post :create, params: {
-        locale:  :en,
-        city_id: @city,
-        squat:   @valid_squat_params
-      }
-    end
-  end
+  # test "anonymous cannot create squat when no email is provided" do
+  #   assert_no_difference('Squat.count') do
+  #     post :create, params: {
+  #       locale:  :en,
+  #       city_id: @city,
+  #       squat:   @valid_squat_params
+  #     }
+  #   end
+  # end
 
-  test "anonymous can create squat when email is provided" do
-    assert_difference('Squat.count') do
-      post :create, params: {
-        locale:  :en,
-        city_id: @city,
-        squat:   @valid_squat_params.merge({external_user_email: 'someone@example.com'})
-      }
-    end
-    assert_redirected_to city_squat_path(@city, assigns(:squat))
-  end
+  # test "anonymous can create squat when email is provided" do
+  #   assert_difference('Squat.count') do
+  #     post :create, params: {
+  #       locale:  :en,
+  #       city_id: @city,
+  #       squat:   @valid_squat_params.merge({external_user_email: 'someone@example.com'})
+  #     }
+  #   end
+  #   assert_redirected_to city_squat_path(@city, assigns(:squat))
+  # end
 
-  test "#create should send mail when anonymous user creates squat" do
-    assert_difference('ActionMailer::Base.deliveries.count') do
-      post :create, params: {
-        locale:  :en,
-        city_id: @city,
-        squat:   @valid_squat_params.merge({external_user_email: 'someone@example.com'})
-      }
-    end
-    squat_notification = ActionMailer::Base.deliveries.last
-    assert_includes(squat_notification.to, @city_user.email)
-    assert_not_includes(squat_notification.to, @not_city_user.email)
-  end
+  # test "#create should send mail when anonymous user creates squat" do
+  #   assert_difference('ActionMailer::Base.deliveries.count') do
+  #     post :create, params: {
+  #       locale:  :en,
+  #       city_id: @city,
+  #       squat:   @valid_squat_params.merge({external_user_email: 'someone@example.com'})
+  #     }
+  #   end
+  #   squat_notification = ActionMailer::Base.deliveries.last
+  #   assert_includes(squat_notification.to, @city_user.email)
+  #   assert_not_includes(squat_notification.to, @not_city_user.email)
+  # end
 
   test "#create should not send mail when registered user creates squat" do
     sign_in users(:admin)

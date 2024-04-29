@@ -278,8 +278,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.6-arm64-darwin)
-    sqlite3 (1.6.6-x86_64-linux)
     ssrf_filter (1.1.2)
     stringio (3.0.8)
     temple (0.10.2)
@@ -343,7 +341,6 @@ DEPENDENCIES
   sass-rails
   select2-rails
   simple_form
-  sqlite3
   terser
   tinymce-rails
   web-console
